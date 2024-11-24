@@ -47,6 +47,9 @@
 
 
 
+<script src="https://s4.zstatic.net/ajax/libs/gitalk/1.8.0/gitalk.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/gitalk/1.8.0/gitalk.min.css" />
+
 
 
 <script src="https://s4.zstatic.net/ajax/libs/twikoo/1.6.31/twikoo.all.min.js"></script>
@@ -182,6 +185,10 @@
     
     
     
+    <div id="comment">
+        <div id="gitalk-container"></div>
+    </div>
+    
     
     
     
@@ -222,6 +229,20 @@
     <script src="/js/main.js"></script>
     
     
+
+<script>
+    const gitalk = new Gitalk({
+        clientID: "Ov23li9IkAiSNmsm6Xru",
+        clientSecret: "You need a client secret to authenticate as the application to the API.",
+        repo: "youzi-ch.github.io",
+        owner: "youzi-ch",
+        admin: "youzi-ch".split(","),
+        language: "zh-CN",
+        id: location.pathname,
+        
+    })
+    gitalk.render("gitalk-container");
+</script>
 
 
 
