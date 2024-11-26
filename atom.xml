@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-11-21T08:07:58.820Z</updated>
+  <updated>2024-11-26T08:24:53.695Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,35 +17,29 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>柚子奈奈的第一篇hexo博客</title>
-    <link href="http://example.com/2024/11/21/%E6%9F%9A%E5%AD%90%E5%A5%88%E5%A5%88%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87hexo%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://example.com/2024/11/21/%E6%9F%9A%E5%AD%90%E5%A5%88%E5%A5%88%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87hexo%E5%8D%9A%E5%AE%A2/</id>
-    <published>2024-11-21T08:07:58.000Z</published>
-    <updated>2024-11-21T08:07:58.820Z</updated>
+    <title>第一个Java程序</title>
+    <link href="http://example.com/2024/11/26/%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F/"/>
+    <id>http://example.com/2024/11/26/%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F/</id>
+    <published>2024-11-26T07:42:52.000Z</published>
+    <updated>2024-11-26T08:24:53.695Z</updated>
     
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://example.com/2024/11/21/hello-world/"/>
-    <id>http://example.com/2024/11/21/hello-world/</id>
-    <published>2024-11-21T07:56:52.932Z</published>
-    <updated>2024-11-21T07:56:52.932Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="quick-start"><a class="markdownIt-Anchor" href="#quick-start"></a> Quick Start</h2><h3 id="create-a-new-post"><a class="markdownIt-Anchor" href="#create-a-new-post"></a> Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="run-server"><a class="markdownIt-Anchor" href="#run-server"></a> Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="generate-static-files"><a class="markdownIt-Anchor" href="#generate-static-files"></a> Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="deploy-to-remote-sites"><a class="markdownIt-Anchor" href="#deploy-to-remote-sites"></a> Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="java简介"><a class="markdownIt-Anchor" href="#java简介"></a> Java简介</h1><h2 id="描述"><a class="markdownIt-Anchor" href="#描述"></a> 描述</h2><p><code>Java</code>是一门<code>面向对象</code>的编程语言，不仅吸收了<code>C++</code>语言的各种优点，还摒弃了C++里难以理解的<code>多继承</code>、<code>指针</code>等概念。</p><p>因此Java语言具有功能强大和简单易用两个特征。Java语言作为静态面向对象编程语言的代表，极好地实现了面向对象理论，允许程序员以优雅的思维方式进行复杂的编程。</p><h2 id="特性"><a class="markdownIt-Anchor" href="#特性"></a> 特性</h2><ul><li>简单性、分布式、健壮性、安全性、平台独立</li><li>可移植性、多线程、动态性</li></ul><h2 id="java的用途"><a class="markdownIt-Anchor" href="#java的用途"></a> Java的用途</h2><ul><li>桌面应用程序</li><li>Web应用程序</li><li>分布式系统</li><li>嵌入式系统应用程序</li></ul><h2 id="java的发展历程"><a class="markdownIt-Anchor" href="#java的发展历程"></a> Java的发展历程</h2><blockquote><p>Java最初由<code>Sum</code>公司于1991年开发，最初命名为<code>Oak</code><br />后由于名字已被他人使用，将其改为<code>Java</code>并于1995年正式发布<br />后Sum公司于2010年被Oracle公司收购，之后Java便由<code>Oracle</code>公司负责维护和版本升级</p></blockquote><hr /><h1 id="正题步入-第一个java程序"><a class="markdownIt-Anchor" href="#正题步入-第一个java程序"></a> 正题步入-第一个Java程序</h1><ul><li>代码展示:</li></ul><figure class="highlight java"><figcaption><span>main方法</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Hello</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello world!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+    <summary type="html">&lt;h1 id=&quot;java简介&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#java简介&quot;&gt;&lt;/a&gt; Java简介&lt;/h1&gt;
+&lt;h2 id=&quot;描述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#描述&quot;&gt;&lt;/a&gt; 描述&lt;/h2</summary>
       
     
     
     
+    <category term="Java" scheme="http://example.com/categories/Java/"/>
+    
+    
+    <category term="Java" scheme="http://example.com/tags/Java/"/>
+    
+    <category term="新手教程" scheme="http://example.com/tags/%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B/"/>
     
   </entry>
   
