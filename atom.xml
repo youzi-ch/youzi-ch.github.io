@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-11-26T08:24:53.695Z</updated>
+  <updated>2024-11-26T08:52:39.300Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://example.com/2024/11/26/%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F/"/>
     <id>http://example.com/2024/11/26/%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F/</id>
     <published>2024-11-26T07:42:52.000Z</published>
-    <updated>2024-11-26T08:24:53.695Z</updated>
+    <updated>2024-11-26T08:52:39.300Z</updated>
     
     <content type="html"><![CDATA[<h1 id="java简介"><a class="markdownIt-Anchor" href="#java简介"></a> Java简介</h1><h2 id="描述"><a class="markdownIt-Anchor" href="#描述"></a> 描述</h2><p><code>Java</code>是一门<code>面向对象</code>的编程语言，不仅吸收了<code>C++</code>语言的各种优点，还摒弃了C++里难以理解的<code>多继承</code>、<code>指针</code>等概念。</p><p>因此Java语言具有功能强大和简单易用两个特征。Java语言作为静态面向对象编程语言的代表，极好地实现了面向对象理论，允许程序员以优雅的思维方式进行复杂的编程。</p><h2 id="特性"><a class="markdownIt-Anchor" href="#特性"></a> 特性</h2><ul><li>简单性、分布式、健壮性、安全性、平台独立</li><li>可移植性、多线程、动态性</li></ul><h2 id="java的用途"><a class="markdownIt-Anchor" href="#java的用途"></a> Java的用途</h2><ul><li>桌面应用程序</li><li>Web应用程序</li><li>分布式系统</li><li>嵌入式系统应用程序</li></ul><h2 id="java的发展历程"><a class="markdownIt-Anchor" href="#java的发展历程"></a> Java的发展历程</h2><blockquote><p>Java最初由<code>Sum</code>公司于1991年开发，最初命名为<code>Oak</code><br />后由于名字已被他人使用，将其改为<code>Java</code>并于1995年正式发布<br />后Sum公司于2010年被Oracle公司收购，之后Java便由<code>Oracle</code>公司负责维护和版本升级</p></blockquote><hr /><h1 id="正题步入-第一个java程序"><a class="markdownIt-Anchor" href="#正题步入-第一个java程序"></a> 正题步入-第一个Java程序</h1><ul><li>代码展示:</li></ul><figure class="highlight java"><figcaption><span>main方法</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Hello</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello world!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
