@@ -10,7 +10,7 @@
   
 
   
-  <script>window.icon_font = '4552607_tq6stt6tcg';window.clipboard_tips = {"success":"复制成功(*^▽^*)","fail":"复制失败 (ﾟ⊿ﾟ)ﾂ","copyright":{"enable":false,"count":50,"content":"本文版权：本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！"}};</script>
+  <script>window.icon_font = '4552607_tq6stt6tcg';window.clipboard_tips = {"success":"复制成功(*^▽^*)","fail":"复制失败 (ﾟ⊿ﾟ)ﾂ","copyright":{"enable":false,"count":50,"content":"本文版权：本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！"}};window.outdate = {"enable":true,"daysAgo":180,"message":"本文最后更新于 {time}，请注意文中内容可能已经发生变化。"};</script>
   
   
   <title>
@@ -185,49 +185,34 @@
     <div class="post-wrapper">
   <div class="post-wrap-left" data-aos="fade-up">
     
-      <a class="post-link" href="/2024/11/29/%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C/" aria-label="最大子序和"></a>
+      <a class="post-link" href="/2024/11/29/%E4%B8%80%E7%BB%B4%E4%B8%8E%E4%BA%8C%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/" aria-label="一维与二维前缀和与差分"></a>
     
     
     <div class="post-cover-left">
       
-        <img data-src="/img/fengmian/a8.jpg" data-sizes="auto" alt="最大子序和" class="lazyload">
+        <img data-src="/img/fengmian/b2.png" data-sizes="auto" alt="一维与二维前缀和与差分" class="lazyload">
       
     </div>
     <div class="post-info">
       <div class="post-meta">
         <span><span class="icon-calendar"></span>2024-11-29</span>
-        <span><span class="icon-pencil"></span>642 字</span>
-        <span><span class="icon-clock"></span>2 分钟</span>
+        <span><span class="icon-pencil"></span>1k 字</span>
+        <span><span class="icon-clock"></span>4 分钟</span>
       </div>
-      <h2 class="post-title">最大子序和</h2>
+      <h2 class="post-title">一维与二维前缀和与差分</h2>
       <article class="post-article">
         
-           题目
-给定一个整数数组nums，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
-示例1
+           什么是前缀和？
+ 一维数组前缀和
+例如数组nums = [1,2,3,4,5]
+则其前缀和数组为qian = [1,3,6,10,15]，即qian数组的i索引位置处的值为nums数组索引0-i值的和
+则有如下关系：nums[i] = qian[i] - qian[i-1]
 
-输入：nums = [-2,1,-3,4,-1,2,1,-5,4]
-输出：6
-解释：连续子数组 [4,-1,2,1] 的和最大，为 6 。
+注：使用该方法有一最大优势便是可以以(O1)的时间复杂度得到某块区间的总和，是典型的牺牲空间换取时间
 
-示例2
-
-输入：nums = [1]
-输出：1
-
-示例3
-输入：nums = [5,4,-1,7,8]
-输出：23
-
-《代码随想录》算法公开课
-力扣题目链接
-
- 思路
- 暴力解法
-
-暴力解法的思路，第一层for就是设置起始位置，第二层 for循环遍历数组寻找最大值
-
-1234567891011121314151617181920class
+ 二维数组前缀和
+ 二维数组的应用和计算
+二维数组前缀和是一种在二维矩阵上进行快速区域求和的技术，它是一维前缀和概念的扩展。在二维数组中，前缀和可以帮助我们快速计算任意子矩阵的元素和，这在处理图像处理或者某些区域查询
         
       </article>
     </div>
@@ -237,30 +222,86 @@
     <div class="post-wrapper">
   <div class="post-wrap-right" data-aos="fade-up">
     
-      <a class="post-link" href="/2024/11/28/%E6%91%86%E5%8A%A8%E5%BA%8F%E5%88%97/" aria-label="摆动序列"></a>
+      <a class="post-link" href="/2024/11/29/%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F/" aria-label="跳跃游戏"></a>
     
     
     <div class="post-cover-right">
       
-        <img data-src="/img/fengmian/a7.jpg" data-sizes="auto" alt="摆动序列" class="lazyload">
+        <img data-src="/img/fengmian/b1.jpg" data-sizes="auto" alt="跳跃游戏" class="lazyload">
       
     </div>
     <div class="post-info">
       <div class="post-meta">
-        <span><span class="icon-calendar"></span>2024-11-28</span>
-        <span><span class="icon-pencil"></span>897 字</span>
-        <span><span class="icon-clock"></span>3 分钟</span>
+        <span><span class="icon-calendar"></span>2024-11-29</span>
+        <span><span class="icon-pencil"></span>438 字</span>
+        <span><span class="icon-clock"></span>1 分钟</span>
       </div>
-      <h2 class="post-title">摆动序列</h2>
+      <h2 class="post-title">跳跃游戏</h2>
       <article class="post-article">
         
            题目
-如果连续数字之间的差严格地在正数和负数之间交替，则数字序列称为摆动序列。第一个差（如果存在的话）可能是正数或负数。少于两个元素的序列也是摆动序列。
-给定一个整数序列，返回作为摆动序列的最长子序列的长度。 通过从原始序列中删除一些（也可以不删除）元素来获得子序列，剩下的元素保持其原始顺序。
-例如，[1,7,4,9,2,5]是一个摆动序列，因为差值 (6,-3,5,-7,3) 是正负交替出现的。相反, [1,4,7,2,5] 和[1,7,4,5,5]不是摆动序列，第一个序列是因为它的前两个差值都是正数，第二个序列是因为它的最后一个差值为零。
+给定一个非负整数数组，你最初位于数组的第一个位置。数组中的每个元素代表你在该位置可以跳跃的最大长度。判断你是否能够到达最后一个位置。
 示例1
 
-输入: [1,7,4,9,2,5]
+输入: [2,3,1,1,4]
+输出: true
+解释: 我们可以先跳 1 步，从位置 0 到达 位置 1, 然后再从位置 1 跳 3 步到达最后一个位置。
+
+示例2
+
+输入: [3,2,1,0,4]
+输出: false
+解释: 无论怎样，你总会到达索引为 3 的位置。但该位置的最大跳跃长度是 0 ， 所以你永远不可能到达最后一个位置。
+
+示例3
+
+输入: [0]
+输出: true
+解释: 跳入的第一步就到终点了
+
+
+《代码随想录》算法公开课
+
+        
+      </article>
+    </div>
+  </div>
+</div>
+  
+    <div class="post-wrapper">
+  <div class="post-wrap-left" data-aos="fade-up">
+    
+      <a class="post-link" href="/2024/11/29/%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BAII/" aria-label="买卖股票的最佳时机II"></a>
+    
+    
+    <div class="post-cover-left">
+      
+        <img data-src="/img/fengmian/a9.jpg" data-sizes="auto" alt="买卖股票的最佳时机II" class="lazyload">
+      
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2024-11-29</span>
+        <span><span class="icon-pencil"></span>577 字</span>
+        <span><span class="icon-clock"></span>2 分钟</span>
+      </div>
+      <h2 class="post-title">买卖股票的最佳时机II</h2>
+      <article class="post-article">
+        
+           题目
+给定一个数组，它的第i个元素是一支给定股票第i天的价格。设计一个算法来计算你所能获取的最大利润。你可以尽可能地完成更多的交易（多次买卖一支股票）。
+
+注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
+
+示例1
+
+输入: [7,1,5,3,6,4]
+输出: 7
+解释: 在第2天（股票价格 = 1）的时候买入，在第3天（股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5-1 = 4。随后，在第4天（股票价格 = 3）的时候买入，在第5天（股票价格 = 6）的时候卖出, 这笔交易所能获得利润 = 6-3 = 3 。
+
+示例2
+
+输入: [1,2,3,4,5]
 输
         
       </article>
@@ -268,237 +309,12 @@
   </div>
 </div>
   
-    <div class="post-wrapper">
-  <div class="post-wrap-left" data-aos="fade-up">
+
+
+  <nav id="page-nav" data-aos="fade-up">
     
-      <a class="post-link" href="/2024/11/28/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95-%E5%88%86%E5%8F%91%E9%A5%BC%E5%B9%B2/" aria-label="贪心算法-分发饼干"></a>
-    
-    
-    <div class="post-cover-left">
-      
-        <img data-src="/img/fengmian/qqq.jpg" data-sizes="auto" alt="贪心算法-分发饼干" class="lazyload">
-      
-    </div>
-    <div class="post-info">
-      <div class="post-meta">
-        <span><span class="icon-calendar"></span>2024-11-28</span>
-        <span><span class="icon-pencil"></span>967 字</span>
-        <span><span class="icon-clock"></span>3 分钟</span>
-      </div>
-      <h2 class="post-title">贪心算法-分发饼干</h2>
-      <article class="post-article">
-        
-           什么是贪心算法
-
-贪心的本质是选择每一阶段的局部最优，从而达到全局最优。
-例如有一堆不同数额的钞票，每次只能拿一张，怎么拿能取得最大数额的钞票。
-
-方法：将钞票从大到小进行排序，每次都拿走当前堆里最大面额的钞票，即可在指定拿取次数中获得最大数额的钞票。
-例如：[100, 100, 50, 20, 50, 1, 10]
-
-排序后为：[100, 100, 50, 50, 20, 10, 1]
-依次取数组中的最大值进行累加
-取完指定次数后，累加值即为最优解
-
-
-在这个过程中，每次取最大面额的钞票为局部最优，通过每次获得局部最优得到的结果即为全局最优。
-
-
-
-
-注意：贪心算法并没有固定套路，也没有固
-        
-      </article>
-    </div>
-  </div>
-</div>
-  
-    <div class="post-wrapper">
-  <div class="post-wrap-right" data-aos="fade-up">
-    
-      <a class="post-link" href="/2024/11/27/%E4%BF%AE%E5%89%AA%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/" aria-label="修剪二叉搜索树"></a>
-    
-    
-    <div class="post-cover-right">
-      
-        <img data-src="/img/fengmian/yuanqi.jpg" data-sizes="auto" alt="修剪二叉搜索树" class="lazyload">
-      
-    </div>
-    <div class="post-info">
-      <div class="post-meta">
-        <span><span class="icon-calendar"></span>2024-11-27</span>
-        <span><span class="icon-pencil"></span>483 字</span>
-        <span><span class="icon-clock"></span>2 分钟</span>
-      </div>
-      <h2 class="post-title">修剪二叉搜索树</h2>
-      <article class="post-article">
-        
-           题目
-给定一个二叉搜索树，同时给定最小边界low和最大边界 high。通过修剪二叉搜索树，使得所有节点的值在[low, high]中(high&amp;gt;=low) 。你可能需要改变树的根节点，所以结果应当返回修剪好的二叉搜索树的新的根节点。
-
-示例1
-
-输入：root = [1,0,2], low = 1, high = 2
-输出：[1,null,2]
-
-
-
-
-示例2
-
-输入：root = [3,0,4,null,2,null,null,1], low = 1, high = 3
-输出：[3,2,null,1]
-
-
-
-《代码随想录》算法视频公开课
-力扣题目链接
- 思路
-
-题目所给二叉树为搜索二
-        
-      </article>
-    </div>
-  </div>
-</div>
-  
-    <div class="post-wrapper">
-  <div class="post-wrap-left" data-aos="fade-up">
-    
-      <a class="post-link" href="/2024/11/27/%E5%88%A0%E9%99%A4%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/" aria-label="删除二叉搜索树中的节点"></a>
-    
-    
-    <div class="post-cover-left">
-      
-        <img data-src="/img/fengmian/chuyin.jpg" data-sizes="auto" alt="删除二叉搜索树中的节点" class="lazyload">
-      
-    </div>
-    <div class="post-info">
-      <div class="post-meta">
-        <span><span class="icon-calendar"></span>2024-11-27</span>
-        <span><span class="icon-pencil"></span>705 字</span>
-        <span><span class="icon-clock"></span>2 分钟</span>
-      </div>
-      <h2 class="post-title">删除二叉搜索树中的节点</h2>
-      <article class="post-article">
-        
-           题目
-给定一个二叉搜索树的根节点root和一个值key，删除二叉搜索树中的key对应的节点，并保证二叉搜索树的性质不变。返回二叉搜索树（有可能被更新）的根节点的引用。
-《代码随想录》算法视频公开课
-力扣题目链接
-
-示例1
-
-输入：root = [5,3,6,2,4,null,7], key = 3
-输出：[5,4,6,2,null,null,7]
-解释：给定需要删除的节点值是 3，所以我们首先找到 3 这个节点，然后删除它
-图示
-
-示例2
-输入: root = [5,3,6,2,4,null,7], key = 0
-输出: [5,3,6,2,4,null,7]
-解释: 二叉树不包含值为 0 
-        
-      </article>
-    </div>
-  </div>
-</div>
-  
-    <div class="post-wrapper">
-  <div class="post-wrap-right" data-aos="fade-up">
-    
-      <a class="post-link" href="/2024/11/26/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%AD%E7%9A%84%E6%8F%92%E5%85%A5%E6%93%8D%E4%BD%9C/" aria-label="二叉搜索树中的插入操作"></a>
-    
-    
-    <div class="post-cover-right">
-      
-        <img data-src="/img/fengmian/sabo.jpg" data-sizes="auto" alt="二叉搜索树中的插入操作" class="lazyload">
-      
-    </div>
-    <div class="post-info">
-      <div class="post-meta">
-        <span><span class="icon-calendar"></span>2024-11-26</span>
-        <span><span class="icon-pencil"></span>599 字</span>
-        <span><span class="icon-clock"></span>2 分钟</span>
-      </div>
-      <h2 class="post-title">二叉搜索树中的插入操作</h2>
-      <article class="post-article">
-        
-           题目
-给定二叉搜索树BST的根节点和要插入树中的值，将值插入二叉搜索树。 返回插入后二叉搜索树的根节点。
-输入数据保证，新值和原始二叉搜索树中的任意节点值都不同。
-示例1
-
-
-输入：root = [40,20,60,10,30,50,70], val = 25
-输出：[40,20,60,10,30,50,70,null,null,25]
-
-
-示例2
-
-
-输入：root = [4,2,7,1,3,null,null,null,null,null,null], val = 5
-输出：[4,2,7,1,3,5]
-
-
-
- 提示
-
-给定的树上的节点数介于 0 和 10^4 之间
-每个节点都有一个唯一整
-        
-      </article>
-    </div>
-  </div>
-</div>
-  
-    <div class="post-wrapper">
-  <div class="post-wrap-left" data-aos="fade-up">
-    
-      <a class="post-link" href="/2024/11/26/%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F/" aria-label="第一个Java程序"></a>
-    
-    
-    <div class="post-cover-left">
-      
-        <img data-src="/img/fengmian/shenzi.jpg" data-sizes="auto" alt="第一个Java程序" class="lazyload">
-      
-    </div>
-    <div class="post-info">
-      <div class="post-meta">
-        <span><span class="icon-calendar"></span>2024-11-26</span>
-        <span><span class="icon-pencil"></span>285 字</span>
-        <span><span class="icon-clock"></span>1 分钟</span>
-      </div>
-      <h2 class="post-title">第一个Java程序</h2>
-      <article class="post-article">
-        
-           Java简介
- 描述
-Java是一门面向对象的编程语言，不仅吸收了C++语言的各种优点，还摒弃了C++里难以理解的多继承、指针等概念。
-因此Java语言具有功能强大和简单易用两个特征。Java语言作为静态面向对象编程语言的代表，极好地实现了面向对象理论，允许程序员以优雅的思维方式进行复杂的编程。
- 特性
-
-简单性、分布式、健壮性、安全性、平台独立
-可移植性、多线程、动态性
-
- Java的用途
-
-桌面应用程序
-Web应用程序
-分布式系统
-嵌入式系统应用程序
-
- Java的发展历程
-
-Java最初由Sum公司于1991年开发，最初命名为Oak
-后由于名字已被他人使用，将其改为Java并于1995
-        
-      </article>
-    </div>
-  </div>
-</div>
-  
-
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
+  </nav>
 
 
 </section>
@@ -515,15 +331,15 @@ Java最初由Sum公司于1991年开发，最初命名为Oak
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>文章</div>
-    <div class="sidebar-state-number">7</div>
+    <div class="sidebar-state-number">10</div>
   </div>
   <div class="sidebar-state-category">
     <div>分类</div>
-    <div class="sidebar-state-number">3</div>
+    <div class="sidebar-state-number">4</div>
   </div>
   <div class="sidebar-state-tag">
     <div>标签</div>
-    <div class="sidebar-state-number">5</div>
+    <div class="sidebar-state-number">8</div>
   </div>
 </div>
 <div class="sidebar-social">
@@ -588,10 +404,10 @@ Java最初由Sum公司于1991年开发，最初命名为Oak
     
       <div>
         <span class="icon-brush"></span>
-        4.6k
+        6.6k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        00:15
+        00:22
       </div>
     
     
@@ -625,15 +441,15 @@ Java最初由Sum公司于1991年开发，最初命名为Oak
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>文章</div>
-    <div class="sidebar-state-number">7</div>
+    <div class="sidebar-state-number">10</div>
   </div>
   <div class="sidebar-state-category">
     <div>分类</div>
-    <div class="sidebar-state-number">3</div>
+    <div class="sidebar-state-number">4</div>
   </div>
   <div class="sidebar-state-tag">
     <div>标签</div>
-    <div class="sidebar-state-number">5</div>
+    <div class="sidebar-state-number">8</div>
   </div>
 </div>
 <div class="sidebar-social">
@@ -773,6 +589,25 @@ Java最初由Sum公司于1991年开发，最初命名为Oak
   </script>
   
 
+<script data-pjax>
+  var updateTime = _$('#post-update-time')?.innerHTML;
+
+  if (updateTime) {
+    const update = new Date(updateTime);
+    const now = new Date();
+    const diff = now - update;
+    const days = diff / 86400000;
+    const { daysAgo, message: template } = window.outdate;
+    if (days >= daysAgo) {
+      const message = template.replace(/{time}/, updateTime);
+      const blockquote = _$('#outdate-blockquote');
+      if (blockquote) {
+        blockquote.querySelector('p').innerText = message;
+        blockquote.style.display = 'block';
+      }
+    }
+  }
+</script>
 
 
   

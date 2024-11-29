@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-11-29T03:05:10.230Z</updated>
+  <updated>2024-11-29T12:12:58.428Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,92 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一维与二维前缀和与差分</title>
+    <link href="http://example.com/2024/11/29/%E4%B8%80%E7%BB%B4%E4%B8%8E%E4%BA%8C%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/"/>
+    <id>http://example.com/2024/11/29/%E4%B8%80%E7%BB%B4%E4%B8%8E%E4%BA%8C%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/</id>
+    <published>2024-11-29T08:00:12.000Z</published>
+    <updated>2024-11-29T12:12:58.428Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="什么是前缀和"><a class="markdownIt-Anchor" href="#什么是前缀和"></a> 什么是前缀和？</h1><h2 id="一维数组前缀和"><a class="markdownIt-Anchor" href="#一维数组前缀和"></a> 一维数组前缀和</h2><p>例如数组nums = [1,2,3,4,5]</p><p>则其前缀和数组为<code>qian = [1,3,6,10,15]</code>，即<code>qian</code>数组的<code>i</code>索引位置处的值为<code>nums</code>数组索引<code>0-i</code>值的和</p><p>则有如下关系：<code>nums[i] = qian[i] - qian[i-1]</code></p><blockquote><p>注：使用该方法有一最大优势便是可以以<code>(O1)</code>的时间复杂度得到某块区间的总和，是典型的牺牲空间换取时间</p></blockquote><h2 id="二维数组前缀和"><a class="markdownIt-Anchor" href="#二维数组前缀和"></a> 二维数组前缀和</h2><h3 id="二维数组的应用和计算"><a class="markdownIt-Anchor" href="#二维数组的应用和计算"></a> 二维数组的应用和计算</h3><p>二维数组前缀和是一种在二维矩阵上进行快速区域求和的技术，它是一维前缀和概念的扩展。在二维数组中，前缀和可以帮助我们快速计算任意子矩阵的元素和，这在处理图像处理或者某些区域查询问题时非常有用。</p><h3 id="二维前缀和的定义"><a class="markdownIt-Anchor" href="#二维前缀和的定义"></a> 二维前缀和的定义</h3><p>二维前缀和是指对于一个给定的二维数组<code>a</code>，我们构建一个新的二维数组<code>sum</code>，其中<code>sum[i][j]</code>表示从<code>a[0][0]</code>到<code>a[i][j]</code>所有元素的和。这样<code>sum</code>数组的每个元素都代表了一个矩形区域内元素的总和。</p><h3 id="计算二维前缀和"><a class="markdownIt-Anchor" href="#计算二维前缀和"></a> 计算二维前缀和</h3><p>计算二维前缀和的过程可以通过动态规划的方式来完成。对于数组<code>a</code>中的每个元素<code>a[i][j]</code>，我们可以根据以下公式来计算<code>sum[i][j]</code></p><blockquote><p>sum[i][j] = sum[i-1][j] + sum[i][j-1] - sum[i-1][j-1] + a[i][j]</p></blockquote><h3 id="使用二维前缀和求子矩阵和"><a class="markdownIt-Anchor" href="#使用二维前缀和求子矩阵和"></a> 使用二维前缀和求子矩阵和</h3><p>一旦我们计算出了二维前缀和数组<code>sum</code>，我们就可以快速求出任意子矩阵的和。假设我们要求从<code>(x1, y1)</code>到<code>(x2, y2)</code>形成的子矩阵的和，我们可以使用以下公式</p><blockquote><p>subSum = sum[x2][y2] - sum[x1-1][y2] - sum[x2][y1-1] + sum[x1-1][y1-1]</p></blockquote><h3 id="代码实现"><a class="markdownIt-Anchor" href="#代码实现"></a> 代码实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PrefixSum</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span>[][] getPrefixSum(<span class="type">int</span>[][] matrix) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">m</span> <span class="operator">=</span> matrix.length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> matrix[<span class="number">0</span>].length;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建一个新的二维数组用于存储前缀和</span></span><br><span class="line">        <span class="type">int</span>[][] prefixSum = <span class="keyword">new</span> <span class="title class_">int</span>[m][n];</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 计算第一行的前缀和</span></span><br><span class="line">        prefixSum[<span class="number">0</span>][<span class="number">0</span>] = matrix[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">1</span>; j &lt; n; j++) &#123;</span><br><span class="line">            prefixSum[<span class="number">0</span>][j] = prefixSum[<span class="number">0</span>][j - <span class="number">1</span>] + matrix[<span class="number">0</span>][j];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 计算第一列的前缀和</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; m; i++) &#123;</span><br><span class="line">            prefixSum[i][<span class="number">0</span>] = prefixSum[i - <span class="number">1</span>][<span class="number">0</span>] + matrix[i][<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 计算其余位置的前缀和</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; m; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">1</span>; j &lt; n; j++) &#123;</span><br><span class="line">                prefixSum[i][j] = prefixSum[i - <span class="number">1</span>][j] + prefixSum[i][j - <span class="number">1</span>] - prefixSum[i - <span class="number">1</span>][j - <span class="number">1</span>] + matrix[i][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> prefixSum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="差分法"><a class="markdownIt-Anchor" href="#差分法"></a> 差分法</h1><h2 id="定义"><a class="markdownIt-Anchor" href="#定义"></a> 定义</h2><p>对于已知有<code>n</code>个元素的一维数列<code>nums</code>，我们可以建立记录它与每项与前一项得差值得差分数组<code>f</code>；显然，<code>f[1] = nums[1] - 0 = nums[1]</code>; 对于整数 <code>i∈[2,n]</code>，我们让<code>f[i]=nums[i]-nums[i-1]</code>。将对<code>nums</code>的一些操作转移至<code>f</code>数列，最终合并<code>f</code>得到<code>nums</code>的一种操作，叫做差分法。</p><h2 id="举个栗子"><a class="markdownIt-Anchor" href="#举个栗子"></a> 举个栗子</h2><ul><li>例如 nums=[3,4,1,5,6,2,7,9]</li><li>即，f=[3,1,-3,4,1,-4,5,-2]<br />当我们需要对数组的<code>[1,6]</code>，这个区间的数<code>+1</code>，并求处区间<code>+1</code>后数组的值</li><li>此时，我们只需要对<code>f</code>数组的左边界第<code>1</code>项<code>+1</code>，对<code>f</code>数组的右边界第<code>7</code>项<code>-1</code>，此时<code>f=[4,1,-3,4,1,-4,4,2]</code>，因为第一项<code>+1</code>，导致<code>1-6</code>项的差值都<code>+1</code>了，即完成对给定区间进行<code>+1</code>操作</li></ul><h2 id="差分法的用途"><a class="markdownIt-Anchor" href="#差分法的用途"></a> 差分法的用途</h2><blockquote><ul><li>快速处理区间加减操作</li><li>优化时间复杂度，也是典型的牺牲空间换时间</li><li>对数组f求前缀和即可得到原数组nums</li></ul></blockquote><h2 id="代码实现-2"><a class="markdownIt-Anchor" href="#代码实现-2"></a> 代码实现</h2><h3 id="对给定数组求差分数组"><a class="markdownIt-Anchor" href="#对给定数组求差分数组"></a> 对给定数组求差分数组</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span>[] getDifferenceArray(<span class="type">int</span>[] arr) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> arr.length;</span><br><span class="line">        <span class="type">int</span>[] diffArray = <span class="keyword">new</span> <span class="title class_">int</span>[n];</span><br><span class="line"></span><br><span class="line">        diffArray[<span class="number">0</span>] = arr[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">            diffArray[i] = arr[i] - arr[i - <span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> diffArray;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="对给定数组求差分数组后通过前缀和得到原数组"><a class="markdownIt-Anchor" href="#对给定数组求差分数组后通过前缀和得到原数组"></a> 对给定数组求差分数组后通过前缀和得到原数组</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span>[] getArray(<span class="type">int</span>[] diffArray) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> diffArray.length;</span><br><span class="line">        <span class="type">int</span>[] originalArray = <span class="keyword">new</span> <span class="title class_">int</span>[n];</span><br><span class="line"></span><br><span class="line">        originalArray[<span class="number">0</span>] = diffArray[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">            originalArray[i] = originalArray[i - <span class="number">1</span>] + diffArray[i];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> originalArray;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;什么是前缀和&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#什么是前缀和&quot;&gt;&lt;/a&gt; 什么是前缀和？&lt;/h1&gt;
+&lt;h2 id=&quot;一维数组前缀和&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#一维数组前缀和&quot;&gt;</summary>
+      
+    
+    
+    
+    <category term="前缀和与差分" scheme="http://example.com/categories/%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/"/>
+    
+    
+    <category term="前缀和" scheme="http://example.com/tags/%E5%89%8D%E7%BC%80%E5%92%8C/"/>
+    
+    <category term="Java" scheme="http://example.com/tags/Java/"/>
+    
+    <category term="数组" scheme="http://example.com/tags/%E6%95%B0%E7%BB%84/"/>
+    
+    <category term="差分" scheme="http://example.com/tags/%E5%B7%AE%E5%88%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>跳跃游戏</title>
+    <link href="http://example.com/2024/11/29/%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F/"/>
+    <id>http://example.com/2024/11/29/%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F/</id>
+    <published>2024-11-29T06:04:37.000Z</published>
+    <updated>2024-11-29T15:25:19.374Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h1><p>给定一个非负整数数组，你最初位于数组的第一个位置。数组中的每个元素代表你在该位置可以跳跃的最大长度。判断你是否能够到达最后一个位置。</p><p>示例1</p><ul><li>输入: [2,3,1,1,4]</li><li>输出: true</li><li>解释: 我们可以先跳 1 步，从位置 0 到达 位置 1, 然后再从位置 1 跳 3 步到达最后一个位置。</li></ul><p>示例2</p><ul><li>输入: [3,2,1,0,4]</li><li>输出: false</li><li>解释: 无论怎样，你总会到达索引为 3 的位置。但该位置的最大跳跃长度是 0 ， 所以你永远不可能到达最后一个位置。</li></ul><p>示例3</p><ul><li>输入: [0]</li><li>输出: true</li><li>解释: 跳入的第一步就到终点了</li></ul><blockquote><p><a href="https://www.bilibili.com/video/BV1VG4y1X7kB/?vd_source=fd148478f48deef97bac8ef404e7216f">《代码随想录》算法公开课</a><br /><a href="https://leetcode.cn/problems/jump-game/description/">力扣题目链接</a></p></blockquote><h1 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h1><ul><li>每次跳跃都使其覆盖的范围为给定步数里覆盖的最大范围</li><li>直到其到达终点，或所覆盖范围超过终点</li><li>此时的局部最优便是：每次所跳步数可以使下一次跳覆盖最大范围</li><li>全局最优便是：每次跳最优达到步数最大</li><li>最后判断全局最优的结果能不能覆盖终点</li></ul><p><img src="/img/timu/55-1.png" alt="55-1跳跃游戏" title="跳跃游戏" /></p><h1 id="代码实现"><a class="markdownIt-Anchor" href="#代码实现"></a> 代码实现</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">canJump</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums.length == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//覆盖范围, 初始覆盖范围应该是0，因为下面的迭代是从下标0开始的</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">coverRange</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//在覆盖范围内更新最大的覆盖范围</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt;= coverRange; i++) &#123;</span><br><span class="line">            coverRange = Math.max(coverRange, i + nums[i]);</span><br><span class="line">            <span class="comment">//覆盖范围超过数组长度，即可达到终点，结束判断</span></span><br><span class="line">            <span class="keyword">if</span> (coverRange &gt;= nums.length - <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;题目&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#题目&quot;&gt;&lt;/a&gt; 题目&lt;/h1&gt;
+&lt;p&gt;给定一个非负整数数组，你最初位于数组的第一个位置。数组中的每个元素代表你在该位置可以跳跃的最大长度。判断你是否能够到达最后一个位置。&lt;/p&gt;
+&lt;</summary>
+      
+    
+    
+    
+    <category term="二叉树" scheme="http://example.com/categories/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    
+    
+    <category term="Java" scheme="http://example.com/tags/Java/"/>
+    
+    <category term="贪心算法" scheme="http://example.com/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>买卖股票的最佳时机II</title>
+    <link href="http://example.com/2024/11/29/%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BAII/"/>
+    <id>http://example.com/2024/11/29/%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BAII/</id>
+    <published>2024-11-29T05:08:35.000Z</published>
+    <updated>2024-11-29T05:29:50.383Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h1><p>给定一个数组，它的第<code>i</code>个元素是一支给定股票第<code>i</code>天的价格。设计一个算法来计算你所能获取的最大利润。你可以尽可能地完成更多的交易（多次买卖一支股票）。</p><blockquote><p>注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。</p></blockquote><p>示例1</p><ul><li>输入: [7,1,5,3,6,4]</li><li>输出: 7</li><li>解释: 在第2天（股票价格 = 1）的时候买入，在第3天（股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5-1 = 4。随后，在第4天（股票价格 = 3）的时候买入，在第5天（股票价格 = 6）的时候卖出, 这笔交易所能获得利润 = 6-3 = 3 。</li></ul><p>示例2</p><ul><li>输入: [1,2,3,4,5]</li><li>输出: 4</li><li>解释: 在第1天（股票价格 = 1）的时候买入，在第5天 （股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5-1 = 4 。注意你不能在第1天和第2天接连购买股票，之后再将它们卖出。因为这样属于同时参与了多笔交易，你必须在再次购买前出售掉之前的股票。</li></ul><p>示例3</p><ul><li>输入: [7,6,4,3,1]</li><li>输出: 0</li><li>解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。</li></ul><blockquote><p><a href="https://www.bilibili.com/video/BV1ev4y1C7na/">《代码随想录》算法公开课</a></p></blockquote><blockquote><p><a href="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/">力扣题目链接</a></p></blockquote><h1 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h1><ul><li>首先，我们手上只能有一支股票，根据题目可知，要想产生利润，必须得是前一天股票的价值小于第二天的，这样我们的差值才会大于<code>0</code>。</li><li>把数组分成一个个递增的小片段，当有值大于前一个值时便进行利润计算，再把一个个小片段进行累加，得到最终结果。- 只要有利润，我们就要，这便是<code>局部最优</code>，把每个小利润加起来得到的最大值，便是<code>全局最优</code>。</li></ul><h1 id="代码实现"><a class="markdownIt-Anchor" href="#代码实现"></a> 代码实现</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxProfit</span><span class="params">(<span class="type">int</span>[] prices)</span> &#123;</span><br><span class="line">        <span class="comment">//作为返回值，统计结果</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; prices.length; i++) &#123;</span><br><span class="line">            <span class="comment">//当前股票值高于前一天，即差值大于0，则加入利润中</span></span><br><span class="line">            result += Math.max(prices[i] - prices[i - <span class="number">1</span>], <span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;题目&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#题目&quot;&gt;&lt;/a&gt; 题目&lt;/h1&gt;
+&lt;p&gt;给定一个数组，它的第&lt;code&gt;i&lt;/code&gt;个元素是一支给定股票第&lt;code&gt;i&lt;/code&gt;天的价格。设计一个算法来计算你所能获取的最大利</summary>
+      
+    
+    
+    
+    <category term="贪心算法" scheme="http://example.com/categories/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="Java" scheme="http://example.com/tags/Java/"/>
+    
+    <category term="贪心算法" scheme="http://example.com/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>最大子序和</title>
@@ -121,9 +207,9 @@
     <category term="二叉树" scheme="http://example.com/categories/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     
     
-    <category term="二叉树" scheme="http://example.com/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
-    
     <category term="Java" scheme="http://example.com/tags/Java/"/>
+    
+    <category term="二叉树" scheme="http://example.com/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     
     <category term="搜索二叉树" scheme="http://example.com/tags/%E6%90%9C%E7%B4%A2%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     
@@ -150,9 +236,9 @@
     <category term="二叉树" scheme="http://example.com/categories/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     
     
-    <category term="二叉树" scheme="http://example.com/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
-    
     <category term="Java" scheme="http://example.com/tags/Java/"/>
+    
+    <category term="二叉树" scheme="http://example.com/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     
     <category term="搜索二叉树" scheme="http://example.com/tags/%E6%90%9C%E7%B4%A2%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     
@@ -179,9 +265,9 @@
     <category term="二叉树" scheme="http://example.com/categories/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     
     
-    <category term="二叉树" scheme="http://example.com/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
-    
     <category term="Java" scheme="http://example.com/tags/Java/"/>
+    
+    <category term="二叉树" scheme="http://example.com/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     
     <category term="搜索二叉树" scheme="http://example.com/tags/%E6%90%9C%E7%B4%A2%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     
