@@ -14,7 +14,7 @@
   
   
   <title>
-    第一个Java程序 |
+    最大子序和 |
     
     辞辞不吃糖
   </title>
@@ -29,18 +29,18 @@
 
   
   
-    <meta name="description" content="Java简介  描述 Java是一门面向对象的编程语言，不仅吸收了C++语言的各种优点，还摒弃了C++里难以理解的多继承、指针等概念。 因此Java语言具有功能强大和简单易用两个特征。Java语言作为静态面向对象编程语言的代表，极好地实现了面向对象理论，允许程序员以优雅的思维方式进行复杂的编程。  特性  简单性、分布式、健壮性、安全性、平台独立 可移植性、多线程、动态性   Java的用途">
+    <meta name="description" content="题目 给定一个整数数组nums，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。 示例1  输入：nums &#x3D; [-2,1,-3,4,-1,2,1,-5,4] 输出：6 解释：连续子数组 [4,-1,2,1] 的和最大，为 6 。  示例2  输入：nums &#x3D; [1] 输出：1  示例3 输入：nums &#x3D; [5,4,-1,7,8] 输出：23  《代码随想录》算法公开">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第一个Java程序">
-<meta property="og:url" content="http://example.com/2024/11/26/%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F/index.html">
+<meta property="og:title" content="最大子序和">
+<meta property="og:url" content="http://example.com/2024/11/29/%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C/index.html">
 <meta property="og:site_name" content="辞辞不吃糖">
-<meta property="og:description" content="Java简介  描述 Java是一门面向对象的编程语言，不仅吸收了C++语言的各种优点，还摒弃了C++里难以理解的多继承、指针等概念。 因此Java语言具有功能强大和简单易用两个特征。Java语言作为静态面向对象编程语言的代表，极好地实现了面向对象理论，允许程序员以优雅的思维方式进行复杂的编程。  特性  简单性、分布式、健壮性、安全性、平台独立 可移植性、多线程、动态性   Java的用途">
+<meta property="og:description" content="题目 给定一个整数数组nums，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。 示例1  输入：nums &#x3D; [-2,1,-3,4,-1,2,1,-5,4] 输出：6 解释：连续子数组 [4,-1,2,1] 的和最大，为 6 。  示例2  输入：nums &#x3D; [1] 输出：1  示例3 输入：nums &#x3D; [5,4,-1,7,8] 输出：23  《代码随想录》算法公开">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-11-26T07:42:52.000Z">
-<meta property="article:modified_time" content="2024-11-26T12:36:09.332Z">
+<meta property="article:published_time" content="2024-11-29T02:16:07.000Z">
+<meta property="article:modified_time" content="2024-11-29T03:05:10.230Z">
 <meta property="article:author" content="辞辞">
 <meta property="article:tag" content="Java">
-<meta property="article:tag" content="新手教程">
+<meta property="article:tag" content="贪心算法">
 <meta name="twitter:card" content="summary">
   
   
@@ -159,7 +159,7 @@
 </div>
 <header id="header">
   
-    <img fetchpriority="high" src="/img/fengmian/shenzi.jpg" alt="第一个Java程序">
+    <img fetchpriority="high" src="/img/fengmian/a8.jpg" alt="最大子序和">
   
   <div id="header-outer">
     <div id="header-title">
@@ -167,7 +167,7 @@
         
         
           <a href="/" id="logo">
-            <h1 data-aos="slide-up">第一个Java程序</h1>
+            <h1 data-aos="slide-up">最大子序和</h1>
           </a>
         
       
@@ -183,19 +183,19 @@
 
         <div id="content">
           
-          <section id="main"><article id="post-第一个Java程序" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main"><article id="post-最大子序和" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <div class="article-date">
-  <a href="/2024/11/26/%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F/" class="article-date-link" data-aos="zoom-in">
-    <time datetime="2024-11-26T07:42:52.000Z" itemprop="datePublished">2024-11-26</time>
-    <time style="display: none;" id="post-update-time">2024-11-26</time>
+  <a href="/2024/11/29/%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C/" class="article-date-link" data-aos="zoom-in">
+    <time datetime="2024-11-29T02:16:07.000Z" itemprop="datePublished">2024-11-29</time>
+    <time style="display: none;" id="post-update-time">2024-11-29</time>
   </a>
 </div>
 
       
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Java/" data-aos="zoom-in">Java</a>
+    <a class="article-category-link" href="/categories/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" data-aos="zoom-in">贪心算法</a>
   </div>
 
 
@@ -206,35 +206,43 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
       
-        <h1 id="java简介"><a class="markdownIt-Anchor" href="#java简介"></a> Java简介</h1>
-<h2 id="描述"><a class="markdownIt-Anchor" href="#描述"></a> 描述</h2>
-<p><code>Java</code>是一门<code>面向对象</code>的编程语言，不仅吸收了<code>C++</code>语言的各种优点，还摒弃了C++里难以理解的<code>多继承</code>、<code>指针</code>等概念。</p>
-<p>因此Java语言具有功能强大和简单易用两个特征。Java语言作为静态面向对象编程语言的代表，极好地实现了面向对象理论，允许程序员以优雅的思维方式进行复杂的编程。</p>
-<h2 id="特性"><a class="markdownIt-Anchor" href="#特性"></a> 特性</h2>
+        <h1 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h1>
+<p>给定一个整数数组<code>nums</code>，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。</p>
+<p>示例1</p>
 <ul>
-<li>简单性、分布式、健壮性、安全性、平台独立</li>
-<li>可移植性、多线程、动态性</li>
+<li>输入：nums = [-2,1,-3,4,-1,2,1,-5,4]</li>
+<li>输出：6</li>
+<li>解释：连续子数组 [4,-1,2,1] 的和最大，为 6 。</li>
 </ul>
-<h2 id="java的用途"><a class="markdownIt-Anchor" href="#java的用途"></a> Java的用途</h2>
+<p>示例2</p>
 <ul>
-<li>桌面应用程序</li>
-<li>Web应用程序</li>
-<li>分布式系统</li>
-<li>嵌入式系统应用程序</li>
+<li>输入：nums = [1]</li>
+<li>输出：1</li>
 </ul>
-<h2 id="java的发展历程"><a class="markdownIt-Anchor" href="#java的发展历程"></a> Java的发展历程</h2>
+<p>示例3<br />
+输入：nums = [5,4,-1,7,8]<br />
+输出：23</p>
 <blockquote>
-<p>Java最初由<code>Sum</code>公司于1991年开发，最初命名为<code>Oak</code><br />
-后由于名字已被他人使用，将其改为<code>Java</code>并于1995年正式发布<br />
-后Sum公司于2010年被Oracle公司收购，之后Java便由<code>Oracle</code>公司负责维护和版本升级</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1aY4y1Z7ya/">《代码随想录》算法公开课</a><br />
+<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximum-subarray/description/">力扣题目链接</a></p>
 </blockquote>
-<hr />
-<h1 id="正题步入-第一个java程序"><a class="markdownIt-Anchor" href="#正题步入-第一个java程序"></a> 正题步入-第一个Java程序</h1>
+<h1 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h1>
+<h2 id="暴力解法"><a class="markdownIt-Anchor" href="#暴力解法"></a> 暴力解法</h2>
 <ul>
-<li>代码展示:</li>
+<li>暴力解法的思路，第一层<code>for</code>就是设置起始位置，第二层 <code>for</code>循环遍历数组寻找最大值</li>
 </ul>
-<figure class="highlight java"><figcaption><span>main方法</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Hello</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello world!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxSubArray</span><span class="params">(<span class="type">int</span>[] nums)</span>&#123;</span><br><span class="line">        <span class="comment">//先将结果设为最小整数，以便于后续结果做对比不被影响</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">res</span> <span class="operator">=</span> Integer.MIN_VALUE;</span><br><span class="line">        <span class="comment">//单个子序列的总和</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; nums.length; i++)&#123;</span><br><span class="line">            <span class="comment">//每次进行新一轮遍历时，都重置子序列和</span></span><br><span class="line">            count = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> i; j &lt; nums,length; j++)&#123;</span><br><span class="line">                <span class="comment">//固定外层nums[i]移动j指针，寻找最大子序列和</span></span><br><span class="line">                count += nums[j];</span><br><span class="line">                <span class="comment">//当前子序列和大于res时，将其count值赋给res</span></span><br><span class="line">                res = count &gt; res ? count : res;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注：此方法的时间复杂度为<code>O(n^2)</code>，空间复杂度为<code>O(1)</code>，一般会超过题目给定的时间限制，提示超时错误</p>
+</blockquote>
+<h2 id="贪心算法"><a class="markdownIt-Anchor" href="#贪心算法"></a> 贪心算法</h2>
+<p>所谓贪心算法，就是在子序和为负数时，直接舍弃当前<code>count</code>，对其<code>count</code>进行重新赋值<code>0</code>的操作，因为负数只会拉低综合，这便是局部最优。</p>
+<p><strong>从代码角度上来讲：遍历<code>nums</code>，从头开始用<code>count</code>累积，如果<code>count</code>一旦加上<code>nums[i]</code>变为负数，那么就应该从<code>nums[i+1]</code>开始从<code>0</code>累积<code>count</code>了，因为已经变为负数的<code>count</code>，只会拖累总和。</strong></p>
+<ul>
+<li><strong>注：这相当于是暴力解法中的不断调整最大子序和区间的起始位置。</strong></li>
+</ul>
+<h3 id="代码实现"><a class="markdownIt-Anchor" href="#代码实现"></a> 代码实现</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxSubArray</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        <span class="comment">//当长度为1时直接返回其值便是最大子序和</span></span><br><span class="line">        <span class="keyword">if</span> (nums.length == <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> nums[<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//将返回值初始为整型最小值，以便后续赋值</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">max</span> <span class="operator">=</span> Integer.MIN_VALUE;</span><br><span class="line">        <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; nums.length; i++)&#123;</span><br><span class="line">            count += nums[i];</span><br><span class="line">            <span class="comment">//先对比取出最大值，再判断count是否&lt;0，这么做是为了防止最大值便是负数导致遗漏</span></span><br><span class="line">            max = Math.max(max, count); </span><br><span class="line">            <span class="comment">// 相当于重置最大子序起始位置，因为遇到负数一定是拉低总和</span></span><br><span class="line">            <span class="keyword">if</span> (count &lt;= <span class="number">0</span>)&#123;</span><br><span class="line">                count = <span class="number">0</span>; </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">       <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
@@ -265,8 +273,8 @@
 </div>
       
       
-        <a data-aos="zoom-in" href="/2024/11/26/%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F/#comments" class="article-comment-link">
-          <span class="post-comments-count valine-comment-count" data-xid="/2024/11/26/%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F/" itemprop="commentCount"></span>
+        <a data-aos="zoom-in" href="/2024/11/29/%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C/#comments" class="article-comment-link">
+          <span class="post-comments-count valine-comment-count" data-xid="/2024/11/29/%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C/" itemprop="commentCount"></span>
           留言
         </a>
       
@@ -275,7 +283,7 @@
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B/" rel="tag">新手教程</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" rel="tag">贪心算法</a></li></ul>
 
 
     </footer>
@@ -283,19 +291,19 @@
   
   <nav id="article-nav" data-aos="fade-up">
     
-      <div class="article-nav-link-wrap article-nav-link-left">
-        
-          <img data-src="/img/fengmian/sabo.jpg" data-sizes="auto" alt="二叉搜索树中的插入操作" class="lazyload">
-        
-        <a href="/2024/11/26/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%AD%E7%9A%84%E6%8F%92%E5%85%A5%E6%93%8D%E4%BD%9C/"></a>
-        <div class="article-nav-caption">前一篇</div>
-        <h3 class="article-nav-title">
-          
-            二叉搜索树中的插入操作
-          
-        </h3>
-      </div>
     
+    <div class="article-nav-link-wrap article-nav-link-right">
+      
+        <img data-src="/img/fengmian/a7.jpg" data-sizes="auto" alt="摆动序列" class="lazyload">
+      
+      <a href="/2024/11/28/%E6%91%86%E5%8A%A8%E5%BA%8F%E5%88%97/"></a>
+      <div class="article-nav-caption">后一篇</div>
+      <h3 class="article-nav-title">
+        
+          摆动序列
+        
+      </h3>
+    </div>
     
   </nav>
 
@@ -319,7 +327,7 @@
   <h3 class="toc-title">文章目录</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text"> Java简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%8F%E8%BF%B0"><span class="toc-number">1.1.</span> <span class="toc-text"> 描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E6%80%A7"><span class="toc-number">1.2.</span> <span class="toc-text"> 特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java%E7%9A%84%E7%94%A8%E9%80%94"><span class="toc-number">1.3.</span> <span class="toc-text"> Java的用途</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java%E7%9A%84%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B"><span class="toc-number">1.4.</span> <span class="toc-text"> Java的发展历程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E9%A2%98%E6%AD%A5%E5%85%A5-%E7%AC%AC%E4%B8%80%E4%B8%AAjava%E7%A8%8B%E5%BA%8F"><span class="toc-number">2.</span> <span class="toc-text"> 正题步入-第一个Java程序</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text"> 题目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-number">2.</span> <span class="toc-text"> 思路</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9A%B4%E5%8A%9B%E8%A7%A3%E6%B3%95"><span class="toc-number">2.1.</span> <span class="toc-text"> 暴力解法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95"><span class="toc-number">2.2.</span> <span class="toc-text"> 贪心算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.2.1.</span> <span class="toc-text"> 代码实现</span></a></li></ol></li></ol></li></ol>
       
   </div>
 </div>
@@ -443,7 +451,7 @@
   <h3 class="toc-title">文章目录</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text"> Java简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%8F%E8%BF%B0"><span class="toc-number">1.1.</span> <span class="toc-text"> 描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E6%80%A7"><span class="toc-number">1.2.</span> <span class="toc-text"> 特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java%E7%9A%84%E7%94%A8%E9%80%94"><span class="toc-number">1.3.</span> <span class="toc-text"> Java的用途</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java%E7%9A%84%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B"><span class="toc-number">1.4.</span> <span class="toc-text"> Java的发展历程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E9%A2%98%E6%AD%A5%E5%85%A5-%E7%AC%AC%E4%B8%80%E4%B8%AAjava%E7%A8%8B%E5%BA%8F"><span class="toc-number">2.</span> <span class="toc-text"> 正题步入-第一个Java程序</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text"> 题目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-number">2.</span> <span class="toc-text"> 思路</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9A%B4%E5%8A%9B%E8%A7%A3%E6%B3%95"><span class="toc-number">2.1.</span> <span class="toc-text"> 暴力解法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95"><span class="toc-number">2.2.</span> <span class="toc-text"> 贪心算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.2.1.</span> <span class="toc-text"> 代码实现</span></a></li></ol></li></ol></li></ol>
       
   </div>
 </div>

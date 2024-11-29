@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-11-28T15:32:13.710Z</updated>
+  <updated>2024-11-29T03:05:10.230Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>最大子序和</title>
+    <link href="http://example.com/2024/11/29/%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C/"/>
+    <id>http://example.com/2024/11/29/%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C/</id>
+    <published>2024-11-29T02:16:07.000Z</published>
+    <updated>2024-11-29T03:05:10.230Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h1><p>给定一个整数数组<code>nums</code>，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。</p><p>示例1</p><ul><li>输入：nums = [-2,1,-3,4,-1,2,1,-5,4]</li><li>输出：6</li><li>解释：连续子数组 [4,-1,2,1] 的和最大，为 6 。</li></ul><p>示例2</p><ul><li>输入：nums = [1]</li><li>输出：1</li></ul><p>示例3<br />输入：nums = [5,4,-1,7,8]<br />输出：23</p><blockquote><p><a href="https://www.bilibili.com/video/BV1aY4y1Z7ya/">《代码随想录》算法公开课</a><br /><a href="https://leetcode.cn/problems/maximum-subarray/description/">力扣题目链接</a></p></blockquote><h1 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h1><h2 id="暴力解法"><a class="markdownIt-Anchor" href="#暴力解法"></a> 暴力解法</h2><ul><li>暴力解法的思路，第一层<code>for</code>就是设置起始位置，第二层 <code>for</code>循环遍历数组寻找最大值</li></ul><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxSubArray</span><span class="params">(<span class="type">int</span>[] nums)</span>&#123;</span><br><span class="line">        <span class="comment">//先将结果设为最小整数，以便于后续结果做对比不被影响</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">res</span> <span class="operator">=</span> Integer.MIN_VALUE;</span><br><span class="line">        <span class="comment">//单个子序列的总和</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; nums.length; i++)&#123;</span><br><span class="line">            <span class="comment">//每次进行新一轮遍历时，都重置子序列和</span></span><br><span class="line">            count = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> i; j &lt; nums,length; j++)&#123;</span><br><span class="line">                <span class="comment">//固定外层nums[i]移动j指针，寻找最大子序列和</span></span><br><span class="line">                count += nums[j];</span><br><span class="line">                <span class="comment">//当前子序列和大于res时，将其count值赋给res</span></span><br><span class="line">                res = count &gt; res ? count : res;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><blockquote><p>注：此方法的时间复杂度为<code>O(n^2)</code>，空间复杂度为<code>O(1)</code>，一般会超过题目给定的时间限制，提示超时错误</p></blockquote><h2 id="贪心算法"><a class="markdownIt-Anchor" href="#贪心算法"></a> 贪心算法</h2><p>所谓贪心算法，就是在子序和为负数时，直接舍弃当前<code>count</code>，对其<code>count</code>进行重新赋值<code>0</code>的操作，因为负数只会拉低综合，这便是局部最优。</p><p><strong>从代码角度上来讲：遍历<code>nums</code>，从头开始用<code>count</code>累积，如果<code>count</code>一旦加上<code>nums[i]</code>变为负数，那么就应该从<code>nums[i+1]</code>开始从<code>0</code>累积<code>count</code>了，因为已经变为负数的<code>count</code>，只会拖累总和。</strong></p><ul><li><strong>注：这相当于是暴力解法中的不断调整最大子序和区间的起始位置。</strong></li></ul><h3 id="代码实现"><a class="markdownIt-Anchor" href="#代码实现"></a> 代码实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxSubArray</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        <span class="comment">//当长度为1时直接返回其值便是最大子序和</span></span><br><span class="line">        <span class="keyword">if</span> (nums.length == <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> nums[<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//将返回值初始为整型最小值，以便后续赋值</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">max</span> <span class="operator">=</span> Integer.MIN_VALUE;</span><br><span class="line">        <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; nums.length; i++)&#123;</span><br><span class="line">            count += nums[i];</span><br><span class="line">            <span class="comment">//先对比取出最大值，再判断count是否&lt;0，这么做是为了防止最大值便是负数导致遗漏</span></span><br><span class="line">            max = Math.max(max, count); </span><br><span class="line">            <span class="comment">// 相当于重置最大子序起始位置，因为遇到负数一定是拉低总和</span></span><br><span class="line">            <span class="keyword">if</span> (count &lt;= <span class="number">0</span>)&#123;</span><br><span class="line">                count = <span class="number">0</span>; </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">       <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;题目&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#题目&quot;&gt;&lt;/a&gt; 题目&lt;/h1&gt;
+&lt;p&gt;给定一个整数数组&lt;code&gt;nums&lt;/code&gt;，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。&lt;/p&gt;
+&lt;p&gt;示例</summary>
+      
+    
+    
+    
+    <category term="贪心算法" scheme="http://example.com/categories/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="Java" scheme="http://example.com/tags/Java/"/>
+    
+    <category term="贪心算法" scheme="http://example.com/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>摆动序列</title>
