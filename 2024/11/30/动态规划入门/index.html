@@ -14,7 +14,7 @@
   
   
   <title>
-    第一个Java程序 |
+    动态规划入门 |
     
     辞辞不吃糖
   </title>
@@ -29,17 +29,18 @@
 
   
   
-    <meta name="description" content="Java简介  描述 Java是一门面向对象的编程语言，不仅吸收了C++语言的各种优点，还摒弃了C++里难以理解的多继承、指针等概念。 因此Java语言具有功能强大和简单易用两个特征。Java语言作为静态面向对象编程语言的代表，极好地实现了面向对象理论，允许程序员以优雅的思维方式进行复杂的编程。  特性  简单性、分布式、健壮性、安全性、平台独立 可移植性、多线程、动态性   Java的用途">
+    <meta name="description" content="动态规划简介 动态规划，英文：Dynamic Programming，简称DP，如果某一问题有很多重叠子问题，使用动态规划是最有效的。 所以动态规划中每一个状态一定是由上一个状态推导出来的，这一点就区分于贪心，贪心没有状态推导，而是从局部直接选最优的。  动态规划五部曲   确定dp数组（dp table）以及下标的含义 确定递推公式 dp数组如何初始化 确定遍历顺序 举例推导dp数组   注：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第一个Java程序">
-<meta property="og:url" content="http://example.com/2024/11/26/%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F/index.html">
+<meta property="og:title" content="动态规划入门">
+<meta property="og:url" content="http://example.com/2024/11/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%85%A5%E9%97%A8/index.html">
 <meta property="og:site_name" content="辞辞不吃糖">
-<meta property="og:description" content="Java简介  描述 Java是一门面向对象的编程语言，不仅吸收了C++语言的各种优点，还摒弃了C++里难以理解的多继承、指针等概念。 因此Java语言具有功能强大和简单易用两个特征。Java语言作为静态面向对象编程语言的代表，极好地实现了面向对象理论，允许程序员以优雅的思维方式进行复杂的编程。  特性  简单性、分布式、健壮性、安全性、平台独立 可移植性、多线程、动态性   Java的用途">
+<meta property="og:description" content="动态规划简介 动态规划，英文：Dynamic Programming，简称DP，如果某一问题有很多重叠子问题，使用动态规划是最有效的。 所以动态规划中每一个状态一定是由上一个状态推导出来的，这一点就区分于贪心，贪心没有状态推导，而是从局部直接选最优的。  动态规划五部曲   确定dp数组（dp table）以及下标的含义 确定递推公式 dp数组如何初始化 确定遍历顺序 举例推导dp数组   注：">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-11-26T07:42:52.000Z">
-<meta property="article:modified_time" content="2024-11-26T12:36:09.332Z">
+<meta property="article:published_time" content="2024-11-30T03:08:07.000Z">
+<meta property="article:modified_time" content="2024-11-30T04:58:58.152Z">
 <meta property="article:author" content="辞辞">
 <meta property="article:tag" content="Java">
+<meta property="article:tag" content="斐波那契数">
 <meta property="article:tag" content="新手教程">
 <meta name="twitter:card" content="summary">
   
@@ -159,7 +160,7 @@
 </div>
 <header id="header">
   
-    <img fetchpriority="high" src="/img/fengmian/shenzi.jpg" alt="第一个Java程序">
+    <img fetchpriority="high" src="/img/fengmian/b3.webp" alt="动态规划入门">
   
   <div id="header-outer">
     <div id="header-title">
@@ -167,7 +168,7 @@
         
         
           <a href="/" id="logo">
-            <h1 data-aos="slide-up">第一个Java程序</h1>
+            <h1 data-aos="slide-up">动态规划入门</h1>
           </a>
         
       
@@ -183,19 +184,19 @@
 
         <div id="content">
           
-          <section id="main"><article id="post-第一个Java程序" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main"><article id="post-动态规划入门" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <div class="article-date">
-  <a href="/2024/11/26/%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F/" class="article-date-link" data-aos="zoom-in">
-    <time datetime="2024-11-26T07:42:52.000Z" itemprop="datePublished">2024-11-26</time>
-    <time style="display: none;" id="post-update-time">2024-11-26</time>
+  <a href="/2024/11/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%85%A5%E9%97%A8/" class="article-date-link" data-aos="zoom-in">
+    <time datetime="2024-11-30T03:08:07.000Z" itemprop="datePublished">2024-11-30</time>
+    <time style="display: none;" id="post-update-time">2024-11-30</time>
   </a>
 </div>
 
       
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Java/" data-aos="zoom-in">Java</a>
+    <a class="article-category-link" href="/categories/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" data-aos="zoom-in">动态规划</a>
   </div>
 
 
@@ -208,34 +209,83 @@
         <blockquote id="outdate-blockquote" style="display: none;"><p></p></blockquote>
       
       
-        <h1 id="java简介"><a class="markdownIt-Anchor" href="#java简介"></a> Java简介</h1>
-<h2 id="描述"><a class="markdownIt-Anchor" href="#描述"></a> 描述</h2>
-<p><code>Java</code>是一门<code>面向对象</code>的编程语言，不仅吸收了<code>C++</code>语言的各种优点，还摒弃了C++里难以理解的<code>多继承</code>、<code>指针</code>等概念。</p>
-<p>因此Java语言具有功能强大和简单易用两个特征。Java语言作为静态面向对象编程语言的代表，极好地实现了面向对象理论，允许程序员以优雅的思维方式进行复杂的编程。</p>
-<h2 id="特性"><a class="markdownIt-Anchor" href="#特性"></a> 特性</h2>
-<ul>
-<li>简单性、分布式、健壮性、安全性、平台独立</li>
-<li>可移植性、多线程、动态性</li>
-</ul>
-<h2 id="java的用途"><a class="markdownIt-Anchor" href="#java的用途"></a> Java的用途</h2>
-<ul>
-<li>桌面应用程序</li>
-<li>Web应用程序</li>
-<li>分布式系统</li>
-<li>嵌入式系统应用程序</li>
-</ul>
-<h2 id="java的发展历程"><a class="markdownIt-Anchor" href="#java的发展历程"></a> Java的发展历程</h2>
+        <h1 id="动态规划简介"><a class="markdownIt-Anchor" href="#动态规划简介"></a> 动态规划简介</h1>
+<p>动态规划，英文：Dynamic Programming，简称DP，如果某一问题有很多重叠子问题，使用动态规划是最有效的。</p>
+<p>所以动态规划中每一个状态一定是由上一个状态推导出来的，这一点就区分于贪心，贪心没有状态推导，而是从局部直接选最优的。</p>
+<h2 id="动态规划五部曲"><a class="markdownIt-Anchor" href="#动态规划五部曲"></a> 动态规划五部曲</h2>
 <blockquote>
-<p>Java最初由<code>Sum</code>公司于1991年开发，最初命名为<code>Oak</code><br />
-后由于名字已被他人使用，将其改为<code>Java</code>并于1995年正式发布<br />
-后Sum公司于2010年被Oracle公司收购，之后Java便由<code>Oracle</code>公司负责维护和版本升级</p>
+<ol>
+<li>确定dp数组（dp table）以及下标的含义</li>
+<li>确定递推公式</li>
+<li>dp数组如何初始化</li>
+<li>确定遍历顺序</li>
+<li>举例推导dp数组</li>
+</ol>
 </blockquote>
-<hr />
-<h1 id="正题步入-第一个java程序"><a class="markdownIt-Anchor" href="#正题步入-第一个java程序"></a> 正题步入-第一个Java程序</h1>
+<p><strong>注：一些情况是递推公式决定了dp数组要如何初始化！</strong></p>
+<h2 id="动态规划应该如何debug"><a class="markdownIt-Anchor" href="#动态规划应该如何debug"></a> 动态规划应该如何debug</h2>
+<p>当我们去学动态规划的题很容易出现看完题解，自己上手写代码一直通过不了，首先我们要明白，<strong>写动态规划，代码出问题很正常！</strong></p>
+<p>debug：</p>
+<blockquote>
+<p>把dp数组打印出来，看看究竟是不是自己的思路所推演的结果</p>
+</blockquote>
+<p>写动态规划最忌讳的就是不清楚dp数组的含义，不懂为什么这样初始化，只会一味的去背代码，要明白，不是所有的题都能凭借所谓的题感直接写出来的，我们得去明白其深层得含义，理解自己为什么要这样去操作。</p>
+<p><strong>我们在去写代码之前，一定要先把状态转移到dp数组上进行具体得模拟一遍，做到心里有数</strong></p>
+<p>通过不了时，请给自己发出以下三个疑问：</p>
+<blockquote>
+<p>这道题目我举例推导状态转移公式了么？<br />
+我打印dp数组的日志了么？<br />
+打印出来了dp数组和我想的一样么？</p>
+</blockquote>
+<p>通过上述文字，想必我们对动态规划已经有了初步得了解，那我们就来试试下面这道题目把！</p>
+<h1 id="小题一道"><a class="markdownIt-Anchor" href="#小题一道"></a> 小题一道</h1>
+<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
+<p>斐波那契数，通常用<code>F(n)</code>表示，形成的序列称为 斐波那契数列 。该数列由<code>0</code>和<code>1</code>开始，后面的每一项数字都是前面两项数字的和。也就是： <code>F(0) = 0，F(1) = 1 F(n) = F(n - 1) + F(n - 2)</code>，其中<code>n &gt; 1</code>给你<code>n</code>，请计算<code>F(n)</code>。<br />
+示例1</p>
 <ul>
-<li>代码展示:</li>
+<li>输入：2</li>
+<li>输出：1</li>
+<li>解释：F(2) = F(1) + F(0) = 1 + 0 = 1</li>
 </ul>
-<figure class="highlight java"><figcaption><span>main方法</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Hello</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello world!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>示例2</p>
+<ul>
+<li>输入：3</li>
+<li>输出：2</li>
+<li>解释：F(3) = F(2) + F(1) = 1 + 1 = 2</li>
+</ul>
+<p>示例3</p>
+<ul>
+<li>输入：4</li>
+<li>输出：3</li>
+<li>解释：F(4) = F(3) + F(2) = 2 + 1 = 3</li>
+</ul>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1f5411K7mo/?vd_source=fd148478f48deef97bac8ef404e7216f">《代码随想录》算法公开课</a><br />
+<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/fibonacci-number/description/">力扣题目链接</a></p>
+</blockquote>
+<h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2>
+<ol>
+<li>确定dp数组以及下标的含义<br />
+dp[i]的定义为：第i个数的斐波那契数值是dp[i]</li>
+<li>确定递推公式<br />
+状态转移方程 dp[i] = dp[i - 1] + dp[i - 2];</li>
+<li>dp数组如何初始化<br />
+题目已经告诉我们：dp[0]=0, dp[1]=1</li>
+<li>确定遍历顺序<br />
+从递归公式dp[i] = dp[i - 1] + dp[i - 2];中可以看出，dp[i]是依赖 dp[i - 1] 和 dp[i - 2]，那么遍历的顺序一定是从前到后遍历的</li>
+<li>举例推导dp数组<br />
+按照这个递推公式dp[i] = dp[i - 1] + dp[i - 2]，我们来推导一下，当N为8的时候，dp数组应该是如下的数列：<code>0 1 1 2 3 5 8 13 21</code></li>
+</ol>
+<blockquote>
+<p>注：如果代码写出来，发现结果不对，就把dp数组打印出来看看和我们推导的数列是不是一致的。</p>
+</blockquote>
+<h2 id="代码实现"><a class="markdownIt-Anchor" href="#代码实现"></a> 代码实现</h2>
+<h3 id="完整dp解题代码"><a class="markdownIt-Anchor" href="#完整dp解题代码"></a> 完整dp解题代码</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">fib</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (n &lt;= <span class="number">1</span>) <span class="keyword">return</span> n;             </span><br><span class="line">        <span class="type">int</span>[] dp = <span class="keyword">new</span> <span class="title class_">int</span>[n + <span class="number">1</span>];</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        dp[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> <span class="number">2</span>; index &lt;= n; index++)&#123;</span><br><span class="line">            dp[index] = dp[index - <span class="number">1</span>] + dp[index - <span class="number">2</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="简化后的dp解题代码"><a class="markdownIt-Anchor" href="#简化后的dp解题代码"></a> 简化后的dp解题代码</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">fib</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (n &lt; <span class="number">2</span>) <span class="keyword">return</span> n;</span><br><span class="line">        <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">0</span>, b = <span class="number">1</span>, c = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">            c = a + b;</span><br><span class="line">            a = b;</span><br><span class="line">            b = c;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> c;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="递归解题代码"><a class="markdownIt-Anchor" href="#递归解题代码"></a> 递归解题代码</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Solution</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">fib</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n &lt; <span class="number">2</span>)<span class="keyword">return</span> n;</span><br><span class="line">        <span class="keyword">return</span> fib(n-<span class="number">1</span>) + fib(n-<span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -267,8 +317,8 @@
 </div>
       
       
-        <a data-aos="zoom-in" href="/2024/11/26/%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F/#comments" class="article-comment-link">
-          <span class="post-comments-count valine-comment-count" data-xid="/2024/11/26/%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F/" itemprop="commentCount"></span>
+        <a data-aos="zoom-in" href="/2024/11/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%85%A5%E9%97%A8/#comments" class="article-comment-link">
+          <span class="post-comments-count valine-comment-count" data-xid="/2024/11/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%85%A5%E9%97%A8/" itemprop="commentCount"></span>
           留言
         </a>
       
@@ -277,7 +327,7 @@
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B/" rel="tag">新手教程</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0/" rel="tag">斐波那契数</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B/" rel="tag">新手教程</a></li></ul>
 
 
     </footer>
@@ -285,19 +335,19 @@
   
   <nav id="article-nav" data-aos="fade-up">
     
-      <div class="article-nav-link-wrap article-nav-link-left">
-        
-          <img data-src="/img/fengmian/sabo.jpg" data-sizes="auto" alt="二叉搜索树中的插入操作" class="lazyload">
-        
-        <a href="/2024/11/26/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%AD%E7%9A%84%E6%8F%92%E5%85%A5%E6%93%8D%E4%BD%9C/"></a>
-        <div class="article-nav-caption">前一篇</div>
-        <h3 class="article-nav-title">
-          
-            二叉搜索树中的插入操作
-          
-        </h3>
-      </div>
     
+    <div class="article-nav-link-wrap article-nav-link-right">
+      
+        <img data-src="/img/fengmian/b2.png" data-sizes="auto" alt="一维与二维前缀和与差分" class="lazyload">
+      
+      <a href="/2024/11/29/%E4%B8%80%E7%BB%B4%E4%B8%8E%E4%BA%8C%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/"></a>
+      <div class="article-nav-caption">后一篇</div>
+      <h3 class="article-nav-title">
+        
+          一维与二维前缀和与差分
+        
+      </h3>
+    </div>
     
   </nav>
 
@@ -321,7 +371,7 @@
   <h3 class="toc-title">文章目录</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text"> Java简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%8F%E8%BF%B0"><span class="toc-number">1.1.</span> <span class="toc-text"> 描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E6%80%A7"><span class="toc-number">1.2.</span> <span class="toc-text"> 特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java%E7%9A%84%E7%94%A8%E9%80%94"><span class="toc-number">1.3.</span> <span class="toc-text"> Java的用途</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java%E7%9A%84%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B"><span class="toc-number">1.4.</span> <span class="toc-text"> Java的发展历程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E9%A2%98%E6%AD%A5%E5%85%A5-%E7%AC%AC%E4%B8%80%E4%B8%AAjava%E7%A8%8B%E5%BA%8F"><span class="toc-number">2.</span> <span class="toc-text"> 正题步入-第一个Java程序</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text"> 动态规划简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%BA%94%E9%83%A8%E6%9B%B2"><span class="toc-number">1.1.</span> <span class="toc-text"> 动态规划五部曲</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%BA%94%E8%AF%A5%E5%A6%82%E4%BD%95debug"><span class="toc-number">1.2.</span> <span class="toc-text"> 动态规划应该如何debug</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B0%8F%E9%A2%98%E4%B8%80%E9%81%93"><span class="toc-number">2.</span> <span class="toc-text"> 小题一道</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">2.1.</span> <span class="toc-text"> 题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-number">2.2.</span> <span class="toc-text"> 思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.3.</span> <span class="toc-text"> 代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4dp%E8%A7%A3%E9%A2%98%E4%BB%A3%E7%A0%81"><span class="toc-number">2.3.1.</span> <span class="toc-text"> 完整dp解题代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8C%96%E5%90%8E%E7%9A%84dp%E8%A7%A3%E9%A2%98%E4%BB%A3%E7%A0%81"><span class="toc-number">2.3.2.</span> <span class="toc-text"> 简化后的dp解题代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%92%E5%BD%92%E8%A7%A3%E9%A2%98%E4%BB%A3%E7%A0%81"><span class="toc-number">2.3.3.</span> <span class="toc-text"> 递归解题代码</span></a></li></ol></li></ol></li></ol>
       
   </div>
 </div>
@@ -445,7 +495,7 @@
   <h3 class="toc-title">文章目录</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text"> Java简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%8F%E8%BF%B0"><span class="toc-number">1.1.</span> <span class="toc-text"> 描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E6%80%A7"><span class="toc-number">1.2.</span> <span class="toc-text"> 特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java%E7%9A%84%E7%94%A8%E9%80%94"><span class="toc-number">1.3.</span> <span class="toc-text"> Java的用途</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java%E7%9A%84%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B"><span class="toc-number">1.4.</span> <span class="toc-text"> Java的发展历程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E9%A2%98%E6%AD%A5%E5%85%A5-%E7%AC%AC%E4%B8%80%E4%B8%AAjava%E7%A8%8B%E5%BA%8F"><span class="toc-number">2.</span> <span class="toc-text"> 正题步入-第一个Java程序</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text"> 动态规划简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%BA%94%E9%83%A8%E6%9B%B2"><span class="toc-number">1.1.</span> <span class="toc-text"> 动态规划五部曲</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%BA%94%E8%AF%A5%E5%A6%82%E4%BD%95debug"><span class="toc-number">1.2.</span> <span class="toc-text"> 动态规划应该如何debug</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B0%8F%E9%A2%98%E4%B8%80%E9%81%93"><span class="toc-number">2.</span> <span class="toc-text"> 小题一道</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">2.1.</span> <span class="toc-text"> 题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-number">2.2.</span> <span class="toc-text"> 思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.3.</span> <span class="toc-text"> 代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4dp%E8%A7%A3%E9%A2%98%E4%BB%A3%E7%A0%81"><span class="toc-number">2.3.1.</span> <span class="toc-text"> 完整dp解题代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8C%96%E5%90%8E%E7%9A%84dp%E8%A7%A3%E9%A2%98%E4%BB%A3%E7%A0%81"><span class="toc-number">2.3.2.</span> <span class="toc-text"> 简化后的dp解题代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%92%E5%BD%92%E8%A7%A3%E9%A2%98%E4%BB%A3%E7%A0%81"><span class="toc-number">2.3.3.</span> <span class="toc-text"> 递归解题代码</span></a></li></ol></li></ol></li></ol>
       
   </div>
 </div>

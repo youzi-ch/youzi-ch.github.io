@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-11-29T12:12:58.428Z</updated>
+  <updated>2024-11-30T04:58:58.152Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>动态规划入门</title>
+    <link href="http://example.com/2024/11/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%85%A5%E9%97%A8/"/>
+    <id>http://example.com/2024/11/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%85%A5%E9%97%A8/</id>
+    <published>2024-11-30T03:08:07.000Z</published>
+    <updated>2024-11-30T04:58:58.152Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="动态规划简介"><a class="markdownIt-Anchor" href="#动态规划简介"></a> 动态规划简介</h1><p>动态规划，英文：Dynamic Programming，简称DP，如果某一问题有很多重叠子问题，使用动态规划是最有效的。</p><p>所以动态规划中每一个状态一定是由上一个状态推导出来的，这一点就区分于贪心，贪心没有状态推导，而是从局部直接选最优的。</p><h2 id="动态规划五部曲"><a class="markdownIt-Anchor" href="#动态规划五部曲"></a> 动态规划五部曲</h2><blockquote><ol><li>确定dp数组（dp table）以及下标的含义</li><li>确定递推公式</li><li>dp数组如何初始化</li><li>确定遍历顺序</li><li>举例推导dp数组</li></ol></blockquote><p><strong>注：一些情况是递推公式决定了dp数组要如何初始化！</strong></p><h2 id="动态规划应该如何debug"><a class="markdownIt-Anchor" href="#动态规划应该如何debug"></a> 动态规划应该如何debug</h2><p>当我们去学动态规划的题很容易出现看完题解，自己上手写代码一直通过不了，首先我们要明白，<strong>写动态规划，代码出问题很正常！</strong></p><p>debug：</p><blockquote><p>把dp数组打印出来，看看究竟是不是自己的思路所推演的结果</p></blockquote><p>写动态规划最忌讳的就是不清楚dp数组的含义，不懂为什么这样初始化，只会一味的去背代码，要明白，不是所有的题都能凭借所谓的题感直接写出来的，我们得去明白其深层得含义，理解自己为什么要这样去操作。</p><p><strong>我们在去写代码之前，一定要先把状态转移到dp数组上进行具体得模拟一遍，做到心里有数</strong></p><p>通过不了时，请给自己发出以下三个疑问：</p><blockquote><p>这道题目我举例推导状态转移公式了么？<br />我打印dp数组的日志了么？<br />打印出来了dp数组和我想的一样么？</p></blockquote><p>通过上述文字，想必我们对动态规划已经有了初步得了解，那我们就来试试下面这道题目把！</p><h1 id="小题一道"><a class="markdownIt-Anchor" href="#小题一道"></a> 小题一道</h1><h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2><p>斐波那契数，通常用<code>F(n)</code>表示，形成的序列称为 斐波那契数列 。该数列由<code>0</code>和<code>1</code>开始，后面的每一项数字都是前面两项数字的和。也就是： <code>F(0) = 0，F(1) = 1 F(n) = F(n - 1) + F(n - 2)</code>，其中<code>n &gt; 1</code>给你<code>n</code>，请计算<code>F(n)</code>。<br />示例1</p><ul><li>输入：2</li><li>输出：1</li><li>解释：F(2) = F(1) + F(0) = 1 + 0 = 1</li></ul><p>示例2</p><ul><li>输入：3</li><li>输出：2</li><li>解释：F(3) = F(2) + F(1) = 1 + 1 = 2</li></ul><p>示例3</p><ul><li>输入：4</li><li>输出：3</li><li>解释：F(4) = F(3) + F(2) = 2 + 1 = 3</li></ul><blockquote><p><a href="https://www.bilibili.com/video/BV1f5411K7mo/?vd_source=fd148478f48deef97bac8ef404e7216f">《代码随想录》算法公开课</a><br /><a href="https://leetcode.cn/problems/fibonacci-number/description/">力扣题目链接</a></p></blockquote><h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2><ol><li>确定dp数组以及下标的含义<br />dp[i]的定义为：第i个数的斐波那契数值是dp[i]</li><li>确定递推公式<br />状态转移方程 dp[i] = dp[i - 1] + dp[i - 2];</li><li>dp数组如何初始化<br />题目已经告诉我们：dp[0]=0, dp[1]=1</li><li>确定遍历顺序<br />从递归公式dp[i] = dp[i - 1] + dp[i - 2];中可以看出，dp[i]是依赖 dp[i - 1] 和 dp[i - 2]，那么遍历的顺序一定是从前到后遍历的</li><li>举例推导dp数组<br />按照这个递推公式dp[i] = dp[i - 1] + dp[i - 2]，我们来推导一下，当N为8的时候，dp数组应该是如下的数列：<code>0 1 1 2 3 5 8 13 21</code></li></ol><blockquote><p>注：如果代码写出来，发现结果不对，就把dp数组打印出来看看和我们推导的数列是不是一致的。</p></blockquote><h2 id="代码实现"><a class="markdownIt-Anchor" href="#代码实现"></a> 代码实现</h2><h3 id="完整dp解题代码"><a class="markdownIt-Anchor" href="#完整dp解题代码"></a> 完整dp解题代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">fib</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (n &lt;= <span class="number">1</span>) <span class="keyword">return</span> n;             </span><br><span class="line">        <span class="type">int</span>[] dp = <span class="keyword">new</span> <span class="title class_">int</span>[n + <span class="number">1</span>];</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        dp[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> <span class="number">2</span>; index &lt;= n; index++)&#123;</span><br><span class="line">            dp[index] = dp[index - <span class="number">1</span>] + dp[index - <span class="number">2</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="简化后的dp解题代码"><a class="markdownIt-Anchor" href="#简化后的dp解题代码"></a> 简化后的dp解题代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">fib</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (n &lt; <span class="number">2</span>) <span class="keyword">return</span> n;</span><br><span class="line">        <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">0</span>, b = <span class="number">1</span>, c = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">            c = a + b;</span><br><span class="line">            a = b;</span><br><span class="line">            b = c;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> c;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="递归解题代码"><a class="markdownIt-Anchor" href="#递归解题代码"></a> 递归解题代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Solution</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">fib</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n &lt; <span class="number">2</span>)<span class="keyword">return</span> n;</span><br><span class="line">        <span class="keyword">return</span> fib(n-<span class="number">1</span>) + fib(n-<span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;动态规划简介&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#动态规划简介&quot;&gt;&lt;/a&gt; 动态规划简介&lt;/h1&gt;
+&lt;p&gt;动态规划，英文：Dynamic Programming，简称DP，如果某一问题有很多重叠子问题，使用动态规划是最有效的。</summary>
+      
+    
+    
+    
+    <category term="动态规划" scheme="http://example.com/categories/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+    
+    <category term="Java" scheme="http://example.com/tags/Java/"/>
+    
+    <category term="斐波那契数" scheme="http://example.com/tags/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0/"/>
+    
+    <category term="新手教程" scheme="http://example.com/tags/%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>一维与二维前缀和与差分</title>
@@ -37,9 +66,9 @@
     <category term="前缀和与差分" scheme="http://example.com/categories/%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/"/>
     
     
-    <category term="前缀和" scheme="http://example.com/tags/%E5%89%8D%E7%BC%80%E5%92%8C/"/>
-    
     <category term="Java" scheme="http://example.com/tags/Java/"/>
+    
+    <category term="前缀和" scheme="http://example.com/tags/%E5%89%8D%E7%BC%80%E5%92%8C/"/>
     
     <category term="数组" scheme="http://example.com/tags/%E6%95%B0%E7%BB%84/"/>
     
@@ -69,9 +98,9 @@
     <category term="二叉树" scheme="http://example.com/categories/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     
     
-    <category term="Java" scheme="http://example.com/tags/Java/"/>
-    
     <category term="贪心算法" scheme="http://example.com/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="Java" scheme="http://example.com/tags/Java/"/>
     
   </entry>
   
@@ -96,9 +125,9 @@
     <category term="贪心算法" scheme="http://example.com/categories/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
     
     
-    <category term="Java" scheme="http://example.com/tags/Java/"/>
-    
     <category term="贪心算法" scheme="http://example.com/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="Java" scheme="http://example.com/tags/Java/"/>
     
   </entry>
   
@@ -124,9 +153,9 @@
     <category term="贪心算法" scheme="http://example.com/categories/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
     
     
-    <category term="Java" scheme="http://example.com/tags/Java/"/>
-    
     <category term="贪心算法" scheme="http://example.com/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="Java" scheme="http://example.com/tags/Java/"/>
     
   </entry>
   
@@ -151,9 +180,9 @@
     <category term="贪心算法" scheme="http://example.com/categories/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
     
     
-    <category term="Java" scheme="http://example.com/tags/Java/"/>
-    
     <category term="贪心算法" scheme="http://example.com/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="Java" scheme="http://example.com/tags/Java/"/>
     
   </entry>
   
@@ -180,9 +209,9 @@
     <category term="贪心算法" scheme="http://example.com/categories/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
     
     
-    <category term="Java" scheme="http://example.com/tags/Java/"/>
-    
     <category term="贪心算法" scheme="http://example.com/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="Java" scheme="http://example.com/tags/Java/"/>
     
   </entry>
   
