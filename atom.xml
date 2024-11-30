@@ -66,9 +66,9 @@
     <category term="前缀和与差分" scheme="http://example.com/categories/%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/"/>
     
     
-    <category term="Java" scheme="http://example.com/tags/Java/"/>
-    
     <category term="前缀和" scheme="http://example.com/tags/%E5%89%8D%E7%BC%80%E5%92%8C/"/>
+    
+    <category term="Java" scheme="http://example.com/tags/Java/"/>
     
     <category term="数组" scheme="http://example.com/tags/%E6%95%B0%E7%BB%84/"/>
     
@@ -98,9 +98,9 @@
     <category term="二叉树" scheme="http://example.com/categories/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     
     
-    <category term="贪心算法" scheme="http://example.com/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
-    
     <category term="Java" scheme="http://example.com/tags/Java/"/>
+    
+    <category term="贪心算法" scheme="http://example.com/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -125,9 +125,9 @@
     <category term="贪心算法" scheme="http://example.com/categories/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
     
     
-    <category term="贪心算法" scheme="http://example.com/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
-    
     <category term="Java" scheme="http://example.com/tags/Java/"/>
+    
+    <category term="贪心算法" scheme="http://example.com/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -153,9 +153,9 @@
     <category term="贪心算法" scheme="http://example.com/categories/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
     
     
-    <category term="贪心算法" scheme="http://example.com/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
-    
     <category term="Java" scheme="http://example.com/tags/Java/"/>
+    
+    <category term="贪心算法" scheme="http://example.com/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -180,9 +180,9 @@
     <category term="贪心算法" scheme="http://example.com/categories/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
     
     
-    <category term="贪心算法" scheme="http://example.com/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
-    
     <category term="Java" scheme="http://example.com/tags/Java/"/>
+    
+    <category term="贪心算法" scheme="http://example.com/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -209,9 +209,9 @@
     <category term="贪心算法" scheme="http://example.com/categories/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
     
     
-    <category term="贪心算法" scheme="http://example.com/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
-    
     <category term="Java" scheme="http://example.com/tags/Java/"/>
+    
+    <category term="贪心算法" scheme="http://example.com/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
