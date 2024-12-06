@@ -185,10 +185,55 @@
     <div class="post-wrapper">
   <div class="post-wrap-left" data-aos="fade-up">
     
-      <a class="post-link" href="/2024/11/27/%E4%BF%AE%E5%89%AA%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/" aria-label="修剪二叉搜索树"></a>
+      <a class="post-link" href="/2024/11/28/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95-%E5%88%86%E5%8F%91%E9%A5%BC%E5%B9%B2/" aria-label="贪心算法-分发饼干"></a>
     
     
     <div class="post-cover-left">
+      
+        <img data-src="/img/fengmian/qqq.jpg" data-sizes="auto" alt="贪心算法-分发饼干" class="lazyload">
+      
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2024-11-28</span>
+        <span><span class="icon-pencil"></span>967 字</span>
+        <span><span class="icon-clock"></span>3 分钟</span>
+      </div>
+      <h2 class="post-title">贪心算法-分发饼干</h2>
+      <article class="post-article">
+        
+           什么是贪心算法
+
+贪心的本质是选择每一阶段的局部最优，从而达到全局最优。
+例如有一堆不同数额的钞票，每次只能拿一张，怎么拿能取得最大数额的钞票。
+
+方法：将钞票从大到小进行排序，每次都拿走当前堆里最大面额的钞票，即可在指定拿取次数中获得最大数额的钞票。
+例如：[100, 100, 50, 20, 50, 1, 10]
+
+排序后为：[100, 100, 50, 50, 20, 10, 1]
+依次取数组中的最大值进行累加
+取完指定次数后，累加值即为最优解
+
+
+在这个过程中，每次取最大面额的钞票为局部最优，通过每次获得局部最优得到的结果即为全局最优。
+
+
+
+
+注意：贪心算法并没有固定套路，也没有固
+        
+      </article>
+    </div>
+  </div>
+</div>
+  
+    <div class="post-wrapper">
+  <div class="post-wrap-right" data-aos="fade-up">
+    
+      <a class="post-link" href="/2024/11/27/%E4%BF%AE%E5%89%AA%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/" aria-label="修剪二叉搜索树"></a>
+    
+    
+    <div class="post-cover-right">
       
         <img data-src="/img/fengmian/yuanqi.jpg" data-sizes="auto" alt="修剪二叉搜索树" class="lazyload">
       
@@ -232,12 +277,12 @@
 </div>
   
     <div class="post-wrapper">
-  <div class="post-wrap-right" data-aos="fade-up">
+  <div class="post-wrap-left" data-aos="fade-up">
     
       <a class="post-link" href="/2024/11/27/%E5%88%A0%E9%99%A4%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/" aria-label="删除二叉搜索树中的节点"></a>
     
     
-    <div class="post-cover-right">
+    <div class="post-cover-left">
       
         <img data-src="/img/fengmian/chuyin.jpg" data-sizes="auto" alt="删除二叉搜索树中的节点" class="lazyload">
       
@@ -273,54 +318,6 @@
   </div>
 </div>
   
-    <div class="post-wrapper">
-  <div class="post-wrap-left" data-aos="fade-up">
-    
-      <a class="post-link" href="/2024/11/26/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%AD%E7%9A%84%E6%8F%92%E5%85%A5%E6%93%8D%E4%BD%9C/" aria-label="二叉搜索树中的插入操作"></a>
-    
-    
-    <div class="post-cover-left">
-      
-        <img data-src="/img/fengmian/sabo.jpg" data-sizes="auto" alt="二叉搜索树中的插入操作" class="lazyload">
-      
-    </div>
-    <div class="post-info">
-      <div class="post-meta">
-        <span><span class="icon-calendar"></span>2024-11-26</span>
-        <span><span class="icon-pencil"></span>599 字</span>
-        <span><span class="icon-clock"></span>2 分钟</span>
-      </div>
-      <h2 class="post-title">二叉搜索树中的插入操作</h2>
-      <article class="post-article">
-        
-           题目
-给定二叉搜索树BST的根节点和要插入树中的值，将值插入二叉搜索树。 返回插入后二叉搜索树的根节点。
-输入数据保证，新值和原始二叉搜索树中的任意节点值都不同。
-示例1
-
-
-输入：root = [40,20,60,10,30,50,70], val = 25
-输出：[40,20,60,10,30,50,70,null,null,25]
-
-
-示例2
-
-
-输入：root = [4,2,7,1,3,null,null,null,null,null,null], val = 5
-输出：[4,2,7,1,3,5]
-
-
-
- 提示
-
-给定的树上的节点数介于 0 和 10^4 之间
-每个节点都有一个唯一整
-        
-      </article>
-    </div>
-  </div>
-</div>
-  
 
 
   <nav id="page-nav" data-aos="fade-up">
@@ -343,11 +340,11 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>文章</div>
-    <div class="sidebar-state-number">13</div>
+    <div class="sidebar-state-number">14</div>
   </div>
   <div class="sidebar-state-category">
     <div>分类</div>
-    <div class="sidebar-state-number">5</div>
+    <div class="sidebar-state-number">6</div>
   </div>
   <div class="sidebar-state-tag">
     <div>标签</div>
@@ -416,10 +413,10 @@
     
       <div>
         <span class="icon-brush"></span>
-        10.3k
+        11.9k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        00:36
+        00:42
       </div>
     
     
@@ -453,11 +450,11 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>文章</div>
-    <div class="sidebar-state-number">13</div>
+    <div class="sidebar-state-number">14</div>
   </div>
   <div class="sidebar-state-category">
     <div>分类</div>
-    <div class="sidebar-state-number">5</div>
+    <div class="sidebar-state-number">6</div>
   </div>
   <div class="sidebar-state-tag">
     <div>标签</div>
