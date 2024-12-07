@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-12-06T08:39:48.556Z</updated>
+  <updated>2024-12-07T07:27:43.128Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,19 +17,19 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>动态规划-01背包理论基础</title>
-    <link href="http://example.com/2024/12/05/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-01%E8%83%8C%E5%8C%85%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/"/>
-    <id>http://example.com/2024/12/05/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-01%E8%83%8C%E5%8C%85%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/</id>
-    <published>2024-12-05T11:11:12.000Z</published>
-    <updated>2024-12-06T08:39:48.556Z</updated>
+    <title>动态规划-01背包理论基础(二)</title>
+    <link href="http://example.com/2024/12/06/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-01%E8%83%8C%E5%8C%85%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%802/"/>
+    <id>http://example.com/2024/12/06/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-01%E8%83%8C%E5%8C%85%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%802/</id>
+    <published>2024-12-06T08:44:29.000Z</published>
+    <updated>2024-12-07T07:27:43.128Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="动态规划01背包理论基础"><a class="markdownIt-Anchor" href="#动态规划01背包理论基础"></a> 动态规划：01背包理论基础</h1><h2 id="背包分类图"><a class="markdownIt-Anchor" href="#背包分类图"></a> 背包分类图</h2><p><img src="/img/timu/01-1.png" alt="01背包" title="01背包" /></p><h2 id="什么是01背包"><a class="markdownIt-Anchor" href="#什么是01背包"></a> 什么是01背包？</h2><h3 id="01背包"><a class="markdownIt-Anchor" href="#01背包"></a> 01背包</h3><p>有<code>n</code>件物品和一个最多能背重量为<code>w</code>的背包。第i件物品的重量是<code>weight[i]</code>，得到的价值是<code>value[i]</code> 。每件物品只能用一次，求解将哪些物品装入背包里物品价值总和最大。</p><h3 id="关于其他背包"><a class="markdownIt-Anchor" href="#关于其他背包"></a> 关于其他背包</h3><ul><li>除01背包以外其他类型的背包，面试几乎不会问，都是竞赛级别的了，leetcode上连多重背包的题目都没有，所以题库也告诉我们，01背包和完全背包就够用了。</li><li>而完全背包又是也是01背包稍作变化而来，即：完全背包的物品数量是无限的。</li><li><strong>所以背包问题的理论基础重中之重是01背包，一定要理解透！</strong></li></ul><h2 id="举个栗子"><a class="markdownIt-Anchor" href="#举个栗子"></a> 举个栗子</h2><p>weight = [1, 3, 4]<br />value = [15, 20, 30]</p><blockquote><p>注：下面所出现的数字都以此例子为例</p></blockquote><h3 id="二维dp数组01背包"><a class="markdownIt-Anchor" href="#二维dp数组01背包"></a> 二维dp数组01背包</h3><p>动态规划五部曲：</p><ol><li>确定dp数组以及下标的含义</li></ol><p>我们有两个维度需要分别表示：物品和背包容量，即有0-i个放入j容量的背包所拿到的最大价值，其中0-i个物品皆可选择是否放入，且物品唯一，如下图：<br /><img src="/img/timu/01-2.png" alt="01背包" title="01背包" /><br />（如果想用j 表示物品，j表示背包容量 行不行？ 都可以的，个人习惯而已）<br />然后我们来逐一分析一下：</p><p><strong>首先是把物品0放入背包的情况，weight[0] = 1, value[0] = 15:</strong><br /><img src="/img/timu/01-3.png" alt="01背包" title="01背包" /><br />背包容量为0，放不下物品0，此时背包里的价值为0。</p><p>背包容量为1，可以放下物品0，此时背包里的价值为15.</p><p>背包容量为2，依然可以放下物品0 （注意 01背包里物品只有一个），此时背包里的价值为15。<br />以此类推。</p><p><strong>然后是0物品和1物品同时有的情况：</strong><br /><img src="/img/timu/01-4.png" alt="01背包" title="01背包" /><br />背包容量为 0，放不下物品0 或者物品1，此时背包里的价值为0。<br />背包容量为 1，只能放下物品0，背包里的价值为15。</p><p>背包容量为 2，只能放下物品0，背包里的价值为15。</p><p>背包容量为 3，上一行同一状态，背包只能放物品0，这次也可以选择物品1了，背包可以放物品1 或者 物品0，物品1价值更大，背包里的价值为20。</p><p>背包容量为 4，上一行同一状态，背包只能放物品0，这次也可以选择物品1了，背包可以放下物品0 和 物品1，背包价值为35。</p><p>通过这个举例，我们来进一步明确dp数组的含义。<br />即<code>dp[i][j] 表示从下标为[0-i]的物品里任意取，放进容量为j的背包，价值总和最大是多少。</code></p><ol start="2"><li>确定递推公式</li></ol><p>对于递推公式，首先我们要明确有哪些方向可以推导出<code>dp[i][j]</code>。<br />这里我们以<code>dp[1][4]</code>为例：<br />首先我们有物品0和物品1，<code>dp[1][4]</code>有两种情况：放物品1？还是不放物品1？</p><p>如果<code>不放</code>物品1，则背包价值应该为<code>dp[0][4]</code>，如果<code>放</code>物品1，则我们应该预先留出放物品1的空间，则此时的<code>j</code>为<code>4-weight[1]</code>，且我们是没有放物品1的，则此时的<code>i</code><br />为<code>i-1</code>，则我们推出了两种<code>dp[1][4]</code>的来源，此时我们只需要取其最大价值即可。即递推方程为：<br /><code>dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - weight[i]] + value[i])</code></p><ol start="3"><li>dp数组初始化<br />首先从<code>dp[i][j]</code>的定义出发，如果背包容量j为0的话，即<code>dp[i][0]</code>，无论是选取哪些物品，背包价值总和一定为0。如图：<br /><img src="/img/timu/01-5.png" alt="01背包" title="01背包" /></li></ol><p>状态转移方程 <code>dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - weight[i]] + value[i])</code>; 可以看出<code>i</code>是由 <code>i-1</code>推导出来，那么i为0的时候就一定要初始化。</p><p><code>dp[0][j]</code>，即：i为0，存放编号0的物品的时候，各个容量的背包所能存放的最大价值。</p><p>那么很明显当<code>j &lt; weight[0]</code>的时候<code>dp[0][j]</code>应该是 0，因为背包容量比编号0的物品重量还小。</p><p>当<code>j &gt;= weight[0]</code>时<code>dp[0][j]</code>应该是<code>value[0]</code>，因为背包容量放足够放编号0物品。</p><p>代码如下：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在创建数组时就已经初始为0了 ，可以省略</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; weight[<span class="number">0</span>]; j++)&#123;</span><br><span class="line">    dp[<span class="number">0</span>][j] = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> weight[<span class="number">0</span>]; j &lt;= bagWeight; j++)&#123;</span><br><span class="line">    dp[<span class="number">0</span>][j] = value[<span class="number">0</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>结果如下图：<br /><img src="/img/timu/01-06.png" alt="01背包" title="01背包" /></p><ol start="4"><li>确定遍历顺序</li></ol><p>由递推公式可知dp[i][j]由它二维数组的左上方推演而来，则其先遍历背包容量或者先遍历物品都是可以的，看自己习惯。</p><ol start="5"><li>举例推导dp数组</li></ol><p>自己在纸上推演，再来写代码,结果如图：<br /><img src="/img/timu/01-7.jpg" alt="01背包" title="01背包" /></p><blockquote><p><a href="https://kamacoder.com/problempage.php?pid=1046">01背包原题</a><br /><a href="https://www.bilibili.com/video/BV1cg411g7Y6/?vd_source=fd148478f48deef97bac8ef404e7216f">《代码随想录》算法公开课</a></p></blockquote><h3 id="代码实现"><a class="markdownIt-Anchor" href="#代码实现"></a> 代码实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">scanner</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> scanner.nextInt();</span><br><span class="line">        <span class="type">int</span> <span class="variable">bagWeight</span> <span class="operator">=</span> scanner.nextInt();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//定义两个数组用于接收给定数据</span></span><br><span class="line">        <span class="type">int</span>[] weight = <span class="keyword">new</span> <span class="title class_">int</span>[n];</span><br><span class="line">        <span class="type">int</span>[] value = <span class="keyword">new</span> <span class="title class_">int</span>[n];</span><br><span class="line"></span><br><span class="line">        <span class="comment">//接收键盘端传入的两个数组</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">            weight[i] = scanner.nextInt();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; n; ++j) &#123;</span><br><span class="line">            value[j] = scanner.nextInt();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//根据上述分析去定义dp数组</span></span><br><span class="line">        <span class="type">int</span>[][] dp = <span class="keyword">new</span> <span class="title class_">int</span>[n][bagWeight + <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        <span class="comment">//对dp数组进行初始化</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> weight[<span class="number">0</span>]; j &lt;= bagWeight; j++) &#123;</span><br><span class="line">            dp[<span class="number">0</span>][j] = value[<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//递推遍历数组</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt;= bagWeight; j++) &#123;</span><br><span class="line">                <span class="comment">//如果当前的物品重量大于背包容量，则dp取值为不放入i物品的最大价值，即dp[i][j] = dp[i - 1][j]</span></span><br><span class="line">                <span class="keyword">if</span> (j &lt; weight[i]) &#123;</span><br><span class="line">                    dp[i][j] = dp[i - <span class="number">1</span>][j];</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    dp[i][j] = Math.max(dp[i - <span class="number">1</span>][j], dp[i - <span class="number">1</span>][j - weight[i]] + value[i]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//输出结果[n-1]为从数组中任取的0-i元素，[bagWeight]为背包的最大容量，结果为最大价值</span></span><br><span class="line">        System.out.println(dp[n - <span class="number">1</span>][bagWeight]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h1 id="动态规划-01背包理论基础二"><a class="markdownIt-Anchor" href="#动态规划-01背包理论基础二"></a> 动态规划-01背包理论基础(二)</h1><p>上一篇我们提到了01背包的二维的dp数组，这篇我们就来说一说01背包的一维数组，也就是滚动数组，为什么叫滚动数组看完接下来的分析你就懂了！</p><p>那么我们通过01背包，来彻底讲一讲滚动数组！<br />接下来还是用如下这个例子来进行讲解：</p><blockquote><p>weight = [1, 3, 4]<br />value = [15, 20, 30]</p></blockquote><h2 id="一维dp数组滚动数组"><a class="markdownIt-Anchor" href="#一维dp数组滚动数组"></a> 一维dp数组（滚动数组）</h2><p>对于背包问题其实状态都是可以压缩的!</p><p>在使用二维数组的时候，递推公式：<code>dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - weight[i]] + value[i])</code>;</p><p>其实可以发现如果把dp[i - 1]那一层拷贝到dp[i]上，即利用上一层的数据将二维表达式里的dp[i-1][j]直接用上一次遍历的结果，即数组进行了一个滚动操作，表达式完全可以是：<code>dp[i][j] = max(dp[i][j], dp[i][j - weight[i]] + value[i])</code>;</p><p>与其把dp[i - 1]这一层拷贝到dp[i]上，不如只用一个一维数组了，只用dp[j]（一维数组，也可以理解是一个滚动数组）</p><blockquote><p>注：我们千万不能忘记dp[i][j]的含义！dp[i][j] 表示从下标为[0-i]的物品里任意取，放进容量为j的背包，价值总和最大是多少。</p></blockquote><h2 id="动态规划五部曲"><a class="markdownIt-Anchor" href="#动态规划五部曲"></a> 动态规划五部曲</h2><ol><li>确定dp数组的定义</li></ol><p>dp[j]表示：容量为j的背包，所背的物品价值可以最大为dp[j]。</p><ol start="2"><li>一维dp数组的递推公式</li></ol><p>二维dp数组的递推公式为： dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - weight[i]] + value[i]);</p><p>以下为分析：</p><ul><li><p>dp[j]为 容量为j的背包所背的最大价值。</p></li><li><p>dp[j]可以通过dp[j - weight[i]]推导出来，dp[j - weight[i]]表示容量为j - weight[i]的背包所背的最大价值。</p></li><li><p>dp[j - weight[i]] + value[i] 表示 容量为 [j - 物品i重量] 的背包加上物品i的价值。（也就是容量为j的背包，放入物品i了之后的价值即：dp[j]）</p></li><li><p>此时dp[j]有两个选择，一个是取自己dp[j] 相当于 二维dp数组中的dp[i-1][j]，即不放物品i，一个是取dp[j - weight[i]] + value[i]，即放物品i，指定是取最大的，毕竟是求最大价值。</p></li></ul><ol start="3"><li>一维dp数组如何初始化</li></ol><p>dp[j]表示：容量为j的背包，所背的物品价值可以最大为dp[j]，那么dp[0]就应该是0，因为背包容量为0所背的物品的最大价值就是0。</p><p>那么dp数组除了下标0的位置，初始为0，其他下标应该初始化多少呢？</p><p>看一下递归公式：<code>dp[j] = max(dp[j], dp[j - weight[i]] + value[i])</code>;</p><p>dp数组在推导的时候一定是取价值最大的数，如果题目给的价值都是正整数那么非0下标都初始化为0就可以了。</p><p>这样才能让dp数组在递归公式的过程中取的最大的价值，而不是被初始值覆盖了。</p><p>那么我假设物品价值都是大于0的，所以dp数组初始化的时候，都初始为0就可以了。</p><ol start="4"><li>一维dp数组遍历顺序</li></ol><p>代码如下：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; weight.size(); i++) &#123; <span class="comment">// 遍历物品</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> bagWeight; j &gt;= weight[i]; j--) &#123; <span class="comment">// 遍历背包容量</span></span><br><span class="line">        dp[j] = max(dp[j], dp[j - weight[i]] + value[i]);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p>这里大家发现和二维dp的写法中，遍历背包的顺序是不一样的！二维dp遍历的时候，背包容量是从小到大，而一维dp遍历的时候，背包是从大到小。</p></blockquote><p>为什么呢？**倒序遍历是为了保证物品i只被放入一次！**但如果一旦正序遍历了，那么物品0就会被重复加入多次！</p><ul><li>举个例子：物品0的重量weight[0] = 1，价值value[0] = 15</li></ul><p>如果正序遍历</p><p>dp[1] = dp[1 - weight[0]] + value[0] = 15<br />dp[2] = dp[2 - weight[0]] + value[0] = 30<br />此时dp[2]就已经是30了，意味着物品0，被放入了两次，所以不能正序遍历。</p><p>为什么倒序遍历，就可以保证物品只放入一次呢？</p><p>倒序就是先算dp[2]<br />dp[2] = dp[2 - weight[0]] + value[0] = 15 （dp数组已经都初始化为0）<br />dp[1] = dp[1 - weight[0]] + value[0] = 15</p><p>所以从后往前循环，每次取得状态不会和之前取得状态重合，这样每种物品就只取一次了。</p><p><strong>再来看看两个嵌套for循环的顺序，代码中是先遍历物品嵌套遍历背包容量，那可不可以先遍历背包容量嵌套遍历物品呢？</strong></p><p><strong>不可以！</strong></p><p>因为一维dp的写法，背包容量一定是要倒序遍历（原因上面已经讲了），如果遍历背包容量放在上一层，那么每个dp[j]就只会放入一个物品，即：背包里只放入了一个物品。</p><p>**所以一维dp数组的背包在遍历顺序上和二维其实是有很大差异的！**这一点大家一定要注意。</p><ol start="5"><li>举例推导dp数组</li></ol><p>一维dp，分别用物品0，物品1，物品2 来遍历背包，最终得到结果如下：<br /><img src="/img/timu/01-2-1.png" alt="01背包" title="01背包" /><br />像不像二维数组的每条都滚动展示！</p><blockquote><p><a href="https://kamacoder.com/problempage.php?pid=1046">01背包原题</a><br /><a href="https://www.bilibili.com/video/BV1BU4y177kY/?vd_source=fd148478f48deef97bac8ef404e7216f">《代码随想录》算法公开课</a></p></blockquote><h2 id="代码实现"><a class="markdownIt-Anchor" href="#代码实现"></a> 代码实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">scanner</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 读取 M 和 N</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">M</span> <span class="operator">=</span> scanner.nextInt();  <span class="comment">// 研究材料的数量</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">N</span> <span class="operator">=</span> scanner.nextInt();  <span class="comment">// 行李空间的大小</span></span><br><span class="line"></span><br><span class="line">        <span class="type">int</span>[] costs = <span class="keyword">new</span> <span class="title class_">int</span>[M];   <span class="comment">// 每种材料的空间占用</span></span><br><span class="line">        <span class="type">int</span>[] values = <span class="keyword">new</span> <span class="title class_">int</span>[M];  <span class="comment">// 每种材料的价值</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 输入每种材料的空间占用</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; M; i++) &#123;</span><br><span class="line">            costs[i] = scanner.nextInt();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 输入每种材料的价值</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; M; j++) &#123;</span><br><span class="line">            values[j] = scanner.nextInt();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建一个动态规划数组 dp，初始值为 0</span></span><br><span class="line">        <span class="type">int</span>[] dp = <span class="keyword">new</span> <span class="title class_">int</span>[N + <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 外层循环遍历每个类型的研究材料</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; M; i++) &#123;</span><br><span class="line">            <span class="comment">// 内层循环从 N 空间逐渐减少到当前研究材料所占空间</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> N; j &gt;= costs[i]; j--) &#123;</span><br><span class="line">                <span class="comment">// 考虑当前研究材料选择和不选择的情况，选择最大值</span></span><br><span class="line">                dp[j] = Math.max(dp[j], dp[j - costs[i]] + values[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 输出 dp[N]，即在给定 N 行李空间可以携带的研究材料的最大价值</span></span><br><span class="line">        System.out.println(dp[N]);</span><br><span class="line"></span><br><span class="line">        scanner.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
     
       
       
-    <summary type="html">&lt;h1 id=&quot;动态规划01背包理论基础&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#动态规划01背包理论基础&quot;&gt;&lt;/a&gt; 动态规划：01背包理论基础&lt;/h1&gt;
-&lt;h2 id=&quot;背包分类图&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; </summary>
+    <summary type="html">&lt;h1 id=&quot;动态规划-01背包理论基础二&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#动态规划-01背包理论基础二&quot;&gt;&lt;/a&gt; 动态规划-01背包理论基础(二)&lt;/h1&gt;
+&lt;p&gt;上一篇我们提到了01背包的二维的dp数组，这篇我们就来说一说01背包</summary>
       
     
     
@@ -37,16 +37,47 @@
     <category term="01背包" scheme="http://example.com/categories/01%E8%83%8C%E5%8C%85/"/>
     
     
+    <category term="Java" scheme="http://example.com/tags/Java/"/>
+    
     <category term="dp" scheme="http://example.com/tags/dp/"/>
     
+    <category term="一维数组" scheme="http://example.com/tags/%E4%B8%80%E7%BB%B4%E6%95%B0%E7%BB%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>动态规划-01背包理论基础(一)</title>
+    <link href="http://example.com/2024/12/05/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-01%E8%83%8C%E5%8C%85%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/"/>
+    <id>http://example.com/2024/12/05/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-01%E8%83%8C%E5%8C%85%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/</id>
+    <published>2024-12-05T11:11:12.000Z</published>
+    <updated>2024-12-06T11:10:58.141Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="动态规划01背包理论基础一"><a class="markdownIt-Anchor" href="#动态规划01背包理论基础一"></a> 动态规划：01背包理论基础(一)</h1><h2 id="背包分类图"><a class="markdownIt-Anchor" href="#背包分类图"></a> 背包分类图</h2><p><img src="/img/timu/01-1.png" alt="01背包" title="01背包" /></p><h2 id="什么是01背包"><a class="markdownIt-Anchor" href="#什么是01背包"></a> 什么是01背包？</h2><h3 id="01背包"><a class="markdownIt-Anchor" href="#01背包"></a> 01背包</h3><p>有<code>n</code>件物品和一个最多能背重量为<code>w</code>的背包。第i件物品的重量是<code>weight[i]</code>，得到的价值是<code>value[i]</code> 。每件物品只能用一次，求解将哪些物品装入背包里物品价值总和最大。</p><h3 id="关于其他背包"><a class="markdownIt-Anchor" href="#关于其他背包"></a> 关于其他背包</h3><ul><li>除01背包以外其他类型的背包，面试几乎不会问，都是竞赛级别的了，leetcode上连多重背包的题目都没有，所以题库也告诉我们，01背包和完全背包就够用了。</li><li>而完全背包又是也是01背包稍作变化而来，即：完全背包的物品数量是无限的。</li><li><strong>所以背包问题的理论基础重中之重是01背包，一定要理解透！</strong></li></ul><h2 id="举个栗子"><a class="markdownIt-Anchor" href="#举个栗子"></a> 举个栗子</h2><p>weight = [1, 3, 4]<br />value = [15, 20, 30]</p><blockquote><p>注：下面所出现的数字都以此例子为例</p></blockquote><h3 id="二维dp数组01背包"><a class="markdownIt-Anchor" href="#二维dp数组01背包"></a> 二维dp数组01背包</h3><p>动态规划五部曲：</p><ol><li>确定dp数组以及下标的含义</li></ol><p>我们有两个维度需要分别表示：物品和背包容量，即有0-i个放入j容量的背包所拿到的最大价值，其中0-i个物品皆可选择是否放入，且物品唯一，如下图：<br /><img src="/img/timu/01-2.png" alt="01背包" title="01背包" /><br />（如果想用j 表示物品，j表示背包容量 行不行？ 都可以的，个人习惯而已）<br />然后我们来逐一分析一下：</p><p><strong>首先是把物品0放入背包的情况，weight[0] = 1, value[0] = 15:</strong><br /><img src="/img/timu/01-3.png" alt="01背包" title="01背包" /><br />背包容量为0，放不下物品0，此时背包里的价值为0。</p><p>背包容量为1，可以放下物品0，此时背包里的价值为15.</p><p>背包容量为2，依然可以放下物品0 （注意 01背包里物品只有一个），此时背包里的价值为15。<br />以此类推。</p><p><strong>然后是0物品和1物品同时有的情况：</strong><br /><img src="/img/timu/01-4.png" alt="01背包" title="01背包" /><br />背包容量为 0，放不下物品0 或者物品1，此时背包里的价值为0。<br />背包容量为 1，只能放下物品0，背包里的价值为15。</p><p>背包容量为 2，只能放下物品0，背包里的价值为15。</p><p>背包容量为 3，上一行同一状态，背包只能放物品0，这次也可以选择物品1了，背包可以放物品1 或者 物品0，物品1价值更大，背包里的价值为20。</p><p>背包容量为 4，上一行同一状态，背包只能放物品0，这次也可以选择物品1了，背包可以放下物品0 和 物品1，背包价值为35。</p><p>通过这个举例，我们来进一步明确dp数组的含义。<br />即<code>dp[i][j] 表示从下标为[0-i]的物品里任意取，放进容量为j的背包，价值总和最大是多少。</code></p><ol start="2"><li>确定递推公式</li></ol><p>对于递推公式，首先我们要明确有哪些方向可以推导出<code>dp[i][j]</code>。<br />这里我们以<code>dp[1][4]</code>为例：<br />首先我们有物品0和物品1，<code>dp[1][4]</code>有两种情况：放物品1？还是不放物品1？</p><p>如果<code>不放</code>物品1，则背包价值应该为<code>dp[0][4]</code>，如果<code>放</code>物品1，则我们应该预先留出放物品1的空间，则此时的<code>j</code>为<code>4-weight[1]</code>，且我们是没有放物品1的，则此时的<code>i</code><br />为<code>i-1</code>，则我们推出了两种<code>dp[1][4]</code>的来源，此时我们只需要取其最大价值即可。即递推方程为：<br /><code>dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - weight[i]] + value[i])</code></p><ol start="3"><li>dp数组初始化<br />首先从<code>dp[i][j]</code>的定义出发，如果背包容量j为0的话，即<code>dp[i][0]</code>，无论是选取哪些物品，背包价值总和一定为0。如图：<br /><img src="/img/timu/01-5.png" alt="01背包" title="01背包" /></li></ol><p>状态转移方程 <code>dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - weight[i]] + value[i])</code>; 可以看出<code>i</code>是由 <code>i-1</code>推导出来，那么i为0的时候就一定要初始化。</p><p><code>dp[0][j]</code>，即：i为0，存放编号0的物品的时候，各个容量的背包所能存放的最大价值。</p><p>那么很明显当<code>j &lt; weight[0]</code>的时候<code>dp[0][j]</code>应该是 0，因为背包容量比编号0的物品重量还小。</p><p>当<code>j &gt;= weight[0]</code>时<code>dp[0][j]</code>应该是<code>value[0]</code>，因为背包容量放足够放编号0物品。</p><p>代码如下：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在创建数组时就已经初始为0了 ，可以省略</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; weight[<span class="number">0</span>]; j++)&#123;</span><br><span class="line">    dp[<span class="number">0</span>][j] = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> weight[<span class="number">0</span>]; j &lt;= bagWeight; j++)&#123;</span><br><span class="line">    dp[<span class="number">0</span>][j] = value[<span class="number">0</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>结果如下图：<br /><img src="/img/timu/01-06.png" alt="01背包" title="01背包" /></p><ol start="4"><li>确定遍历顺序</li></ol><p>由递推公式可知dp[i][j]由它二维数组的左上方推演而来，则其先遍历背包容量或者先遍历物品都是可以的，看自己习惯。</p><ol start="5"><li>举例推导dp数组</li></ol><p>自己在纸上推演，再来写代码,结果如图：<br /><img src="/img/timu/01-7.jpg" alt="01背包" title="01背包" /></p><blockquote><p><a href="https://kamacoder.com/problempage.php?pid=1046">01背包原题</a><br /><a href="https://www.bilibili.com/video/BV1cg411g7Y6/?vd_source=fd148478f48deef97bac8ef404e7216f">《代码随想录》算法公开课</a></p></blockquote><h3 id="代码实现"><a class="markdownIt-Anchor" href="#代码实现"></a> 代码实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">scanner</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> scanner.nextInt();</span><br><span class="line">        <span class="type">int</span> <span class="variable">bagWeight</span> <span class="operator">=</span> scanner.nextInt();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//定义两个数组用于接收给定数据</span></span><br><span class="line">        <span class="type">int</span>[] weight = <span class="keyword">new</span> <span class="title class_">int</span>[n];</span><br><span class="line">        <span class="type">int</span>[] value = <span class="keyword">new</span> <span class="title class_">int</span>[n];</span><br><span class="line"></span><br><span class="line">        <span class="comment">//接收键盘端传入的两个数组</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">            weight[i] = scanner.nextInt();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; n; ++j) &#123;</span><br><span class="line">            value[j] = scanner.nextInt();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//根据上述分析去定义dp数组</span></span><br><span class="line">        <span class="type">int</span>[][] dp = <span class="keyword">new</span> <span class="title class_">int</span>[n][bagWeight + <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        <span class="comment">//对dp数组进行初始化</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> weight[<span class="number">0</span>]; j &lt;= bagWeight; j++) &#123;</span><br><span class="line">            dp[<span class="number">0</span>][j] = value[<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//递推遍历数组</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt;= bagWeight; j++) &#123;</span><br><span class="line">                <span class="comment">//如果当前的物品重量大于背包容量，则dp取值为不放入i物品的最大价值，即dp[i][j] = dp[i - 1][j]</span></span><br><span class="line">                <span class="keyword">if</span> (j &lt; weight[i]) &#123;</span><br><span class="line">                    dp[i][j] = dp[i - <span class="number">1</span>][j];</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    dp[i][j] = Math.max(dp[i - <span class="number">1</span>][j], dp[i - <span class="number">1</span>][j - weight[i]] + value[i]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//输出结果[n-1]为从数组中任取的0-i元素，[bagWeight]为背包的最大容量，结果为最大价值</span></span><br><span class="line">        System.out.println(dp[n - <span class="number">1</span>][bagWeight]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;动态规划01背包理论基础一&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#动态规划01背包理论基础一&quot;&gt;&lt;/a&gt; 动态规划：01背包理论基础(一)&lt;/h1&gt;
+&lt;h2 id=&quot;背包分类图&quot;&gt;&lt;a class=&quot;markdownIt-Anc</summary>
+      
+    
+    
+    
+    <category term="01背包" scheme="http://example.com/categories/01%E8%83%8C%E5%8C%85/"/>
+    
+    
     <category term="Java" scheme="http://example.com/tags/Java/"/>
+    
+    <category term="dp" scheme="http://example.com/tags/dp/"/>
+    
+    <category term="二维数组" scheme="http://example.com/tags/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84/"/>
     
   </entry>
   
   <entry>
     <title>LeetCode-不同路径</title>
-    <link href="http://example.com/2024/12/02/LeetCode-%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/"/>
-    <id>http://example.com/2024/12/02/LeetCode-%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/</id>
+    <link href="http://example.com/2024/12/02/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/LeetCode-%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/"/>
+    <id>http://example.com/2024/12/02/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/LeetCode-%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/</id>
     <published>2024-12-02T08:26:40.000Z</published>
     <updated>2024-12-02T12:57:12.973Z</updated>
     
@@ -64,9 +95,9 @@
     <category term="动态规划" scheme="http://example.com/categories/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
     
-    <category term="dp" scheme="http://example.com/tags/dp/"/>
-    
     <category term="Java" scheme="http://example.com/tags/Java/"/>
+    
+    <category term="dp" scheme="http://example.com/tags/dp/"/>
     
     <category term="LeetCode" scheme="http://example.com/tags/LeetCode/"/>
     
@@ -74,8 +105,8 @@
   
   <entry>
     <title>LeetCode-爬楼梯</title>
-    <link href="http://example.com/2024/11/30/LeetCode-%E7%88%AC%E6%A5%BC%E6%A2%AF/"/>
-    <id>http://example.com/2024/11/30/LeetCode-%E7%88%AC%E6%A5%BC%E6%A2%AF/</id>
+    <link href="http://example.com/2024/11/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/LeetCode-%E7%88%AC%E6%A5%BC%E6%A2%AF/"/>
+    <id>http://example.com/2024/11/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/LeetCode-%E7%88%AC%E6%A5%BC%E6%A2%AF/</id>
     <published>2024-11-30T11:00:12.000Z</published>
     <updated>2024-12-02T09:29:00.857Z</updated>
     
@@ -93,16 +124,16 @@
     <category term="动态规划" scheme="http://example.com/categories/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
     
-    <category term="dp" scheme="http://example.com/tags/dp/"/>
-    
     <category term="Java" scheme="http://example.com/tags/Java/"/>
+    
+    <category term="dp" scheme="http://example.com/tags/dp/"/>
     
   </entry>
   
   <entry>
     <title>动态规划入门</title>
-    <link href="http://example.com/2024/11/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%85%A5%E9%97%A8/"/>
-    <id>http://example.com/2024/11/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%85%A5%E9%97%A8/</id>
+    <link href="http://example.com/2024/11/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%85%A5%E9%97%A8/"/>
+    <id>http://example.com/2024/11/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%85%A5%E9%97%A8/</id>
     <published>2024-11-30T03:08:07.000Z</published>
     <updated>2024-11-30T04:58:58.152Z</updated>
     
@@ -122,16 +153,16 @@
     
     <category term="Java" scheme="http://example.com/tags/Java/"/>
     
-    <category term="斐波那契数" scheme="http://example.com/tags/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0/"/>
-    
     <category term="新手教程" scheme="http://example.com/tags/%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="斐波那契数" scheme="http://example.com/tags/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0/"/>
     
   </entry>
   
   <entry>
     <title>一维与二维前缀和与差分</title>
-    <link href="http://example.com/2024/11/29/%E4%B8%80%E7%BB%B4%E4%B8%8E%E4%BA%8C%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/"/>
-    <id>http://example.com/2024/11/29/%E4%B8%80%E7%BB%B4%E4%B8%8E%E4%BA%8C%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/</id>
+    <link href="http://example.com/2024/11/29/%E5%85%B6%E4%BB%96/%E4%B8%80%E7%BB%B4%E4%B8%8E%E4%BA%8C%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/"/>
+    <id>http://example.com/2024/11/29/%E5%85%B6%E4%BB%96/%E4%B8%80%E7%BB%B4%E4%B8%8E%E4%BA%8C%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/</id>
     <published>2024-11-29T08:00:12.000Z</published>
     <updated>2024-11-29T12:12:58.428Z</updated>
     
@@ -161,8 +192,8 @@
   
   <entry>
     <title>跳跃游戏</title>
-    <link href="http://example.com/2024/11/29/%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F/"/>
-    <id>http://example.com/2024/11/29/%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F/</id>
+    <link href="http://example.com/2024/11/29/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F/"/>
+    <id>http://example.com/2024/11/29/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F/</id>
     <published>2024-11-29T06:04:37.000Z</published>
     <updated>2024-11-29T15:25:19.374Z</updated>
     
@@ -189,8 +220,8 @@
   
   <entry>
     <title>买卖股票的最佳时机II</title>
-    <link href="http://example.com/2024/11/29/%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BAII/"/>
-    <id>http://example.com/2024/11/29/%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BAII/</id>
+    <link href="http://example.com/2024/11/29/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BAII/"/>
+    <id>http://example.com/2024/11/29/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BAII/</id>
     <published>2024-11-29T05:08:35.000Z</published>
     <updated>2024-11-29T05:29:50.383Z</updated>
     
@@ -216,8 +247,8 @@
   
   <entry>
     <title>最大子序和</title>
-    <link href="http://example.com/2024/11/29/%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C/"/>
-    <id>http://example.com/2024/11/29/%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C/</id>
+    <link href="http://example.com/2024/11/29/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C/"/>
+    <id>http://example.com/2024/11/29/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C/</id>
     <published>2024-11-29T02:16:07.000Z</published>
     <updated>2024-11-29T03:05:10.230Z</updated>
     
@@ -244,8 +275,8 @@
   
   <entry>
     <title>摆动序列</title>
-    <link href="http://example.com/2024/11/28/%E6%91%86%E5%8A%A8%E5%BA%8F%E5%88%97/"/>
-    <id>http://example.com/2024/11/28/%E6%91%86%E5%8A%A8%E5%BA%8F%E5%88%97/</id>
+    <link href="http://example.com/2024/11/28/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/%E6%91%86%E5%8A%A8%E5%BA%8F%E5%88%97/"/>
+    <id>http://example.com/2024/11/28/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/%E6%91%86%E5%8A%A8%E5%BA%8F%E5%88%97/</id>
     <published>2024-11-28T14:28:16.000Z</published>
     <updated>2024-11-28T15:32:13.710Z</updated>
     
@@ -271,8 +302,8 @@
   
   <entry>
     <title>贪心算法-分发饼干</title>
-    <link href="http://example.com/2024/11/28/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95-%E5%88%86%E5%8F%91%E9%A5%BC%E5%B9%B2/"/>
-    <id>http://example.com/2024/11/28/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95-%E5%88%86%E5%8F%91%E9%A5%BC%E5%B9%B2/</id>
+    <link href="http://example.com/2024/11/28/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95-%E5%88%86%E5%8F%91%E9%A5%BC%E5%B9%B2/"/>
+    <id>http://example.com/2024/11/28/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95-%E5%88%86%E5%8F%91%E9%A5%BC%E5%B9%B2/</id>
     <published>2024-11-28T04:46:02.000Z</published>
     <updated>2024-11-28T05:28:54.105Z</updated>
     
@@ -300,8 +331,8 @@
   
   <entry>
     <title>修剪二叉搜索树</title>
-    <link href="http://example.com/2024/11/27/%E4%BF%AE%E5%89%AA%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/"/>
-    <id>http://example.com/2024/11/27/%E4%BF%AE%E5%89%AA%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/</id>
+    <link href="http://example.com/2024/11/27/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BF%AE%E5%89%AA%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/"/>
+    <id>http://example.com/2024/11/27/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BF%AE%E5%89%AA%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/</id>
     <published>2024-11-27T05:42:05.000Z</published>
     <updated>2024-11-27T11:32:27.734Z</updated>
     
@@ -319,9 +350,9 @@
     <category term="二叉树" scheme="http://example.com/categories/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     
     
-    <category term="Java" scheme="http://example.com/tags/Java/"/>
-    
     <category term="二叉树" scheme="http://example.com/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    
+    <category term="Java" scheme="http://example.com/tags/Java/"/>
     
     <category term="搜索二叉树" scheme="http://example.com/tags/%E6%90%9C%E7%B4%A2%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     
@@ -329,8 +360,8 @@
   
   <entry>
     <title>删除二叉搜索树中的节点</title>
-    <link href="http://example.com/2024/11/27/%E5%88%A0%E9%99%A4%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/"/>
-    <id>http://example.com/2024/11/27/%E5%88%A0%E9%99%A4%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/</id>
+    <link href="http://example.com/2024/11/27/%E4%BA%8C%E5%8F%89%E6%A0%91/%E5%88%A0%E9%99%A4%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/"/>
+    <id>http://example.com/2024/11/27/%E4%BA%8C%E5%8F%89%E6%A0%91/%E5%88%A0%E9%99%A4%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/</id>
     <published>2024-11-27T02:52:43.000Z</published>
     <updated>2024-11-27T04:59:30.008Z</updated>
     
@@ -348,9 +379,9 @@
     <category term="二叉树" scheme="http://example.com/categories/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     
     
-    <category term="Java" scheme="http://example.com/tags/Java/"/>
-    
     <category term="二叉树" scheme="http://example.com/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    
+    <category term="Java" scheme="http://example.com/tags/Java/"/>
     
     <category term="搜索二叉树" scheme="http://example.com/tags/%E6%90%9C%E7%B4%A2%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     
@@ -358,8 +389,8 @@
   
   <entry>
     <title>二叉搜索树中的插入操作</title>
-    <link href="http://example.com/2024/11/26/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%AD%E7%9A%84%E6%8F%92%E5%85%A5%E6%93%8D%E4%BD%9C/"/>
-    <id>http://example.com/2024/11/26/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%AD%E7%9A%84%E6%8F%92%E5%85%A5%E6%93%8D%E4%BD%9C/</id>
+    <link href="http://example.com/2024/11/26/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%AD%E7%9A%84%E6%8F%92%E5%85%A5%E6%93%8D%E4%BD%9C/"/>
+    <id>http://example.com/2024/11/26/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%AD%E7%9A%84%E6%8F%92%E5%85%A5%E6%93%8D%E4%BD%9C/</id>
     <published>2024-11-26T12:29:25.000Z</published>
     <updated>2024-11-27T00:51:04.314Z</updated>
     
@@ -377,9 +408,9 @@
     <category term="二叉树" scheme="http://example.com/categories/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     
     
-    <category term="Java" scheme="http://example.com/tags/Java/"/>
-    
     <category term="二叉树" scheme="http://example.com/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    
+    <category term="Java" scheme="http://example.com/tags/Java/"/>
     
     <category term="搜索二叉树" scheme="http://example.com/tags/%E6%90%9C%E7%B4%A2%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     
@@ -387,8 +418,8 @@
   
   <entry>
     <title>第一个Java程序</title>
-    <link href="http://example.com/2024/11/26/%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F/"/>
-    <id>http://example.com/2024/11/26/%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F/</id>
+    <link href="http://example.com/2024/11/26/%E5%85%B6%E4%BB%96/%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F/"/>
+    <id>http://example.com/2024/11/26/%E5%85%B6%E4%BB%96/%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F/</id>
     <published>2024-11-26T07:42:52.000Z</published>
     <updated>2024-11-26T12:36:09.332Z</updated>
     
