@@ -153,9 +153,9 @@
     
     <category term="Java" scheme="http://example.com/tags/Java/"/>
     
-    <category term="斐波那契数" scheme="http://example.com/tags/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0/"/>
-    
     <category term="新手教程" scheme="http://example.com/tags/%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="斐波那契数" scheme="http://example.com/tags/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0/"/>
     
   </entry>
   
@@ -212,9 +212,9 @@
     <category term="二叉树" scheme="http://example.com/categories/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     
     
-    <category term="Java" scheme="http://example.com/tags/Java/"/>
-    
     <category term="贪心算法" scheme="http://example.com/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="Java" scheme="http://example.com/tags/Java/"/>
     
   </entry>
   
@@ -239,9 +239,9 @@
     <category term="贪心算法" scheme="http://example.com/categories/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
     
     
-    <category term="Java" scheme="http://example.com/tags/Java/"/>
-    
     <category term="贪心算法" scheme="http://example.com/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="Java" scheme="http://example.com/tags/Java/"/>
     
   </entry>
   
@@ -267,9 +267,9 @@
     <category term="贪心算法" scheme="http://example.com/categories/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
     
     
-    <category term="Java" scheme="http://example.com/tags/Java/"/>
-    
     <category term="贪心算法" scheme="http://example.com/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="Java" scheme="http://example.com/tags/Java/"/>
     
   </entry>
   
@@ -294,9 +294,9 @@
     <category term="贪心算法" scheme="http://example.com/categories/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
     
     
-    <category term="Java" scheme="http://example.com/tags/Java/"/>
-    
     <category term="贪心算法" scheme="http://example.com/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="Java" scheme="http://example.com/tags/Java/"/>
     
   </entry>
   
@@ -323,9 +323,9 @@
     <category term="贪心算法" scheme="http://example.com/categories/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
     
     
-    <category term="Java" scheme="http://example.com/tags/Java/"/>
-    
     <category term="贪心算法" scheme="http://example.com/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="Java" scheme="http://example.com/tags/Java/"/>
     
   </entry>
   
@@ -350,9 +350,9 @@
     <category term="二叉树" scheme="http://example.com/categories/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     
     
-    <category term="二叉树" scheme="http://example.com/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
-    
     <category term="Java" scheme="http://example.com/tags/Java/"/>
+    
+    <category term="二叉树" scheme="http://example.com/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     
     <category term="搜索二叉树" scheme="http://example.com/tags/%E6%90%9C%E7%B4%A2%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     
@@ -379,9 +379,9 @@
     <category term="二叉树" scheme="http://example.com/categories/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     
     
-    <category term="二叉树" scheme="http://example.com/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
-    
     <category term="Java" scheme="http://example.com/tags/Java/"/>
+    
+    <category term="二叉树" scheme="http://example.com/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     
     <category term="搜索二叉树" scheme="http://example.com/tags/%E6%90%9C%E7%B4%A2%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     
@@ -408,9 +408,9 @@
     <category term="二叉树" scheme="http://example.com/categories/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     
     
-    <category term="二叉树" scheme="http://example.com/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
-    
     <category term="Java" scheme="http://example.com/tags/Java/"/>
+    
+    <category term="二叉树" scheme="http://example.com/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     
     <category term="搜索二叉树" scheme="http://example.com/tags/%E6%90%9C%E7%B4%A2%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     
