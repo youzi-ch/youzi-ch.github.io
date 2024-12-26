@@ -14,7 +14,7 @@
   
   
   <title>
-    贪心算法-分发饼干 |
+    LeetCode-最后一块石头的重量II |
     
     辞辞不吃糖
   </title>
@@ -29,21 +29,21 @@
 
   
   
-    <meta name="description" content="什么是贪心算法  贪心的本质是选择每一阶段的局部最优，从而达到全局最优。 例如有一堆不同数额的钞票，每次只能拿一张，怎么拿能取得最大数额的钞票。  方法：将钞票从大到小进行排序，每次都拿走当前堆里最大面额的钞票，即可在指定拿取次数中获得最大数额的钞票。 例如：[100, 100, 50, 20, 50, 1, 10]  排序后为：[100, 100, 50, 50, 20, 10, 1] 依次取">
+    <meta name="description" content="题目 有一堆石头，每块石头的重量都是正整数。每一回合，从中选出任意两块石头，然后将它们一起粉碎。假设石头的重量分别为 x 和 y，且 x &lt;&#x3D; y。那么粉碎的可能结果如下： 如果 x &#x3D;&#x3D; y，那么两块石头都会被完全粉碎； 如果 x !&#x3D; y，那么重量为 x 的石头将会完全粉碎，而重量为 y 的石头新重量为 y-x。 最后，最多只会剩下一块石头。返回此石头最小的可能重量。如果没有石头剩下，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="贪心算法-分发饼干">
-<meta property="og:url" content="http://example.com/2024/11/28/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95-%E5%88%86%E5%8F%91%E9%A5%BC%E5%B9%B2/index.html">
+<meta property="og:title" content="LeetCode-最后一块石头的重量II">
+<meta property="og:url" content="http://example.com/2024/12/09/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/LeetCode-%E6%9C%80%E5%90%8E%E4%B8%80%E5%9D%97%E7%9F%B3%E5%A4%B4%E7%9A%84%E9%87%8D%E9%87%8FII/index.html">
 <meta property="og:site_name" content="辞辞不吃糖">
-<meta property="og:description" content="什么是贪心算法  贪心的本质是选择每一阶段的局部最优，从而达到全局最优。 例如有一堆不同数额的钞票，每次只能拿一张，怎么拿能取得最大数额的钞票。  方法：将钞票从大到小进行排序，每次都拿走当前堆里最大面额的钞票，即可在指定拿取次数中获得最大数额的钞票。 例如：[100, 100, 50, 20, 50, 1, 10]  排序后为：[100, 100, 50, 50, 20, 10, 1] 依次取">
+<meta property="og:description" content="题目 有一堆石头，每块石头的重量都是正整数。每一回合，从中选出任意两块石头，然后将它们一起粉碎。假设石头的重量分别为 x 和 y，且 x &lt;&#x3D; y。那么粉碎的可能结果如下： 如果 x &#x3D;&#x3D; y，那么两块石头都会被完全粉碎； 如果 x !&#x3D; y，那么重量为 x 的石头将会完全粉碎，而重量为 y 的石头新重量为 y-x。 最后，最多只会剩下一块石头。返回此石头最小的可能重量。如果没有石头剩下，">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/timu/455-1.png">
-<meta property="article:published_time" content="2024-11-28T04:46:02.000Z">
-<meta property="article:modified_time" content="2024-11-28T05:28:54.105Z">
+<meta property="og:image" content="http://example.com/img/timu/1049-1.jpg">
+<meta property="article:published_time" content="2024-12-09T05:27:39.000Z">
+<meta property="article:modified_time" content="2024-12-26T02:40:01.332Z">
 <meta property="article:author" content="辞辞">
 <meta property="article:tag" content="Java">
-<meta property="article:tag" content="贪心算法">
+<meta property="article:tag" content="dp">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/img/timu/455-1.png">
+<meta name="twitter:image" content="http://example.com/img/timu/1049-1.jpg">
   
   
     <link rel="alternate" href="/atom.xml" title="辞辞不吃糖" type="application/atom+xml">
@@ -161,7 +161,7 @@
 </div>
 <header id="header">
   
-    <img fetchpriority="high" src="/img/fengmian/qqq.jpg" alt="贪心算法-分发饼干">
+    <img fetchpriority="high" src="/img/fengmian/b7.jpg" alt="LeetCode-最后一块石头的重量II">
   
   <div id="header-outer">
     <div id="header-title">
@@ -169,7 +169,7 @@
         
         
           <a href="/" id="logo">
-            <h1 data-aos="slide-up">贪心算法-分发饼干</h1>
+            <h1 data-aos="slide-up">LeetCode-最后一块石头的重量II</h1>
           </a>
         
       
@@ -185,19 +185,19 @@
 
         <div id="content">
           
-          <section id="main"><article id="post-贪心算法/贪心算法-分发饼干" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main"><article id="post-动态规划/LeetCode-最后一块石头的重量II" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <div class="article-date">
-  <a href="/2024/11/28/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95-%E5%88%86%E5%8F%91%E9%A5%BC%E5%B9%B2/" class="article-date-link" data-aos="zoom-in">
-    <time datetime="2024-11-28T04:46:02.000Z" itemprop="datePublished">2024-11-28</time>
-    <time style="display: none;" id="post-update-time">2024-11-28</time>
+  <a href="/2024/12/09/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/LeetCode-%E6%9C%80%E5%90%8E%E4%B8%80%E5%9D%97%E7%9F%B3%E5%A4%B4%E7%9A%84%E9%87%8D%E9%87%8FII/" class="article-date-link" data-aos="zoom-in">
+    <time datetime="2024-12-09T05:27:39.000Z" itemprop="datePublished">2024-12-09</time>
+    <time style="display: none;" id="post-update-time">2024-12-26</time>
   </a>
 </div>
 
       
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" data-aos="zoom-in">贪心算法</a>
+    <a class="article-category-link" href="/categories/01%E8%83%8C%E5%8C%85/" data-aos="zoom-in">01背包</a>
   </div>
 
 
@@ -210,61 +210,63 @@
         <blockquote id="outdate-blockquote" style="display: none;"><p></p></blockquote>
       
       
-        <h1 id="什么是贪心算法"><a class="markdownIt-Anchor" href="#什么是贪心算法"></a> 什么是贪心算法</h1>
-<ul>
-<li>贪心的本质是选择每一阶段的局部最优，从而达到全局最优。</li>
-<li>例如有一堆不同数额的钞票，每次只能拿一张，怎么拿能取得最大数额的钞票。
-<ul>
-<li>方法：将钞票从大到小进行排序，每次都拿走当前堆里最大面额的钞票，即可在指定拿取次数中获得最大数额的钞票。</li>
-<li>例如：[100, 100, 50, 20, 50, 1, 10]
-<ul>
-<li>排序后为：[100, 100, 50, 50, 20, 10, 1]</li>
-<li>依次取数组中的最大值进行累加</li>
-<li>取完指定次数后，累加值即为最优解</li>
-</ul>
-</li>
-<li>在这个过程中，每次取最大面额的钞票为<code>局部最优</code>，通过每次获得<code>局部最优</code>得到的结果即为<code>全局最优</code>。</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>注意：贪心算法并没有固定套路，也没有固定策略，贪心算法有时候就是常识的推导，所以认为本应该这么做！</p>
-</blockquote>
-<h1 id="小题一道-分发饼干"><a class="markdownIt-Anchor" href="#小题一道-分发饼干"></a> 小题一道-分发饼干</h1>
-<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
-<p>假设你是一位很棒的家长，想要给你的孩子们一些小饼干。但是，每个孩子最多只能给一块饼干。</p>
-<p>对每个孩子<code>i</code>，都有一个胃口值<code>g[i]</code>，这是能让孩子们满足胃口的饼干的最小尺寸；并且每块饼干<code>j</code>，都有一个尺寸 <code>s[j]</code> 。如果 <code>s[j] &gt;= g[i]</code>，我们可以将这个饼干<code>j</code> 分配给孩子<code>i</code>，这个孩子会得到满足。你的目标是尽可能满足越多数量的孩子，并输出这个最大数值。</p>
-<blockquote>
+        <h1 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h1>
+<p>有一堆石头，每块石头的重量都是正整数。每一回合，从中选出任意两块石头，然后将它们一起粉碎。假设石头的重量分别为 x 和 y，且 x &lt;= y。那么粉碎的可能结果如下：</p>
+<p>如果 x == y，那么两块石头都会被完全粉碎；</p>
+<p>如果 x != y，那么重量为 x 的石头将会完全粉碎，而重量为 y 的石头新重量为 y-x。</p>
+<p>最后，最多只会剩下一块石头。返回此石头最小的可能重量。如果没有石头剩下，就返回 0。</p>
 <p>示例1</p>
 <ul>
-<li>输入: g = [1,2,3], s = [1,1]</li>
-<li>输出: 1</li>
-<li>解释:你有三个孩子和两块小饼干，3 个孩子的胃口值分别是：1,2,3。虽然你有两块小饼干，由于他们的尺寸都是 1，你只能让胃口值是 1 的孩子满足。所以你应该输出 1。</li>
-</ul>
-</blockquote>
-<blockquote>
-<p>示例2</p>
+<li>输入：[2,7,4,1,8,1]</li>
+<li>输出：1</li>
+<li>解释：
 <ul>
-<li>输入: g = [1,2], s = [1,2,3]</li>
-<li>输出: 2</li>
-<li>解释:你有两个孩子和三块小饼干，2 个孩子的胃口值分别是 1,2。你拥有的饼干数量和尺寸都足以让所有孩子满足。所以你应该输出 2.</li>
+<li>组合 2 和 4，得到 2，所以数组转化为 [2,7,1,8,1]，</li>
+<li>组合 7 和 8，得到 1，所以数组转化为 [2,1,1,1]，</li>
+<li>组合 2 和 1，得到 1，所以数组转化为 [1,1,1]，</li>
+<li>组合 1 和 1，得到 0，所以数组转化为 [1]，这就是最优值。</li>
 </ul>
-</blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1MM411b7cq/">《代码随想录》算法公开课</a></p>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/assign-cookies/description/">力扣题目链接</a></p>
-<h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2>
-<ul>
-<li>首先，每个孩子只能获得一块饼干，大尺寸的饼干能满足对于饼干需求小于等于该尺寸的孩子</li>
-<li>为了减少饼干的浪费，这里我们优先考虑将大尺寸的饼干给到胃口大的孩子</li>
-<li>即此处的<code>局部最优</code>便是，将大尺寸的饼干分给胃口大的孩子，<code>全局最优</code>便是尽量喂饱更多孩子<br />
-<img src="/img/timu/455-1.png" alt="分发饼干-代码随想录" title="分发饼干" /></li>
+</li>
 </ul>
-<h1 id="代码实现"><a class="markdownIt-Anchor" href="#代码实现"></a> 代码实现</h1>
-<h2 id="优先考虑胃口先喂饱大胃口的孩子"><a class="markdownIt-Anchor" href="#优先考虑胃口先喂饱大胃口的孩子"></a> 优先考虑胃口，先喂饱大胃口的孩子</h2>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="comment">//优先考虑胃口，先喂饱大胃口</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">findContentChildren</span><span class="params">(<span class="type">int</span>[] g, <span class="type">int</span>[] s)</span> &#123;</span><br><span class="line">        Arrays.sort(g);<span class="comment">//对两个数组进行升序排序</span></span><br><span class="line">        Arrays.sort(s);</span><br><span class="line">        <span class="comment">//count统计被喂饱的孩子</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//饼干尺寸从大到小进行与孩子胃口匹配</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">start</span> <span class="operator">=</span> s.length - <span class="number">1</span>;</span><br><span class="line">        <span class="comment">// 遍历胃口</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> g.length - <span class="number">1</span>; index &gt;= <span class="number">0</span>; index--) &#123;</span><br><span class="line">            <span class="comment">//start &gt;= 0为了防止数组越界错误</span></span><br><span class="line">            <span class="comment">//当饼干尺寸满足孩子时，将饼干分给g[index],然后饼干向更小的尺寸移动，孩子也向胃口更小的移动，如果孩子胃口大于饼干尺寸，则无法满足该孩子，直接向胃口小的孩子移动</span></span><br><span class="line">            <span class="keyword">if</span>(start &gt;= <span class="number">0</span> &amp;&amp; g[index] &lt;= s[start]) &#123;</span><br><span class="line">                start--;</span><br><span class="line">                count++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="优先考虑饼干小饼干先喂饱小胃口"><a class="markdownIt-Anchor" href="#优先考虑饼干小饼干先喂饱小胃口"></a> 优先考虑饼干，小饼干先喂饱小胃口</h2>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">findContentChildren</span><span class="params">(<span class="type">int</span>[] g, <span class="type">int</span>[] s)</span> &#123;</span><br><span class="line">        Arrays.sort(g);</span><br><span class="line">        Arrays.sort(s);</span><br><span class="line">        <span class="type">int</span> <span class="variable">start</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; s.length &amp;&amp; start &lt; g.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s[i] &gt;= g[start]) &#123;</span><br><span class="line">                start++;</span><br><span class="line">                count++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV14M411C7oV/?vd_source=fd148478f48deef97bac8ef404e7216f">《代码随想录》算法公开课</a><br />
+<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/last-stone-weight-ii/description/">力扣题目链接</a></p>
+<h1 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h1>
+<p>本题其实就是尽量让石头分成重量相同的两堆，相撞之后剩下的石头最小，这样就化解成01背包问题了，本题物品的<code>重量为stones[i]</code>，物品的<code>价值也为stones[i]</code>，对应着01背包里的物品<code>重量weight[i]</code>和 <code>物品价值value[i]</code>，与上一题分割等和子集非常相似。</p>
+<h2 id="动态规划五步曲"><a class="markdownIt-Anchor" href="#动态规划五步曲"></a> 动态规划五步曲</h2>
+<ol>
+<li>确定dp数组以及下标的含义</li>
+</ol>
+<p>dp[j]表示容量（这里说容量更形象，其实就是重量）为j的背包，最多可以背最大重量为dp[j]。</p>
+<p>可以回忆一下01背包中，dp[j]的含义，容量为j的背包，最多可以装的价值为 dp[j]。</p>
+<p>相对于 01背包，本题中，石头的重量是 stones[i]，石头的价值也是 stones[i] ，可以 “最多可以装的价值为 dp[j]” == “最多可以背的重量为dp[j]”</p>
+<ol start="2">
+<li>确定递推公式</li>
+</ol>
+<p>01背包的递推公式为：dp[j] = max(dp[j], dp[j - weight[i]] + value[i]);</p>
+<p><strong>本题则是：dp[j] = max(dp[j], dp[j - stones[i]] + stones[i]);</strong></p>
+<ol start="3">
+<li>dp数组如何初始化</li>
+</ol>
+<p>既然 dp[j]中的j表示容量，那么最大容量（重量）是多少呢，就是所有石头的重量和。</p>
+<p>可以把石头遍历一遍，计算出石头总重量 然后除2，得到dp数组的大小。</p>
+<p>接下来就是如何初始化dp[j]呢，因为重量都不会是负数，所以dp[j]都初始化为0就可以了，这样在递归公式<code>dp[j] = max(dp[j], dp[j - stones[i]] + stones[i]);</code>中dp[j]才不会初始值所覆盖。</p>
+<ol start="4">
+<li>确定遍历顺序</li>
+</ol>
+<p>如果使用一维dp数组，物品遍历的for循环放在外层，遍历背包的for循环放在内层，且内层for循环倒序遍历！</p>
+<ol start="5">
+<li>举例推导dp数组</li>
+</ol>
+<p>举例，输入：[2,4,1,1]，此时target = (2 + 4 + 1 + 1)/2 = 4 ，dp数组状态图如下<br />
+<img src="/img/timu/1049-1.jpg" alt="1049-1" title="1049-1" /></p>
+<p>最后dp[target]里是容量为target的背包所能背的最大重量。</p>
+<p>那么分成两堆石头，一堆石头的总重量是dp[target]，另一堆就是sum - dp[target]。</p>
+<p><strong>在计算target的时候，target = sum / 2 因为是向下取整，所以sum - dp[target] 一定是大于等于dp[target]的。</strong></p>
+<p>那么相撞之后剩下的最小石头重量就是 (sum - dp[target]) - dp[target]。</p>
+<h2 id="代码实现-一维数组"><a class="markdownIt-Anchor" href="#代码实现-一维数组"></a> 代码实现-一维数组</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">lastStoneWeightII</span><span class="params">(<span class="type">int</span>[] stones)</span> &#123;</span><br><span class="line">        <span class="comment">//求数组和</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i : stones) &#123;</span><br><span class="line">            sum += i;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//向下取整取得背包的最大容量</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">target</span> <span class="operator">=</span> sum &gt;&gt; <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//初始化dp数组</span></span><br><span class="line">        <span class="type">int</span>[] dp = <span class="keyword">new</span> <span class="title class_">int</span>[target + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; stones.length; i++) &#123;</span><br><span class="line">            <span class="comment">//采用倒序</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> target; j &gt;= stones[i]; j--) &#123;</span><br><span class="line">                <span class="comment">//两种情况，要么放，要么不放</span></span><br><span class="line">                dp[j] = Math.max(dp[j], dp[j - stones[i]] + stones[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> sum - <span class="number">2</span> * dp[target];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="代码实现-二维数组"><a class="markdownIt-Anchor" href="#代码实现-二维数组"></a> 代码实现-二维数组</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">lastStoneWeightII</span><span class="params">(<span class="type">int</span>[] stones)</span> &#123;</span><br><span class="line">        <span class="comment">//对数组求和</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> s : stones) &#123;</span><br><span class="line">            sum += s;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//向下取整获得背包的最大容量</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">target</span> <span class="operator">=</span> sum / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//初始化，dp[i][j]为可以放0-i物品，背包容量为j的情况下背包中的最大价值</span></span><br><span class="line">        <span class="type">int</span>[][] dp = <span class="keyword">new</span> <span class="title class_">int</span>[stones.length][target + <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        <span class="comment">//dp[i][0]默认初始化为0</span></span><br><span class="line">        <span class="comment">//dp[0][j]取决于stones[0]</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> stones[<span class="number">0</span>]; j &lt;= target; j++) &#123;</span><br><span class="line">            dp[<span class="number">0</span>][j] = stones[<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; stones.length; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">1</span>; j &lt;= target; j++) &#123;<span class="comment">//注意是等于</span></span><br><span class="line">                <span class="keyword">if</span> (j &gt;= stones[i]) &#123;</span><br><span class="line">                    <span class="comment">//不放:dp[i - 1][j] 放:dp[i - 1][j - stones[i]] + stones[i]</span></span><br><span class="line">                    dp[i][j] = Math.max(dp[i - <span class="number">1</span>][j], dp[i - <span class="number">1</span>][j - stones[i]] + stones[i]);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    dp[i][j] = dp[i - <span class="number">1</span>][j];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> (sum - dp[stones.length - <span class="number">1</span>][target]) - dp[stones.length - <span class="number">1</span>][target];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
@@ -295,8 +297,8 @@
 </div>
       
       
-        <a data-aos="zoom-in" href="/2024/11/28/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95-%E5%88%86%E5%8F%91%E9%A5%BC%E5%B9%B2/#comments" class="article-comment-link">
-          <span class="post-comments-count valine-comment-count" data-xid="/2024/11/28/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95-%E5%88%86%E5%8F%91%E9%A5%BC%E5%B9%B2/" itemprop="commentCount"></span>
+        <a data-aos="zoom-in" href="/2024/12/09/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/LeetCode-%E6%9C%80%E5%90%8E%E4%B8%80%E5%9D%97%E7%9F%B3%E5%A4%B4%E7%9A%84%E9%87%8D%E9%87%8FII/#comments" class="article-comment-link">
+          <span class="post-comments-count valine-comment-count" data-xid="/2024/12/09/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/LeetCode-%E6%9C%80%E5%90%8E%E4%B8%80%E5%9D%97%E7%9F%B3%E5%A4%B4%E7%9A%84%E9%87%8D%E9%87%8FII/" itemprop="commentCount"></span>
           留言
         </a>
       
@@ -305,7 +307,7 @@
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" rel="tag">贪心算法</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/dp/" rel="tag">dp</a></li></ul>
 
 
     </footer>
@@ -315,13 +317,13 @@
     
       <div class="article-nav-link-wrap article-nav-link-left">
         
-          <img data-src="/img/fengmian/a7.jpg" data-sizes="auto" alt="摆动序列" class="lazyload">
+          <img data-src="/img/fengmian/b7.jpg" data-sizes="auto" alt="LeetCode-目标和" class="lazyload">
         
-        <a href="/2024/11/28/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/%E6%91%86%E5%8A%A8%E5%BA%8F%E5%88%97/"></a>
+        <a href="/2024/12/25/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/LeetCode-%E7%9B%AE%E6%A0%87%E5%92%8C/"></a>
         <div class="article-nav-caption">前一篇</div>
         <h3 class="article-nav-title">
           
-            摆动序列
+            LeetCode-目标和
           
         </h3>
       </div>
@@ -329,13 +331,13 @@
     
     <div class="article-nav-link-wrap article-nav-link-right">
       
-        <img data-src="/img/fengmian/yuanqi.jpg" data-sizes="auto" alt="修剪二叉搜索树" class="lazyload">
+        <img data-src="/img/fengmian/b6.jpg" data-sizes="auto" alt="LeetCode-分割等和子集" class="lazyload">
       
-      <a href="/2024/11/27/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BF%AE%E5%89%AA%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/"></a>
+      <a href="/2024/12/09/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/LeetCode-%E5%88%86%E5%89%B2%E7%AD%89%E5%92%8C%E5%AD%90%E9%9B%86/"></a>
       <div class="article-nav-caption">后一篇</div>
       <h3 class="article-nav-title">
         
-          修剪二叉搜索树
+          LeetCode-分割等和子集
         
       </h3>
     </div>
@@ -362,7 +364,7 @@
   <h3 class="toc-title">文章目录</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text"> 什么是贪心算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B0%8F%E9%A2%98%E4%B8%80%E9%81%93-%E5%88%86%E5%8F%91%E9%A5%BC%E5%B9%B2"><span class="toc-number">2.</span> <span class="toc-text"> 小题一道-分发饼干</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">2.1.</span> <span class="toc-text"> 题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-number">2.2.</span> <span class="toc-text"> 思路</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">3.</span> <span class="toc-text"> 代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E5%85%88%E8%80%83%E8%99%91%E8%83%83%E5%8F%A3%E5%85%88%E5%96%82%E9%A5%B1%E5%A4%A7%E8%83%83%E5%8F%A3%E7%9A%84%E5%AD%A9%E5%AD%90"><span class="toc-number">3.1.</span> <span class="toc-text"> 优先考虑胃口，先喂饱大胃口的孩子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E5%85%88%E8%80%83%E8%99%91%E9%A5%BC%E5%B9%B2%E5%B0%8F%E9%A5%BC%E5%B9%B2%E5%85%88%E5%96%82%E9%A5%B1%E5%B0%8F%E8%83%83%E5%8F%A3"><span class="toc-number">3.2.</span> <span class="toc-text"> 优先考虑饼干，小饼干先喂饱小胃口</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text"> 题目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-number">2.</span> <span class="toc-text"> 思路</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%BA%94%E6%AD%A5%E6%9B%B2"><span class="toc-number">2.1.</span> <span class="toc-text"> 动态规划五步曲</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-%E4%B8%80%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-number">2.2.</span> <span class="toc-text"> 代码实现-一维数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-number">2.3.</span> <span class="toc-text"> 代码实现-二维数组</span></a></li></ol></li></ol>
       
   </div>
 </div>
@@ -486,7 +488,7 @@
   <h3 class="toc-title">文章目录</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text"> 什么是贪心算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B0%8F%E9%A2%98%E4%B8%80%E9%81%93-%E5%88%86%E5%8F%91%E9%A5%BC%E5%B9%B2"><span class="toc-number">2.</span> <span class="toc-text"> 小题一道-分发饼干</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">2.1.</span> <span class="toc-text"> 题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-number">2.2.</span> <span class="toc-text"> 思路</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">3.</span> <span class="toc-text"> 代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E5%85%88%E8%80%83%E8%99%91%E8%83%83%E5%8F%A3%E5%85%88%E5%96%82%E9%A5%B1%E5%A4%A7%E8%83%83%E5%8F%A3%E7%9A%84%E5%AD%A9%E5%AD%90"><span class="toc-number">3.1.</span> <span class="toc-text"> 优先考虑胃口，先喂饱大胃口的孩子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E5%85%88%E8%80%83%E8%99%91%E9%A5%BC%E5%B9%B2%E5%B0%8F%E9%A5%BC%E5%B9%B2%E5%85%88%E5%96%82%E9%A5%B1%E5%B0%8F%E8%83%83%E5%8F%A3"><span class="toc-number">3.2.</span> <span class="toc-text"> 优先考虑饼干，小饼干先喂饱小胃口</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text"> 题目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-number">2.</span> <span class="toc-text"> 思路</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%BA%94%E6%AD%A5%E6%9B%B2"><span class="toc-number">2.1.</span> <span class="toc-text"> 动态规划五步曲</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-%E4%B8%80%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-number">2.2.</span> <span class="toc-text"> 代码实现-一维数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-number">2.3.</span> <span class="toc-text"> 代码实现-二维数组</span></a></li></ol></li></ol>
       
   </div>
 </div>
