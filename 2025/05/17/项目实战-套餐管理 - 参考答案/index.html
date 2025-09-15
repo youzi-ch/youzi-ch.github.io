@@ -1,0 +1,1002 @@
+
+  <!DOCTYPE html>
+  <html lang="zh-CN"  >
+  <head>
+  <meta charset="utf-8">
+  
+
+  
+
+  
+
+  
+  <script>window.icon_font = '4552607_tq6stt6tcg';window.clipboard_tips = {"success":"复制成功(*^▽^*)","fail":"复制失败 (ﾟ⊿ﾟ)ﾂ","copyright":{"enable":false,"count":50,"content":"本文版权：本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！"}};window.outdate = {"enable":true,"daysAgo":180,"message":"本文最后更新于 {time}，请注意文中内容可能已经发生变化。"};</script>
+  
+  
+  <title>
+    
+    辞辞不吃糖
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media&#x3D;&#39;all&#39;">
+  
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_tq6stt6tcg.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  
+  
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+  
+  
+    <meta name="description" content="1. 新增套餐  1.1 需求分析和设计 产品原型：   业务规则：  套餐名称唯一 套餐必须属于某个分类 套餐必须包含菜品 名称、分类、价格、图片为必填项 添加菜品窗口需要根据分类类型来展示菜品 新增的套餐默认为停售状态  接口设计（共涉及到4个接口）：  根据类型查询分类（已完成） 根据分类id查询菜品 图片上传（已完成） 新增套餐    数据库设计： setmeal表为套餐表，用于存储套餐">
+<meta property="og:type" content="article">
+<meta property="og:title" content="辞辞不吃糖">
+<meta property="og:url" content="http://example.com/2025/05/17/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98-%E5%A5%97%E9%A4%90%E7%AE%A1%E7%90%86%20-%20%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88/index.html">
+<meta property="og:site_name" content="辞辞不吃糖">
+<meta property="og:description" content="1. 新增套餐  1.1 需求分析和设计 产品原型：   业务规则：  套餐名称唯一 套餐必须属于某个分类 套餐必须包含菜品 名称、分类、价格、图片为必填项 添加菜品窗口需要根据分类类型来展示菜品 新增的套餐默认为停售状态  接口设计（共涉及到4个接口）：  根据类型查询分类（已完成） 根据分类id查询菜品 图片上传（已完成） 新增套餐    数据库设计： setmeal表为套餐表，用于存储套餐">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2025/05/17/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98-%E5%A5%97%E9%A4%90%E7%AE%A1%E7%90%86%20-%20%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88/assets/image-20221018135930842.png">
+<meta property="og:image" content="http://example.com/2025/05/17/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98-%E5%A5%97%E9%A4%90%E7%AE%A1%E7%90%86%20-%20%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88/assets/image-20221018140833345.png">
+<meta property="og:image" content="http://example.com/2025/05/17/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98-%E5%A5%97%E9%A4%90%E7%AE%A1%E7%90%86%20-%20%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88/assets/image-20221018141521068.png">
+<meta property="og:image" content="http://example.com/2025/05/17/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98-%E5%A5%97%E9%A4%90%E7%AE%A1%E7%90%86%20-%20%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88/assets/image-20221018141606787.png">
+<meta property="og:image" content="http://example.com/2025/05/17/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98-%E5%A5%97%E9%A4%90%E7%AE%A1%E7%90%86%20-%20%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88/assets/image-20221018152429246.png">
+<meta property="og:image" content="http://example.com/2025/05/17/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98-%E5%A5%97%E9%A4%90%E7%AE%A1%E7%90%86%20-%20%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88/assets/image-20221018152731141.png">
+<meta property="og:image" content="http://example.com/2025/05/17/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98-%E5%A5%97%E9%A4%90%E7%AE%A1%E7%90%86%20-%20%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88/assets/image-20221018153756531.png">
+<meta property="og:image" content="http://example.com/2025/05/17/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98-%E5%A5%97%E9%A4%90%E7%AE%A1%E7%90%86%20-%20%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88/assets/image-20221018154541067.png">
+<meta property="og:image" content="http://example.com/2025/05/17/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98-%E5%A5%97%E9%A4%90%E7%AE%A1%E7%90%86%20-%20%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88/assets/image-20221018160214225.png">
+<meta property="og:image" content="http://example.com/2025/05/17/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98-%E5%A5%97%E9%A4%90%E7%AE%A1%E7%90%86%20-%20%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88/assets/image-20221018160915177.png">
+<meta property="og:image" content="http://example.com/2025/05/17/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98-%E5%A5%97%E9%A4%90%E7%AE%A1%E7%90%86%20-%20%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88/assets/image-20221018160949864.png">
+<meta property="og:image" content="http://example.com/2025/05/17/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98-%E5%A5%97%E9%A4%90%E7%AE%A1%E7%90%86%20-%20%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88/assets/image-20221018161046352.png">
+<meta property="og:image" content="http://example.com/2025/05/17/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98-%E5%A5%97%E9%A4%90%E7%AE%A1%E7%90%86%20-%20%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88/assets/image-20221018161117780.png">
+<meta property="og:image" content="http://example.com/2025/05/17/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98-%E5%A5%97%E9%A4%90%E7%AE%A1%E7%90%86%20-%20%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88/assets/image-20221018161139861.png">
+<meta property="og:image" content="http://example.com/2025/05/17/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98-%E5%A5%97%E9%A4%90%E7%AE%A1%E7%90%86%20-%20%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88/assets/image-20221018163720881.png">
+<meta property="og:image" content="http://example.com/2025/05/17/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98-%E5%A5%97%E9%A4%90%E7%AE%A1%E7%90%86%20-%20%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88/assets/image-20221018165055208.png">
+<meta property="article:published_time" content="2025-05-17T05:33:56.315Z">
+<meta property="article:modified_time" content="2023-05-15T07:19:18.000Z">
+<meta property="article:author" content="辞辞">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2025/05/17/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98-%E5%A5%97%E9%A4%90%E7%AE%A1%E7%90%86%20-%20%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88/assets/image-20221018135930842.png">
+  
+  
+    <link rel="alternate" href="/atom.xml" title="辞辞不吃糖" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  
+    
+      
+<link rel="stylesheet" href="https://npm.webcache.cn/katex@0.16.11/dist/katex.min.css">
+
+    
+  
+  
+  
+  
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+  
+  
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.0/dist/aos.css">
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+    
+  <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi">
+        <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+          <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+          <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+         M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+        </svg>
+      </div>
+      <div class="loading-word">少女祈祷中...</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var startLoading = () => {
+      time = Date.now();
+      document.getElementById('loader').classList.remove("loading");
+    }
+    var endLoading = () => {
+      if (!time) {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loader').classList.add("loading");
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          document.body.style.overflow = 'auto';
+          document.getElementById('loader').classList.add("loading");
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    document.getElementById('loader').addEventListener('click', endLoading);
+  </script>
+
+<div id="copy-tooltip" style="pointer-events: none; opacity: 0; transition: all 0.2s ease; position: fixed;top: 50%;left: 50%;z-index: 999;transform: translate(-50%, -50%);color: white;background: rgba(0, 0, 0, 0.5);padding: 10px 15px;border-radius: 10px;">
+</div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav">
+    
+      <span class="main-nav-link-wrap">
+        <div class="main-nav-icon icon-taichi"></div>
+        <a class="main-nav-link" href="/">首页</a>
+      </span>
+    
+      <span class="main-nav-link-wrap">
+        <div class="main-nav-icon icon-taichi"></div>
+        <a class="main-nav-link" href="/archives">归档</a>
+      </span>
+    
+      <span class="main-nav-link-wrap">
+        <div class="main-nav-icon icon-taichi"></div>
+        <a class="main-nav-link" href="/about">关于</a>
+      </span>
+    
+      <span class="main-nav-link-wrap">
+        <div class="main-nav-icon icon-taichi"></div>
+        <a class="main-nav-link" href="/friend">友链</a>
+      </span>
+    
+    <a id="main-nav-toggle" class="nav-icon"></a>
+  </nav>
+  <nav id="sub-nav">
+    
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅" target="_blank"></a>
+    
+    
+    
+      <a id="nav-search-btn" class="nav-icon popup-trigger" title="搜索"></a>
+    
+  </nav>
+</div>
+<header id="header">
+  
+    
+      <img fetchpriority="high" src="/images/hong.png" alt="">
+    
+  
+  <div id="header-outer">
+    <div id="header-title">
+      
+        
+        
+          <a href="/" id="logo">
+            <h1 data-aos="slide-up">辞辞不吃糖</h1>
+          </a>
+        
+      
+      
+        
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+          
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+        <div id="content">
+          
+          <section id="main"><article id="post-项目实战-套餐管理 - 参考答案" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <a href="/2025/05/17/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98-%E5%A5%97%E9%A4%90%E7%AE%A1%E7%90%86%20-%20%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88/" class="article-date-link" data-aos="zoom-in">
+    <time datetime="2025-05-17T05:33:56.315Z" itemprop="datePublished">2025-05-17</time>
+    <time style="display: none;" id="post-update-time">2023-05-15</time>
+  </a>
+</div>
+
+      
+
+    </div>
+    <div class="hr-line"></div>
+    
+
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote id="outdate-blockquote" style="display: none;"><p></p></blockquote>
+      
+      
+        <h2 id="1-新增套餐"><a class="markdownIt-Anchor" href="#1-新增套餐"></a> 1. 新增套餐</h2>
+<h3 id="11-需求分析和设计"><a class="markdownIt-Anchor" href="#11-需求分析和设计"></a> 1.1 需求分析和设计</h3>
+<p>产品原型：</p>
+<p><img src="assets/image-20221018135930842.png" alt="image-20221018135930842" /></p>
+<p><img src="assets/image-20221018140833345.png" alt="image-20221018140833345" /></p>
+<p>业务规则：</p>
+<ul>
+<li>套餐名称唯一</li>
+<li>套餐必须属于某个分类</li>
+<li>套餐必须包含菜品</li>
+<li>名称、分类、价格、图片为必填项</li>
+<li>添加菜品窗口需要根据分类类型来展示菜品</li>
+<li>新增的套餐默认为停售状态</li>
+</ul>
+<p>接口设计（共涉及到4个接口）：</p>
+<ul>
+<li>根据类型查询分类（已完成）</li>
+<li>根据分类id查询菜品</li>
+<li>图片上传（已完成）</li>
+<li>新增套餐</li>
+</ul>
+<p><img src="assets/image-20221018141521068.png" alt="image-20221018141521068" /></p>
+<p><img src="assets/image-20221018141606787.png" alt="image-20221018141606787" /></p>
+<p>数据库设计：</p>
+<p>setmeal表为套餐表，用于存储套餐的信息。具体表结构如下：</p>
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>数据类型</th>
+<th>说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>bigint</td>
+<td>主键</td>
+<td>自增</td>
+</tr>
+<tr>
+<td>name</td>
+<td>varchar(32)</td>
+<td>套餐名称</td>
+<td>唯一</td>
+</tr>
+<tr>
+<td>category_id</td>
+<td>bigint</td>
+<td>分类id</td>
+<td>逻辑外键</td>
+</tr>
+<tr>
+<td>price</td>
+<td>decimal(10,2)</td>
+<td>套餐价格</td>
+<td></td>
+</tr>
+<tr>
+<td>image</td>
+<td>varchar(255)</td>
+<td>图片路径</td>
+<td></td>
+</tr>
+<tr>
+<td>description</td>
+<td>varchar(255)</td>
+<td>套餐描述</td>
+<td></td>
+</tr>
+<tr>
+<td>status</td>
+<td>int</td>
+<td>售卖状态</td>
+<td>1起售 0停售</td>
+</tr>
+<tr>
+<td>create_time</td>
+<td>datetime</td>
+<td>创建时间</td>
+<td></td>
+</tr>
+<tr>
+<td>update_time</td>
+<td>datetime</td>
+<td>最后修改时间</td>
+<td></td>
+</tr>
+<tr>
+<td>create_user</td>
+<td>bigint</td>
+<td>创建人id</td>
+<td></td>
+</tr>
+<tr>
+<td>update_user</td>
+<td>bigint</td>
+<td>最后修改人id</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>setmeal_dish表为套餐菜品关系表，用于存储套餐和菜品的关联关系。具体表结构如下：</p>
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>数据类型</th>
+<th>说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>bigint</td>
+<td>主键</td>
+<td>自增</td>
+</tr>
+<tr>
+<td>setmeal_id</td>
+<td>bigint</td>
+<td>套餐id</td>
+<td>逻辑外键</td>
+</tr>
+<tr>
+<td>dish_id</td>
+<td>bigint</td>
+<td>菜品id</td>
+<td>逻辑外键</td>
+</tr>
+<tr>
+<td>name</td>
+<td>varchar(32)</td>
+<td>菜品名称</td>
+<td>冗余字段</td>
+</tr>
+<tr>
+<td>price</td>
+<td>decimal(10,2)</td>
+<td>菜品单价</td>
+<td>冗余字段</td>
+</tr>
+<tr>
+<td>copies</td>
+<td>int</td>
+<td>菜品份数</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="12-代码实现"><a class="markdownIt-Anchor" href="#12-代码实现"></a> 1.2 代码实现</h3>
+<h4 id="121-dishcontroller"><a class="markdownIt-Anchor" href="#121-dishcontroller"></a> 1.2.1 DishController</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 根据分类id查询菜品</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> categoryId</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">@GetMapping(&quot;/list&quot;)</span></span><br><span class="line"><span class="meta">@ApiOperation(&quot;根据分类id查询菜品&quot;)</span></span><br><span class="line"><span class="keyword">public</span> Result&lt;List&lt;Dish&gt;&gt; <span class="title function_">list</span><span class="params">(Long categoryId)</span>&#123;</span><br><span class="line">    List&lt;Dish&gt; list = dishService.list(categoryId);</span><br><span class="line">    <span class="keyword">return</span> Result.success(list);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="122-dishservice"><a class="markdownIt-Anchor" href="#122-dishservice"></a> 1.2.2 DishService</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 根据分类id查询菜品</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> categoryId</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">List&lt;Dish&gt; <span class="title function_">list</span><span class="params">(Long categoryId)</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="123-dishserviceimpl"><a class="markdownIt-Anchor" href="#123-dishserviceimpl"></a> 1.2.3 DishServiceImpl</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 根据分类id查询菜品</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> categoryId</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> List&lt;Dish&gt; <span class="title function_">list</span><span class="params">(Long categoryId)</span> &#123;</span><br><span class="line">    <span class="type">Dish</span> <span class="variable">dish</span> <span class="operator">=</span> Dish.builder()</span><br><span class="line">        .categoryId(categoryId)</span><br><span class="line">        .status(StatusConstant.ENABLE)</span><br><span class="line">        .build();</span><br><span class="line">    <span class="keyword">return</span> dishMapper.list(dish);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="124-dishmapper"><a class="markdownIt-Anchor" href="#124-dishmapper"></a> 1.2.4 DishMapper</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 动态条件查询菜品</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> dish</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">List&lt;Dish&gt; <span class="title function_">list</span><span class="params">(Dish dish)</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="125-dishmapperxml"><a class="markdownIt-Anchor" href="#125-dishmapperxml"></a> 1.2.5 DishMapper.xml</h4>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;list&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;Dish&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;Dish&quot;</span>&gt;</span></span><br><span class="line">    select * from dish</span><br><span class="line">    <span class="tag">&lt;<span class="name">where</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;name != null&quot;</span>&gt;</span></span><br><span class="line">            and name like concat(&#x27;%&#x27;,#&#123;name&#125;,&#x27;%&#x27;)</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;categoryId != null&quot;</span>&gt;</span></span><br><span class="line">            and category_id = #&#123;categoryId&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;status != null&quot;</span>&gt;</span></span><br><span class="line">            and status = #&#123;status&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">where</span>&gt;</span></span><br><span class="line">    order by create_time desc</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="126-setmealcontroller"><a class="markdownIt-Anchor" href="#126-setmealcontroller"></a> 1.2.6 SetmealController</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 套餐管理</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/admin/setmeal&quot;)</span></span><br><span class="line"><span class="meta">@Api(tags = &quot;套餐相关接口&quot;)</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SetmealController</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> SetmealService setmealService;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 新增套餐</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> setmealDTO</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@PostMapping</span></span><br><span class="line">    <span class="meta">@ApiOperation(&quot;新增套餐&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> Result <span class="title function_">save</span><span class="params">(<span class="meta">@RequestBody</span> SetmealDTO setmealDTO)</span> &#123;</span><br><span class="line">        setmealService.saveWithDish(setmealDTO);</span><br><span class="line">        <span class="keyword">return</span> Result.success();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="127-setmealservice"><a class="markdownIt-Anchor" href="#127-setmealservice"></a> 1.2.7 SetmealService</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">SetmealService</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 新增套餐，同时需要保存套餐和菜品的关联关系</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> setmealDTO</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">saveWithDish</span><span class="params">(SetmealDTO setmealDTO)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="128-setmealserviceimpl"><a class="markdownIt-Anchor" href="#128-setmealserviceimpl"></a> 1.2.8 SetmealServiceImpl</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 套餐业务实现</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SetmealServiceImpl</span> <span class="keyword">implements</span> <span class="title class_">SetmealService</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> SetmealMapper setmealMapper;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> SetmealDishMapper setmealDishMapper;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> DishMapper dishMapper;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 新增套餐，同时需要保存套餐和菜品的关联关系</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> setmealDTO</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Transactional</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">saveWithDish</span><span class="params">(SetmealDTO setmealDTO)</span> &#123;</span><br><span class="line">        <span class="type">Setmeal</span> <span class="variable">setmeal</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Setmeal</span>();</span><br><span class="line">        BeanUtils.copyProperties(setmealDTO, setmeal);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//向套餐表插入数据</span></span><br><span class="line">        setmealMapper.insert(setmeal);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取生成的套餐id</span></span><br><span class="line">        <span class="type">Long</span> <span class="variable">setmealId</span> <span class="operator">=</span> setmeal.getId();</span><br><span class="line"></span><br><span class="line">        List&lt;SetmealDish&gt; setmealDishes = setmealDTO.getSetmealDishes();</span><br><span class="line">        setmealDishes.forEach(setmealDish -&gt; &#123;</span><br><span class="line">            setmealDish.setSetmealId(setmealId);</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//保存套餐和菜品的关联关系</span></span><br><span class="line">        setmealDishMapper.insertBatch(setmealDishes);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="129-setmealmapper"><a class="markdownIt-Anchor" href="#129-setmealmapper"></a> 1.2.9 SetmealMapper</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 新增套餐</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> setmeal</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">@AutoFill(OperationType.INSERT)</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">insert</span><span class="params">(Setmeal setmeal)</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="1210-setmealmapperxml"><a class="markdownIt-Anchor" href="#1210-setmealmapperxml"></a> 1.2.10 SetmealMapper.xml</h4>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">&quot;insert&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;Setmeal&quot;</span> <span class="attr">useGeneratedKeys</span>=<span class="string">&quot;true&quot;</span> <span class="attr">keyProperty</span>=<span class="string">&quot;id&quot;</span>&gt;</span></span><br><span class="line">    insert into setmeal</span><br><span class="line">    (category_id, name, price, status, description, image, create_time, update_time, create_user, update_user)</span><br><span class="line">    values (#&#123;categoryId&#125;, #&#123;name&#125;, #&#123;price&#125;, #&#123;status&#125;, #&#123;description&#125;, #&#123;image&#125;, #&#123;createTime&#125;, #&#123;updateTime&#125;,</span><br><span class="line">    #&#123;createUser&#125;, #&#123;updateUser&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">insert</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="1211-setmealdishmapper"><a class="markdownIt-Anchor" href="#1211-setmealdishmapper"></a> 1.2.11 SetmealDishMapper</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 批量保存套餐和菜品的关联关系</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> setmealDishes</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">insertBatch</span><span class="params">(List&lt;SetmealDish&gt; setmealDishes)</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="1212-setmealdishmapperxml"><a class="markdownIt-Anchor" href="#1212-setmealdishmapperxml"></a> 1.2.12 SetmealDishMapper.xml</h4>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">&quot;insertBatch&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;list&quot;</span>&gt;</span></span><br><span class="line">    insert into setmeal_dish</span><br><span class="line">    (setmeal_id,dish_id,name,price,copies)</span><br><span class="line">    values</span><br><span class="line">    <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">&quot;setmealDishes&quot;</span> <span class="attr">item</span>=<span class="string">&quot;sd&quot;</span> <span class="attr">separator</span>=<span class="string">&quot;,&quot;</span>&gt;</span></span><br><span class="line">        (#&#123;sd.setmealId&#125;,#&#123;sd.dishId&#125;,#&#123;sd.name&#125;,#&#123;sd.price&#125;,#&#123;sd.copies&#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">insert</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="13-功能测试"><a class="markdownIt-Anchor" href="#13-功能测试"></a> 1.3 功能测试</h3>
+<p>略</p>
+<h2 id="2-套餐分页查询"><a class="markdownIt-Anchor" href="#2-套餐分页查询"></a> 2. 套餐分页查询</h2>
+<h3 id="21-需求分析和设计"><a class="markdownIt-Anchor" href="#21-需求分析和设计"></a> 2.1 需求分析和设计</h3>
+<p>产品原型：</p>
+<p><img src="assets/image-20221018152429246.png" alt="image-20221018152429246" /></p>
+<p>业务规则：</p>
+<ul>
+<li>根据页码进行分页展示</li>
+<li>每页展示10条数据</li>
+<li>可以根据需要，按照套餐名称、分类、售卖状态进行查询</li>
+</ul>
+<p>接口设计：</p>
+<p><img src="assets/image-20221018152731141.png" alt="image-20221018152731141" /></p>
+<h3 id="22-代码实现"><a class="markdownIt-Anchor" href="#22-代码实现"></a> 2.2 代码实现</h3>
+<h4 id="221-setmealcontroller"><a class="markdownIt-Anchor" href="#221-setmealcontroller"></a> 2.2.1 SetmealController</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 分页查询</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> setmealPageQueryDTO</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">@GetMapping(&quot;/page&quot;)</span></span><br><span class="line"><span class="meta">@ApiOperation(&quot;分页查询&quot;)</span></span><br><span class="line"><span class="keyword">public</span> Result&lt;PageResult&gt; <span class="title function_">page</span><span class="params">(SetmealPageQueryDTO setmealPageQueryDTO)</span> &#123;</span><br><span class="line">    <span class="type">PageResult</span> <span class="variable">pageResult</span> <span class="operator">=</span> setmealService.pageQuery(setmealPageQueryDTO);</span><br><span class="line">    <span class="keyword">return</span> Result.success(pageResult);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="222-setmealservice"><a class="markdownIt-Anchor" href="#222-setmealservice"></a> 2.2.2 SetmealService</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 分页查询</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> setmealPageQueryDTO</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">PageResult <span class="title function_">pageQuery</span><span class="params">(SetmealPageQueryDTO setmealPageQueryDTO)</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="223-setmealserviceimpl"><a class="markdownIt-Anchor" href="#223-setmealserviceimpl"></a> 2.2.3 SetmealServiceImpl</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 分页查询</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> setmealPageQueryDTO</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> PageResult <span class="title function_">pageQuery</span><span class="params">(SetmealPageQueryDTO setmealPageQueryDTO)</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">pageNum</span> <span class="operator">=</span> setmealPageQueryDTO.getPage();</span><br><span class="line">    <span class="type">int</span> <span class="variable">pageSize</span> <span class="operator">=</span> setmealPageQueryDTO.getPageSize();</span><br><span class="line"></span><br><span class="line">    PageHelper.startPage(pageNum, pageSize);</span><br><span class="line">    Page&lt;SetmealVO&gt; page = setmealMapper.pageQuery(setmealPageQueryDTO);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">PageResult</span>(page.getTotal(), page.getResult());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="224-setmealmapper"><a class="markdownIt-Anchor" href="#224-setmealmapper"></a> 2.2.4 SetmealMapper</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 分页查询</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> setmealPageQueryDTO</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">Page&lt;SetmealVO&gt; <span class="title function_">pageQuery</span><span class="params">(SetmealPageQueryDTO setmealPageQueryDTO)</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="225-setmealmapperxml"><a class="markdownIt-Anchor" href="#225-setmealmapperxml"></a> 2.2.5 SetmealMapper.xml</h4>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;pageQuery&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;com.sky.vo.SetmealVO&quot;</span>&gt;</span></span><br><span class="line">    select</span><br><span class="line">    	s.*,c.name categoryName</span><br><span class="line">    from</span><br><span class="line">    	setmeal s</span><br><span class="line">    left join</span><br><span class="line">    	category c</span><br><span class="line">    on</span><br><span class="line">    	s.category_id = c.id</span><br><span class="line">    <span class="tag">&lt;<span class="name">where</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;name != null&quot;</span>&gt;</span></span><br><span class="line">            and s.name like concat(&#x27;%&#x27;,#&#123;name&#125;,&#x27;%&#x27;)</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;status != null&quot;</span>&gt;</span></span><br><span class="line">            and s.status = #&#123;status&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;categoryId != null&quot;</span>&gt;</span></span><br><span class="line">            and s.category_id = #&#123;categoryId&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">where</span>&gt;</span></span><br><span class="line">    order by s.create_time desc</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="23-功能测试"><a class="markdownIt-Anchor" href="#23-功能测试"></a> 2.3 功能测试</h3>
+<p>略</p>
+<h2 id="3-删除套餐"><a class="markdownIt-Anchor" href="#3-删除套餐"></a> 3. 删除套餐</h2>
+<h3 id="31-需求分析和设计"><a class="markdownIt-Anchor" href="#31-需求分析和设计"></a> 3.1 需求分析和设计</h3>
+<p>产品原型：</p>
+<p><img src="assets/image-20221018153756531.png" alt="image-20221018153756531" /></p>
+<p>业务规则：</p>
+<ul>
+<li>可以一次删除一个套餐，也可以批量删除套餐</li>
+<li>起售中的套餐不能删除</li>
+</ul>
+<p>接口设计：</p>
+<p><img src="assets/image-20221018154541067.png" alt="image-20221018154541067" /></p>
+<h3 id="32-代码实现"><a class="markdownIt-Anchor" href="#32-代码实现"></a> 3.2 代码实现</h3>
+<h4 id="321-setmealcontroller"><a class="markdownIt-Anchor" href="#321-setmealcontroller"></a> 3.2.1 SetmealController</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 批量删除套餐</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> ids</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">@DeleteMapping</span></span><br><span class="line"><span class="meta">@ApiOperation(&quot;批量删除套餐&quot;)</span></span><br><span class="line"><span class="keyword">public</span> Result <span class="title function_">delete</span><span class="params">(<span class="meta">@RequestParam</span> List&lt;Long&gt; ids)</span>&#123;</span><br><span class="line">    setmealService.deleteBatch(ids);</span><br><span class="line">    <span class="keyword">return</span> Result.success();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="322-setmealservice"><a class="markdownIt-Anchor" href="#322-setmealservice"></a> 3.2.2 SetmealService</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 批量删除套餐</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> ids</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">deleteBatch</span><span class="params">(List&lt;Long&gt; ids)</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="323-setmealserviceimpl"><a class="markdownIt-Anchor" href="#323-setmealserviceimpl"></a> 3.2.3 SetmealServiceImpl</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 批量删除套餐</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> ids</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">@Transactional</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">deleteBatch</span><span class="params">(List&lt;Long&gt; ids)</span> &#123;</span><br><span class="line">    ids.forEach(id -&gt; &#123;</span><br><span class="line">        <span class="type">Setmeal</span> <span class="variable">setmeal</span> <span class="operator">=</span> setmealMapper.getById(id);</span><br><span class="line">        <span class="keyword">if</span>(StatusConstant.ENABLE == setmeal.getStatus())&#123;</span><br><span class="line">            <span class="comment">//起售中的套餐不能删除</span></span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">DeletionNotAllowedException</span>(MessageConstant.SETMEAL_ON_SALE);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    ids.forEach(setmealId -&gt; &#123;</span><br><span class="line">        <span class="comment">//删除套餐表中的数据</span></span><br><span class="line">        setmealMapper.deleteById(setmealId);</span><br><span class="line">        <span class="comment">//删除套餐菜品关系表中的数据</span></span><br><span class="line">        setmealDishMapper.deleteBySetmealId(setmealId);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="324-setmealmapper"><a class="markdownIt-Anchor" href="#324-setmealmapper"></a> 3.2.4 SetmealMapper</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 根据id查询套餐</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">@Select(&quot;select * from setmeal where id = #&#123;id&#125;&quot;)</span></span><br><span class="line">Setmeal <span class="title function_">getById</span><span class="params">(Long id)</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 根据id删除套餐</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> setmealId</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">@Delete(&quot;delete from setmeal where id = #&#123;id&#125;&quot;)</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">deleteById</span><span class="params">(Long setmealId)</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="325-setmealdishmapper"><a class="markdownIt-Anchor" href="#325-setmealdishmapper"></a> 3.2.5 SetmealDishMapper</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 根据套餐id删除套餐和菜品的关联关系</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> setmealId</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">@Delete(&quot;delete from setmeal_dish where setmeal_id = #&#123;setmealId&#125;&quot;)</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">deleteBySetmealId</span><span class="params">(Long setmealId)</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="33-功能测试"><a class="markdownIt-Anchor" href="#33-功能测试"></a> 3.3 功能测试</h3>
+<p>略</p>
+<h2 id="4-修改套餐"><a class="markdownIt-Anchor" href="#4-修改套餐"></a> 4. 修改套餐</h2>
+<h3 id="41-需求分析和设计"><a class="markdownIt-Anchor" href="#41-需求分析和设计"></a> 4.1 需求分析和设计</h3>
+<p>产品原型：</p>
+<p><img src="assets/image-20221018160214225.png" alt="image-20221018160214225" /></p>
+<p>接口设计（共涉及到5个接口）：</p>
+<ul>
+<li>根据id查询套餐</li>
+<li>根据类型查询分类（已完成）</li>
+<li>根据分类id查询菜品（已完成）</li>
+<li>图片上传（已完成）</li>
+<li>修改套餐</li>
+</ul>
+<p><img src="assets/image-20221018160915177.png" alt="image-20221018160915177" /></p>
+<p><img src="assets/image-20221018160949864.png" alt="image-20221018160949864" /></p>
+<p><img src="assets/image-20221018161046352.png" alt="image-20221018161046352" /></p>
+<p><img src="assets/image-20221018161117780.png" alt="image-20221018161117780" /></p>
+<p><img src="assets/image-20221018161139861.png" alt="image-20221018161139861" /></p>
+<h3 id="42-代码实现"><a class="markdownIt-Anchor" href="#42-代码实现"></a> 4.2 代码实现</h3>
+<h4 id="421-setmealcontroller"><a class="markdownIt-Anchor" href="#421-setmealcontroller"></a> 4.2.1 SetmealController</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 根据id查询套餐，用于修改页面回显数据</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">@GetMapping(&quot;/&#123;id&#125;&quot;)</span></span><br><span class="line"><span class="meta">@ApiOperation(&quot;根据id查询套餐&quot;)</span></span><br><span class="line"><span class="keyword">public</span> Result&lt;SetmealVO&gt; <span class="title function_">getById</span><span class="params">(<span class="meta">@PathVariable</span> Long id)</span> &#123;</span><br><span class="line">    <span class="type">SetmealVO</span> <span class="variable">setmealVO</span> <span class="operator">=</span> setmealService.getByIdWithDish(id);</span><br><span class="line">    <span class="keyword">return</span> Result.success(setmealVO);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 修改套餐</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> setmealDTO</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">@PutMapping</span></span><br><span class="line"><span class="meta">@ApiOperation(&quot;修改套餐&quot;)</span></span><br><span class="line"><span class="keyword">public</span> Result <span class="title function_">update</span><span class="params">(<span class="meta">@RequestBody</span> SetmealDTO setmealDTO)</span> &#123;</span><br><span class="line">    setmealService.update(setmealDTO);</span><br><span class="line">    <span class="keyword">return</span> Result.success();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="422-setmealservice"><a class="markdownIt-Anchor" href="#422-setmealservice"></a> 4.2.2 SetmealService</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 根据id查询套餐和关联的菜品数据</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">SetmealVO <span class="title function_">getByIdWithDish</span><span class="params">(Long id)</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 修改套餐</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> setmealDTO</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">update</span><span class="params">(SetmealDTO setmealDTO)</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="423-setmealserviceimpl"><a class="markdownIt-Anchor" href="#423-setmealserviceimpl"></a> 4.2.3 SetmealServiceImpl</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 根据id查询套餐和套餐菜品关系</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> SetmealVO <span class="title function_">getByIdWithDish</span><span class="params">(Long id)</span> &#123;</span><br><span class="line">    <span class="type">Setmeal</span> <span class="variable">setmeal</span> <span class="operator">=</span> setmealMapper.getById(id);</span><br><span class="line">    List&lt;SetmealDish&gt; setmealDishes = setmealDishMapper.getBySetmealId(id);</span><br><span class="line"></span><br><span class="line">    <span class="type">SetmealVO</span> <span class="variable">setmealVO</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SetmealVO</span>();</span><br><span class="line">    BeanUtils.copyProperties(setmeal, setmealVO);</span><br><span class="line">    setmealVO.setSetmealDishes(setmealDishes);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> setmealVO;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 修改套餐</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> setmealDTO</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">@Transactional</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">update</span><span class="params">(SetmealDTO setmealDTO)</span> &#123;</span><br><span class="line">    <span class="type">Setmeal</span> <span class="variable">setmeal</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Setmeal</span>();</span><br><span class="line">    BeanUtils.copyProperties(setmealDTO, setmeal);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//1、修改套餐表，执行update</span></span><br><span class="line">    setmealMapper.update(setmeal);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//套餐id</span></span><br><span class="line">    <span class="type">Long</span> <span class="variable">setmealId</span> <span class="operator">=</span> setmealDTO.getId();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//2、删除套餐和菜品的关联关系，操作setmeal_dish表，执行delete</span></span><br><span class="line">    setmealDishMapper.deleteBySetmealId(setmealId);</span><br><span class="line"></span><br><span class="line">    List&lt;SetmealDish&gt; setmealDishes = setmealDTO.getSetmealDishes();</span><br><span class="line">    setmealDishes.forEach(setmealDish -&gt; &#123;</span><br><span class="line">        setmealDish.setSetmealId(setmealId);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">//3、重新插入套餐和菜品的关联关系，操作setmeal_dish表，执行insert</span></span><br><span class="line">    setmealDishMapper.insertBatch(setmealDishes);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="424-setmealdishmapper"><a class="markdownIt-Anchor" href="#424-setmealdishmapper"></a> 4.2.4 SetmealDishMapper</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 根据套餐id查询套餐和菜品的关联关系</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> setmealId</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="meta">@Select(&quot;select * from setmeal_dish where setmeal_id = #&#123;setmealId&#125;&quot;)</span></span><br><span class="line">   List&lt;SetmealDish&gt; <span class="title function_">getBySetmealId</span><span class="params">(Long setmealId)</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="43-功能测试"><a class="markdownIt-Anchor" href="#43-功能测试"></a> 4.3 功能测试</h3>
+<p>略</p>
+<h2 id="5-起售停售套餐"><a class="markdownIt-Anchor" href="#5-起售停售套餐"></a> 5. 起售停售套餐</h2>
+<h3 id="51-需求分析和设计"><a class="markdownIt-Anchor" href="#51-需求分析和设计"></a> 5.1 需求分析和设计</h3>
+<p>产品原型：</p>
+<p><img src="assets/image-20221018163720881.png" alt="image-20221018163720881" /></p>
+<p>业务规则：</p>
+<ul>
+<li>可以对状态为起售的套餐进行停售操作，可以对状态为停售的套餐进行起售操作</li>
+<li>起售的套餐可以展示在用户端，停售的套餐不能展示在用户端</li>
+<li>起售套餐时，如果套餐内包含停售的菜品，则不能起售</li>
+</ul>
+<p>接口设计：</p>
+<p><img src="assets/image-20221018165055208.png" alt="image-20221018165055208" /></p>
+<h3 id="52-代码实现"><a class="markdownIt-Anchor" href="#52-代码实现"></a> 5.2 代码实现</h3>
+<h4 id="521-setmealcontroller"><a class="markdownIt-Anchor" href="#521-setmealcontroller"></a> 5.2.1 SetmealController</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 套餐起售停售</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> status</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">@PostMapping(&quot;/status/&#123;status&#125;&quot;)</span></span><br><span class="line"><span class="meta">@ApiOperation(&quot;套餐起售停售&quot;)</span></span><br><span class="line"><span class="keyword">public</span> Result <span class="title function_">startOrStop</span><span class="params">(<span class="meta">@PathVariable</span> Integer status, Long id)</span> &#123;</span><br><span class="line">    setmealService.startOrStop(status, id);</span><br><span class="line">    <span class="keyword">return</span> Result.success();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="522-setmealservice"><a class="markdownIt-Anchor" href="#522-setmealservice"></a> 5.2.2 SetmealService</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 套餐起售、停售</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> status</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> id</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">startOrStop</span><span class="params">(Integer status, Long id)</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="523-setmealserviceimpl"><a class="markdownIt-Anchor" href="#523-setmealserviceimpl"></a> 5.2.3 SetmealServiceImpl</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 套餐起售、停售</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> status</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> id</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">startOrStop</span><span class="params">(Integer status, Long id)</span> &#123;</span><br><span class="line">    <span class="comment">//起售套餐时，判断套餐内是否有停售菜品，有停售菜品提示&quot;套餐内包含未启售菜品，无法启售&quot;</span></span><br><span class="line">    <span class="keyword">if</span>(status == StatusConstant.ENABLE)&#123;</span><br><span class="line">        <span class="comment">//select a.* from dish a left join setmeal_dish b on a.id = b.dish_id where b.setmeal_id = ?</span></span><br><span class="line">        List&lt;Dish&gt; dishList = dishMapper.getBySetmealId(id);</span><br><span class="line">        <span class="keyword">if</span>(dishList != <span class="literal">null</span> &amp;&amp; dishList.size() &gt; <span class="number">0</span>)&#123;</span><br><span class="line">            dishList.forEach(dish -&gt; &#123;</span><br><span class="line">                <span class="keyword">if</span>(StatusConstant.DISABLE == dish.getStatus())&#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">SetmealEnableFailedException</span>(MessageConstant.SETMEAL_ENABLE_FAILED);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">Setmeal</span> <span class="variable">setmeal</span> <span class="operator">=</span> Setmeal.builder()</span><br><span class="line">        .id(id)</span><br><span class="line">        .status(status)</span><br><span class="line">        .build();</span><br><span class="line">    setmealMapper.update(setmeal);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="524-dishmapper"><a class="markdownIt-Anchor" href="#524-dishmapper"></a> 5.2.4 DishMapper</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 根据套餐id查询菜品</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> setmealId</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">@Select(&quot;select a.* from dish a left join setmeal_dish b on a.id = b.dish_id where b.setmeal_id = #&#123;setmealId&#125;&quot;)</span></span><br><span class="line">List&lt;Dish&gt; <span class="title function_">getBySetmealId</span><span class="params">(Long setmealId)</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="53-功能测试"><a class="markdownIt-Anchor" href="#53-功能测试"></a> 5.3 功能测试</h3>
+<p>略</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+        <div class="sponsor-wrapper">
+  <div class="sponsor-button-wrapper">
+    <div class="footer-info-sep sponsor-icon"></div>
+    <div class="sponsor-title">赞助</div>
+    <div class="footer-info-sep sponsor-icon"></div>
+  </div>
+  <div class="sponsor-tip">请作者喝杯咖啡吧！</div>
+  
+    <div class="sponsor-qr">
+      
+        <div class="sponsor-qr-image-wrapper">
+          <img src="/images/zhifubao.jpg" alt=支付宝 width="200" />
+          <p class="sponsor-qr-name">支付宝</p>
+        </div>
+      
+        <div class="sponsor-qr-image-wrapper">
+          <img src="/images/wechat.png" alt=微信 width="200" />
+          <p class="sponsor-qr-name">微信</p>
+        </div>
+      
+    </div>
+  
+</div>
+      
+      
+        <a data-aos="zoom-in" href="/2025/05/17/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98-%E5%A5%97%E9%A4%90%E7%AE%A1%E7%90%86%20-%20%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88/#comments" class="article-comment-link">
+          <span class="post-comments-count valine-comment-count" data-xid="/2025/05/17/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98-%E5%A5%97%E9%A4%90%E7%AE%A1%E7%90%86%20-%20%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88/" itemprop="commentCount"></span>
+          留言
+        </a>
+      
+      
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+  <nav id="article-nav" data-aos="fade-up">
+    
+      <div class="article-nav-link-wrap article-nav-link-left">
+        
+          
+          
+            <img data-src="https://d-sketon.top/img/backimg/bg1.jpg" data-sizes="auto" alt="" class="lazyload">
+          
+        
+        <a href="/2025/05/17/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98-%E5%A5%97%E9%A4%90%E7%AE%A1%E7%90%86/"></a>
+        <div class="article-nav-caption">前一篇</div>
+        <h3 class="article-nav-title">
+          
+            (no title)
+          
+        </h3>
+      </div>
+    
+    
+    <div class="article-nav-link-wrap article-nav-link-right">
+      
+        
+        
+          <img data-src="https://d-sketon.top/img/backimg/bg1.jpg" data-sizes="auto" alt="GUI编程-续集1" class="lazyload">
+        
+      
+      <a href="/2025/01/17/GUI%E7%BC%96%E7%A8%8B-%E7%BB%AD%E9%9B%861/"></a>
+      <div class="article-nav-caption">后一篇</div>
+      <h3 class="article-nav-title">
+        
+          GUI编程-续集1
+        
+      </h3>
+    </div>
+    
+  </nav>
+
+
+</article>
+
+  <section id="comments" class="vcomment" data-aos="fade-up"></section>
+
+
+
+
+
+
+</section>
+          
+            <aside id="sidebar">
+  <div class="sidebar-wrapper wrap-sticky">
+    <div class="sidebar-wrap" data-aos="fade-up">
+      
+        <div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">文章目录</h3>
+  <div class="sidebar-toc-wrapper toc-div-class" >
+      
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%96%B0%E5%A2%9E%E5%A5%97%E9%A4%90"><span class="toc-number">1.</span> <span class="toc-text"> 1. 新增套餐</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#11-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%92%8C%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.1.</span> <span class="toc-text"> 1.1 需求分析和设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.2.</span> <span class="toc-text"> 1.2 代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#121-dishcontroller"><span class="toc-number">1.2.1.</span> <span class="toc-text"> 1.2.1 DishController</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#122-dishservice"><span class="toc-number">1.2.2.</span> <span class="toc-text"> 1.2.2 DishService</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#123-dishserviceimpl"><span class="toc-number">1.2.3.</span> <span class="toc-text"> 1.2.3 DishServiceImpl</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#124-dishmapper"><span class="toc-number">1.2.4.</span> <span class="toc-text"> 1.2.4 DishMapper</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#125-dishmapperxml"><span class="toc-number">1.2.5.</span> <span class="toc-text"> 1.2.5 DishMapper.xml</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#126-setmealcontroller"><span class="toc-number">1.2.6.</span> <span class="toc-text"> 1.2.6 SetmealController</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#127-setmealservice"><span class="toc-number">1.2.7.</span> <span class="toc-text"> 1.2.7 SetmealService</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#128-setmealserviceimpl"><span class="toc-number">1.2.8.</span> <span class="toc-text"> 1.2.8 SetmealServiceImpl</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#129-setmealmapper"><span class="toc-number">1.2.9.</span> <span class="toc-text"> 1.2.9 SetmealMapper</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1210-setmealmapperxml"><span class="toc-number">1.2.10.</span> <span class="toc-text"> 1.2.10 SetmealMapper.xml</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1211-setmealdishmapper"><span class="toc-number">1.2.11.</span> <span class="toc-text"> 1.2.11 SetmealDishMapper</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1212-setmealdishmapperxml"><span class="toc-number">1.2.12.</span> <span class="toc-text"> 1.2.12 SetmealDishMapper.xml</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">1.3.</span> <span class="toc-text"> 1.3 功能测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%A5%97%E9%A4%90%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.</span> <span class="toc-text"> 2. 套餐分页查询</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#21-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%92%8C%E8%AE%BE%E8%AE%A1"><span class="toc-number">2.1.</span> <span class="toc-text"> 2.1 需求分析和设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#22-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.2.</span> <span class="toc-text"> 2.2 代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#221-setmealcontroller"><span class="toc-number">2.2.1.</span> <span class="toc-text"> 2.2.1 SetmealController</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#222-setmealservice"><span class="toc-number">2.2.2.</span> <span class="toc-text"> 2.2.2 SetmealService</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#223-setmealserviceimpl"><span class="toc-number">2.2.3.</span> <span class="toc-text"> 2.2.3 SetmealServiceImpl</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#224-setmealmapper"><span class="toc-number">2.2.4.</span> <span class="toc-text"> 2.2.4 SetmealMapper</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#225-setmealmapperxml"><span class="toc-number">2.2.5.</span> <span class="toc-text"> 2.2.5 SetmealMapper.xml</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#23-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">2.3.</span> <span class="toc-text"> 2.3 功能测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%88%A0%E9%99%A4%E5%A5%97%E9%A4%90"><span class="toc-number">3.</span> <span class="toc-text"> 3. 删除套餐</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#31-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%92%8C%E8%AE%BE%E8%AE%A1"><span class="toc-number">3.1.</span> <span class="toc-text"> 3.1 需求分析和设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#32-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">3.2.</span> <span class="toc-text"> 3.2 代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#321-setmealcontroller"><span class="toc-number">3.2.1.</span> <span class="toc-text"> 3.2.1 SetmealController</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#322-setmealservice"><span class="toc-number">3.2.2.</span> <span class="toc-text"> 3.2.2 SetmealService</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#323-setmealserviceimpl"><span class="toc-number">3.2.3.</span> <span class="toc-text"> 3.2.3 SetmealServiceImpl</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#324-setmealmapper"><span class="toc-number">3.2.4.</span> <span class="toc-text"> 3.2.4 SetmealMapper</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#325-setmealdishmapper"><span class="toc-number">3.2.5.</span> <span class="toc-text"> 3.2.5 SetmealDishMapper</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#33-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">3.3.</span> <span class="toc-text"> 3.3 功能测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%BF%AE%E6%94%B9%E5%A5%97%E9%A4%90"><span class="toc-number">4.</span> <span class="toc-text"> 4. 修改套餐</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#41-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%92%8C%E8%AE%BE%E8%AE%A1"><span class="toc-number">4.1.</span> <span class="toc-text"> 4.1 需求分析和设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#42-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">4.2.</span> <span class="toc-text"> 4.2 代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#421-setmealcontroller"><span class="toc-number">4.2.1.</span> <span class="toc-text"> 4.2.1 SetmealController</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#422-setmealservice"><span class="toc-number">4.2.2.</span> <span class="toc-text"> 4.2.2 SetmealService</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#423-setmealserviceimpl"><span class="toc-number">4.2.3.</span> <span class="toc-text"> 4.2.3 SetmealServiceImpl</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#424-setmealdishmapper"><span class="toc-number">4.2.4.</span> <span class="toc-text"> 4.2.4 SetmealDishMapper</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#43-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">4.3.</span> <span class="toc-text"> 4.3 功能测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%B5%B7%E5%94%AE%E5%81%9C%E5%94%AE%E5%A5%97%E9%A4%90"><span class="toc-number">5.</span> <span class="toc-text"> 5. 起售停售套餐</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#51-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%92%8C%E8%AE%BE%E8%AE%A1"><span class="toc-number">5.1.</span> <span class="toc-text"> 5.1 需求分析和设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#52-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">5.2.</span> <span class="toc-text"> 5.2 代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#521-setmealcontroller"><span class="toc-number">5.2.1.</span> <span class="toc-text"> 5.2.1 SetmealController</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#522-setmealservice"><span class="toc-number">5.2.2.</span> <span class="toc-text"> 5.2.2 SetmealService</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#523-setmealserviceimpl"><span class="toc-number">5.2.3.</span> <span class="toc-text"> 5.2.3 SetmealServiceImpl</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#524-dishmapper"><span class="toc-number">5.2.4.</span> <span class="toc-text"> 5.2.4 DishMapper</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#53-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">5.3.</span> <span class="toc-text"> 5.3 功能测试</span></a></li></ol></li></ol>
+      
+  </div>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="辞辞" class="lazyload">
+  <div class="sidebar-author-name">辞辞</div>
+  <div class="sidebar-description">永劫野排逛街大师的代码日常</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div>
+    <div class="sidebar-state-number">24</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>分类</div>
+    <div class="sidebar-state-number">7</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>标签</div>
+    <div class="sidebar-state-number">14</div>
+  </div>
+</div>
+<div class="sidebar-social">
+  
+</div>
+<div class="sidebar-menu">
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/" aria-label="首页"></a>
+      <div class="sidebar-menu-icon icon-taichi"></div>
+      <div class="sidebar-menu-link">首页</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/archives" aria-label="归档"></a>
+      <div class="sidebar-menu-icon icon-taichi"></div>
+      <div class="sidebar-menu-link">归档</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/about" aria-label="关于"></a>
+      <div class="sidebar-menu-icon icon-taichi"></div>
+      <div class="sidebar-menu-link">关于</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/friend" aria-label="友链"></a>
+      <div class="sidebar-menu-icon icon-taichi"></div>
+      <div class="sidebar-menu-link">友链</div>
+    </div>
+  
+</div>
+</div>
+      
+      
+        <div class="sidebar-btn-wrapper" style="position:static">
+          <div class="sidebar-toc-btn current"></div>
+          <div class="sidebar-common-btn"></div>
+        </div>
+      
+    </div>
+  </div>
+
+  
+</aside>
+
+          
+        </div>
+        <footer id="footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    
+    <div>
+      <span class="icon-copyright"></span>
+      2024-2025
+      <span class="footer-info-sep"></span>
+      辞辞
+    </div>
+    
+      <div>
+        基于&nbsp;<a href="https://hexo.io/" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" rel="noopener external nofollow noreferrer" target="_blank">Reimu</a>
+      </div>
+    
+    
+      <div>
+        <span class="icon-brush"></span>
+        26.8k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        01:45
+      </div>
+    
+    
+    
+    
+      <div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv">总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv">总访客量&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+      </div>
+    
+  </div>
+</footer>
+
+        <div class="sidebar-top">
+          <div class="sidebar-top-taichi"></div>
+          <div class="arrow-up"></div>
+        </div>
+        <div id="mask"></div>
+      </div>
+      <nav id="mobile-nav">
+  <div class="sidebar-wrap">
+    
+      <div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">文章目录</h3>
+  <div class="sidebar-toc-wrapper toc-div-class" >
+      
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%96%B0%E5%A2%9E%E5%A5%97%E9%A4%90"><span class="toc-number">1.</span> <span class="toc-text"> 1. 新增套餐</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#11-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%92%8C%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.1.</span> <span class="toc-text"> 1.1 需求分析和设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.2.</span> <span class="toc-text"> 1.2 代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#121-dishcontroller"><span class="toc-number">1.2.1.</span> <span class="toc-text"> 1.2.1 DishController</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#122-dishservice"><span class="toc-number">1.2.2.</span> <span class="toc-text"> 1.2.2 DishService</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#123-dishserviceimpl"><span class="toc-number">1.2.3.</span> <span class="toc-text"> 1.2.3 DishServiceImpl</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#124-dishmapper"><span class="toc-number">1.2.4.</span> <span class="toc-text"> 1.2.4 DishMapper</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#125-dishmapperxml"><span class="toc-number">1.2.5.</span> <span class="toc-text"> 1.2.5 DishMapper.xml</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#126-setmealcontroller"><span class="toc-number">1.2.6.</span> <span class="toc-text"> 1.2.6 SetmealController</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#127-setmealservice"><span class="toc-number">1.2.7.</span> <span class="toc-text"> 1.2.7 SetmealService</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#128-setmealserviceimpl"><span class="toc-number">1.2.8.</span> <span class="toc-text"> 1.2.8 SetmealServiceImpl</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#129-setmealmapper"><span class="toc-number">1.2.9.</span> <span class="toc-text"> 1.2.9 SetmealMapper</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1210-setmealmapperxml"><span class="toc-number">1.2.10.</span> <span class="toc-text"> 1.2.10 SetmealMapper.xml</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1211-setmealdishmapper"><span class="toc-number">1.2.11.</span> <span class="toc-text"> 1.2.11 SetmealDishMapper</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1212-setmealdishmapperxml"><span class="toc-number">1.2.12.</span> <span class="toc-text"> 1.2.12 SetmealDishMapper.xml</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">1.3.</span> <span class="toc-text"> 1.3 功能测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%A5%97%E9%A4%90%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.</span> <span class="toc-text"> 2. 套餐分页查询</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#21-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%92%8C%E8%AE%BE%E8%AE%A1"><span class="toc-number">2.1.</span> <span class="toc-text"> 2.1 需求分析和设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#22-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.2.</span> <span class="toc-text"> 2.2 代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#221-setmealcontroller"><span class="toc-number">2.2.1.</span> <span class="toc-text"> 2.2.1 SetmealController</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#222-setmealservice"><span class="toc-number">2.2.2.</span> <span class="toc-text"> 2.2.2 SetmealService</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#223-setmealserviceimpl"><span class="toc-number">2.2.3.</span> <span class="toc-text"> 2.2.3 SetmealServiceImpl</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#224-setmealmapper"><span class="toc-number">2.2.4.</span> <span class="toc-text"> 2.2.4 SetmealMapper</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#225-setmealmapperxml"><span class="toc-number">2.2.5.</span> <span class="toc-text"> 2.2.5 SetmealMapper.xml</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#23-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">2.3.</span> <span class="toc-text"> 2.3 功能测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%88%A0%E9%99%A4%E5%A5%97%E9%A4%90"><span class="toc-number">3.</span> <span class="toc-text"> 3. 删除套餐</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#31-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%92%8C%E8%AE%BE%E8%AE%A1"><span class="toc-number">3.1.</span> <span class="toc-text"> 3.1 需求分析和设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#32-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">3.2.</span> <span class="toc-text"> 3.2 代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#321-setmealcontroller"><span class="toc-number">3.2.1.</span> <span class="toc-text"> 3.2.1 SetmealController</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#322-setmealservice"><span class="toc-number">3.2.2.</span> <span class="toc-text"> 3.2.2 SetmealService</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#323-setmealserviceimpl"><span class="toc-number">3.2.3.</span> <span class="toc-text"> 3.2.3 SetmealServiceImpl</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#324-setmealmapper"><span class="toc-number">3.2.4.</span> <span class="toc-text"> 3.2.4 SetmealMapper</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#325-setmealdishmapper"><span class="toc-number">3.2.5.</span> <span class="toc-text"> 3.2.5 SetmealDishMapper</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#33-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">3.3.</span> <span class="toc-text"> 3.3 功能测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%BF%AE%E6%94%B9%E5%A5%97%E9%A4%90"><span class="toc-number">4.</span> <span class="toc-text"> 4. 修改套餐</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#41-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%92%8C%E8%AE%BE%E8%AE%A1"><span class="toc-number">4.1.</span> <span class="toc-text"> 4.1 需求分析和设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#42-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">4.2.</span> <span class="toc-text"> 4.2 代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#421-setmealcontroller"><span class="toc-number">4.2.1.</span> <span class="toc-text"> 4.2.1 SetmealController</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#422-setmealservice"><span class="toc-number">4.2.2.</span> <span class="toc-text"> 4.2.2 SetmealService</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#423-setmealserviceimpl"><span class="toc-number">4.2.3.</span> <span class="toc-text"> 4.2.3 SetmealServiceImpl</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#424-setmealdishmapper"><span class="toc-number">4.2.4.</span> <span class="toc-text"> 4.2.4 SetmealDishMapper</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#43-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">4.3.</span> <span class="toc-text"> 4.3 功能测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%B5%B7%E5%94%AE%E5%81%9C%E5%94%AE%E5%A5%97%E9%A4%90"><span class="toc-number">5.</span> <span class="toc-text"> 5. 起售停售套餐</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#51-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%92%8C%E8%AE%BE%E8%AE%A1"><span class="toc-number">5.1.</span> <span class="toc-text"> 5.1 需求分析和设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#52-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">5.2.</span> <span class="toc-text"> 5.2 代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#521-setmealcontroller"><span class="toc-number">5.2.1.</span> <span class="toc-text"> 5.2.1 SetmealController</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#522-setmealservice"><span class="toc-number">5.2.2.</span> <span class="toc-text"> 5.2.2 SetmealService</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#523-setmealserviceimpl"><span class="toc-number">5.2.3.</span> <span class="toc-text"> 5.2.3 SetmealServiceImpl</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#524-dishmapper"><span class="toc-number">5.2.4.</span> <span class="toc-text"> 5.2.4 DishMapper</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#53-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">5.3.</span> <span class="toc-text"> 5.3 功能测试</span></a></li></ol></li></ol>
+      
+  </div>
+</div>
+</div>
+      <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="辞辞" class="lazyload">
+  <div class="sidebar-author-name">辞辞</div>
+  <div class="sidebar-description">永劫野排逛街大师的代码日常</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div>
+    <div class="sidebar-state-number">24</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>分类</div>
+    <div class="sidebar-state-number">7</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>标签</div>
+    <div class="sidebar-state-number">14</div>
+  </div>
+</div>
+<div class="sidebar-social">
+  
+</div>
+<div class="sidebar-menu">
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/" aria-label="首页"></a>
+      <div class="sidebar-menu-icon icon-taichi"></div>
+      <div class="sidebar-menu-link">首页</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/archives" aria-label="归档"></a>
+      <div class="sidebar-menu-icon icon-taichi"></div>
+      <div class="sidebar-menu-link">归档</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/about" aria-label="关于"></a>
+      <div class="sidebar-menu-icon icon-taichi"></div>
+      <div class="sidebar-menu-link">关于</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/friend" aria-label="友链"></a>
+      <div class="sidebar-menu-icon icon-taichi"></div>
+      <div class="sidebar-menu-link">友链</div>
+    </div>
+  
+</div>
+</div>
+    
+  </div>
+  
+    <div class="sidebar-btn-wrapper">
+      <div class="sidebar-toc-btn current"></div>
+      <div class="sidebar-common-btn"></div>
+    </div>
+  
+</nav>
+
+    </div>
+    
+      <div class="site-search">
+        <div class="reimu-popup popup">
+          <div class="reimu-search">
+            <div class="reimu-search-input-icon"></div>
+            <div class="reimu-search-input" id="reimu-search-input"></div>
+            <div class="popup-btn-close"></div>
+          </div>
+          <div class="reimu-results">
+            <div id="reimu-stats"></div>
+            <div id="reimu-hits"></div>
+            <div id="reimu-pagination" class="reimu-pagination"></div>
+          </div>
+          <img class="reimu-bg" src="/images/reimu.png"/>
+        </div>
+      </div>
+    
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+
+  
+<script src="/js/generator_search.js" defer></script>
+
+
+
+
+
+
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.0.6/dist/index.umd.js" integrity="sha384-vkGvf25gm1C1PbcoD5dNfc137HzNL&#x2F;hr1RKA5HniJOaawtvUmH5lTVFgFAruE9Ge" crossorigin="anonymous"></script>
+
+  <script>
+    window.firework && window.firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["#ff5252","#ff7c7c","#ffafaf","#ffd0d0"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["#ff0000"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'))
+  </script>
+
+
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+    
+    
+      
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+      
+    
+    
+      <script type="module" data-pjax>
+        const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+        
+        const pswp = () => {
+          if (_$$('.article-entry a.article-gallery-item').length > 0) {
+            new PhotoSwipeLightbox({
+              gallery: '.article-entry',
+              children: 'a.article-gallery-item',
+              pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+            }).init();
+          }
+          if(_$$('.article-gallery a.article-gallery-item').length > 0) {
+            new PhotoSwipeLightbox({
+              gallery: '.article-gallery',
+              children: 'a.article-gallery-item',
+              pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+            }).init();
+          }
+          window.lightboxStatus = 'done';
+          window.removeEventListener('lightbox:ready', pswp);
+        }
+        if(window.lightboxStatus === 'ready') {
+          pswp()
+        } else {
+          window.addEventListener('lightbox:ready', pswp);
+        }
+      </script>
+      
+  
+<script src="https://npm.webcache.cn/valine@1.5.1/dist/Valine.min.js" integrity="sha384-3ma91AExDeMAZ1rjTjaP8V2A2obQE+s5ltKRwYlwdpArz9xVbp0tF3b0VV2ACNPn" crossorigin="anonymous" data-pjax></script>
+
+  <script data-pjax>
+    var GUEST_INFO = ['nick', 'mail', 'link'];
+    var guest_info = 'nick,mail,link'.split(',').filter((item) => {
+      return GUEST_INFO.indexOf(item) > -1
+    });
+    var recordIP = JSON.parse('true');
+    var highlight = JSON.parse('true');
+    var visitor = JSON.parse('false');
+
+    new Valine({
+      el: '.vcomment',
+      appId: "33e5HIPPSErvono4P4PzSB97-gzGzoHsz",
+      appKey: "g2TDQfziwUV7Fg7JyFNtXbnc",
+      placeholder: "Just go go",
+      pageSize: '10',
+      avatar: 'mp',
+      lang: 'zh-cn',
+      recordIP: recordIP,
+      highlight: highlight,
+      visitor: visitor,
+      requiredFields: guest_info,
+      path: window.location.pathname
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+    
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '0.3.5' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+<script data-pjax>
+  var updateTime = _$('#post-update-time')?.innerHTML;
+
+  if (updateTime) {
+    const update = new Date(updateTime);
+    const now = new Date();
+    const diff = now - update;
+    const days = diff / 86400000;
+    const { daysAgo, message: template } = window.outdate;
+    if (days >= daysAgo) {
+      const message = template.replace(/{time}/, updateTime);
+      const blockquote = _$('#outdate-blockquote');
+      if (blockquote) {
+        blockquote.querySelector('p').innerText = message;
+        blockquote.style.display = 'block';
+      }
+    }
+  }
+</script>
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" integrity="sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S" crossorigin="anonymous" async></script>
+
+
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+  </body>
+  </html>
+

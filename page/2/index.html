@@ -185,43 +185,27 @@
     <div class="post-wrapper">
   <div class="post-wrap-left" data-aos="fade-up">
     
-      <a class="post-link" href="/2024/12/09/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/LeetCode-%E5%88%86%E5%89%B2%E7%AD%89%E5%92%8C%E5%AD%90%E9%9B%86/" aria-label="LeetCode-分割等和子集"></a>
+      <a class="post-link" href="/2025/01/17/GUI%E7%BC%96%E7%A8%8B-%E7%BB%AD%E9%9B%861/" aria-label="GUI编程-续集1"></a>
     
     
     <div class="post-cover-left">
       
-        <img data-src="/img/fengmian/b6.jpg" data-sizes="auto" alt="LeetCode-分割等和子集" class="lazyload">
+        
+        
+          <img data-src="https://d-sketon.top/img/backimg/bg1.jpg" data-sizes="auto" alt="GUI编程-续集1" class="lazyload">
+        
       
     </div>
     <div class="post-info">
       <div class="post-meta">
-        <span><span class="icon-calendar"></span>2024-12-09</span>
-        <span><span class="icon-pencil"></span>1.3k 字</span>
-        <span><span class="icon-clock"></span>5 分钟</span>
+        <span><span class="icon-calendar"></span>2025-01-17</span>
+        <span><span class="icon-pencil"></span>0 字</span>
+        <span><span class="icon-clock"></span>1 分钟</span>
       </div>
-      <h2 class="post-title">LeetCode-分割等和子集</h2>
+      <h2 class="post-title">GUI编程-续集1</h2>
       <article class="post-article">
         
-           题目
-给定一个只包含正整数的非空数组。是否可以将这个数组分割成两个子集，使得两个子集的元素和相等。
-
-注：注意: 每个数组中的元素不会超过 100 数组的大小不会超过 200
-
-示例1
-
-输入: [1, 5, 11, 5]
-输出: true
-解释: 数组可以分割成 [1, 5, 5] 和 [11].
-
-示例2
-
-输入: [1, 2, 3, 5]
-输出: false
-解释: 数组不能分割成两个元素和相等的子集.
-
- 思路
-初步看这个题是要把给定数组分成两个子集，使其总和相等，那么我们只需要在集合中找出sum/2的子集总和，就可以分割成相同元素和子集了。
-！那么这道题就很适合用01背包来做了，这
+          
         
       </article>
     </div>
@@ -231,35 +215,61 @@
     <div class="post-wrapper">
   <div class="post-wrap-right" data-aos="fade-up">
     
-      <a class="post-link" href="/2024/12/06/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-01%E8%83%8C%E5%8C%85%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%802/" aria-label="动态规划-01背包理论基础(二)"></a>
+      <a class="post-link" href="/2024/12/26/%E7%8B%82%E7%A5%9E%E8%AF%BE%E7%AC%94%E8%AE%B0/GUI%E7%BC%96%E7%A8%8B/" aria-label="GUI编程"></a>
     
     
     <div class="post-cover-right">
       
-        <img data-src="/img/fengmian/b6.jpg" data-sizes="auto" alt="动态规划-01背包理论基础(二)" class="lazyload">
+        <img data-src="/img/fengmian/b8.jpg" data-sizes="auto" alt="GUI编程" class="lazyload">
       
     </div>
     <div class="post-info">
       <div class="post-meta">
-        <span><span class="icon-calendar"></span>2024-12-06</span>
-        <span><span class="icon-pencil"></span>1.7k 字</span>
-        <span><span class="icon-clock"></span>6 分钟</span>
+        <span><span class="icon-calendar"></span>2024-12-26</span>
+        <span><span class="icon-pencil"></span>1.5k 字</span>
+        <span><span class="icon-clock"></span>7 分钟</span>
       </div>
-      <h2 class="post-title">动态规划-01背包理论基础(二)</h2>
+      <h2 class="post-title">GUI编程</h2>
       <article class="post-article">
         
-           动态规划-01背包理论基础(二)
-上一篇我们提到了01背包的二维的dp数组，这篇我们就来说一说01背包的一维数组，也就是滚动数组，为什么叫滚动数组看完接下来的分析你就懂了！
-那么我们通过01背包，来彻底讲一讲滚动数组！
-接下来还是用如下这个例子来进行讲解：
+           GUI编程
+组件:
 
-weight = [1, 3, 4]
-value = [15, 20, 30]
+窗口、弹窗、面板、文本框、列表框、按钮、图片、监听事件、鼠标、键盘事件
 
- 一维dp数组（滚动数组）
-对于背包问题其实状态都是可以压缩的!
-在使用二维数组的时候，递推公式：dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - weight[i]] + value[i]);
-其实可以发现如果把dp[
+ 1、简介
+GUI的核心技术: swing 、AWT
+
+
+现在很少使用的原因
+
+界面不美观
+需要jre环境
+
+
+
+为什么还要学习？
+
+GUI是MVC框架的基础，可以了解MVC，了解监听
+可以写一些自己想要的小工具
+以后可能有极小的概率需要去维护swing界面
+
+
+
+ 2、AWT
+ 2.1、AWT介绍
+
+包含很多类和接口，可以通过查看源码去了解
+元素：窗口、按钮、文本框…
+java.awt
+
+
+ 2.2、组件与容器
+ 1、Frame
+
+创建一个弹窗
+
+123456789101112131415161
         
       </article>
     </div>
@@ -269,37 +279,37 @@ value = [15, 20, 30]
     <div class="post-wrapper">
   <div class="post-wrap-left" data-aos="fade-up">
     
-      <a class="post-link" href="/2024/12/05/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-01%E8%83%8C%E5%8C%85%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" aria-label="动态规划-01背包理论基础(一)"></a>
+      <a class="post-link" href="/2024/12/26/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/LeetCode-%E9%9B%B6%E5%92%8C%E4%B8%80/" aria-label="LeetCode-零和一"></a>
     
     
     <div class="post-cover-left">
       
-        <img data-src="/img/fengmian/b6.jpg" data-sizes="auto" alt="动态规划-01背包理论基础(一)" class="lazyload">
+        <img data-src="/img/fengmian/b7.jpg" data-sizes="auto" alt="LeetCode-零和一" class="lazyload">
       
     </div>
     <div class="post-info">
       <div class="post-meta">
-        <span><span class="icon-calendar"></span>2024-12-05</span>
-        <span><span class="icon-pencil"></span>1.6k 字</span>
-        <span><span class="icon-clock"></span>6 分钟</span>
+        <span><span class="icon-calendar"></span>2024-12-26</span>
+        <span><span class="icon-pencil"></span>740 字</span>
+        <span><span class="icon-clock"></span>3 分钟</span>
       </div>
-      <h2 class="post-title">动态规划-01背包理论基础(一)</h2>
+      <h2 class="post-title">LeetCode-零和一</h2>
       <article class="post-article">
         
-           动态规划：01背包理论基础(一)
- 背包分类图
+           题目
+给你一个二进制字符串数组 strs 和两个整数 m 和 n 。
+请你找出并返回 strs 的最大子集的大小，该子集中 最多 有 m 个 0 和 n 个 1 。
+如果 x 的所有元素也是 y 的元素，集合 x 是集合 y 的 子集 。
+示例1：
 
- 什么是01背包？
- 01背包
-有n件物品和一个最多能背重量为w的背包。第i件物品的重量是weight[i]，得到的价值是value[i] 。每件物品只能用一次，求解将哪些物品装入背包里物品价值总和最大。
- 关于其他背包
 
-除01背包以外其他类型的背包，面试几乎不会问，都是竞赛级别的了，leetcode上连多重背包的题目都没有，所以题库也告诉我们，01背包和完全背包就够用了。
-而完全背包又是也是01背包稍作变化而来，即：完全背包的物品数量是无限的。
-所以背包问题的理论基础重中之重是01背包，一定要理解透！
+输入：strs = [“10”, “0001”, “111001”, “1”, “0”], m = 5, n = 3
 
- 举个栗子
-weight = [1
+
+输出：4
+
+
+解释：最多有 5 个 0 和 3 个 1 的最大子集是 {“10”,“0001”,“1”,“0”} ，因此答案是 4 。 其他满足题意但较小的子集包括 {“0001”,“1”} 和 {“10”,“1”,“0”
         
       </article>
     </div>
@@ -310,7 +320,7 @@ weight = [1
 
   <nav id="page-nav" data-aos="fade-up">
     
-    <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/">下一页 &raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/3/">下一页 &raquo;</a>
   </nav>
 
 
@@ -328,15 +338,15 @@ weight = [1
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>文章</div>
-    <div class="sidebar-state-number">19</div>
+    <div class="sidebar-state-number">24</div>
   </div>
   <div class="sidebar-state-category">
     <div>分类</div>
-    <div class="sidebar-state-number">6</div>
+    <div class="sidebar-state-number">7</div>
   </div>
   <div class="sidebar-state-tag">
     <div>标签</div>
-    <div class="sidebar-state-number">13</div>
+    <div class="sidebar-state-number">14</div>
   </div>
 </div>
 <div class="sidebar-social">
@@ -388,7 +398,7 @@ weight = [1
     
     <div>
       <span class="icon-copyright"></span>
-      2024-2024
+      2024-2025
       <span class="footer-info-sep"></span>
       辞辞
     </div>
@@ -401,10 +411,10 @@ weight = [1
     
       <div>
         <span class="icon-brush"></span>
-        18.7k
+        26.8k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        01:08
+        01:45
       </div>
     
     
@@ -438,15 +448,15 @@ weight = [1
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>文章</div>
-    <div class="sidebar-state-number">19</div>
+    <div class="sidebar-state-number">24</div>
   </div>
   <div class="sidebar-state-category">
     <div>分类</div>
-    <div class="sidebar-state-number">6</div>
+    <div class="sidebar-state-number">7</div>
   </div>
   <div class="sidebar-state-tag">
     <div>标签</div>
-    <div class="sidebar-state-number">13</div>
+    <div class="sidebar-state-number">14</div>
   </div>
 </div>
 <div class="sidebar-social">

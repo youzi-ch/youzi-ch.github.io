@@ -185,52 +185,45 @@
     <div class="post-wrapper">
   <div class="post-wrap-left" data-aos="fade-up">
     
-      <a class="post-link" href="/2024/12/02/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/LeetCode-%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/" aria-label="LeetCode-不同路径"></a>
+      <a class="post-link" href="/2024/12/25/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/LeetCode-%E7%9B%AE%E6%A0%87%E5%92%8C/" aria-label="LeetCode-目标和"></a>
     
     
     <div class="post-cover-left">
       
-        <img data-src="/img/fengmian/b5.jpg" data-sizes="auto" alt="LeetCode-不同路径" class="lazyload">
+        <img data-src="/img/fengmian/b7.jpg" data-sizes="auto" alt="LeetCode-目标和" class="lazyload">
       
     </div>
     <div class="post-info">
       <div class="post-meta">
-        <span><span class="icon-calendar"></span>2024-12-02</span>
-        <span><span class="icon-pencil"></span>1.5k 字</span>
-        <span><span class="icon-clock"></span>6 分钟</span>
+        <span><span class="icon-calendar"></span>2024-12-25</span>
+        <span><span class="icon-pencil"></span>1.9k 字</span>
+        <span><span class="icon-clock"></span>7 分钟</span>
       </div>
-      <h2 class="post-title">LeetCode-不同路径</h2>
+      <h2 class="post-title">LeetCode-目标和</h2>
       <article class="post-article">
         
-           题目-不同路径I
-一个机器人位于一个m x n网格的左上角 （起始点在下图中标记为Start）。机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为Finish）。
-问总共有多少条不同的路径？
-
+           题目-目标和
+给定一个非负整数数组，a1, a2, …, an, 和一个目标数，S。现在你有两个符号 + 和 -。对于数组中的任意一个整数，你都可以从 + 或 -中选择一个符号添加在前面。
+返回可以使最终数组和为目标数 S 的所有添加符号的方法数。
 示例1
 
-输入：m = 3, n = 7
-输出：28
+输入：nums: [1, 1, 1, 1, 1], S: 3
+输出：5
 
-示例2
+解释：一共有5种方法让最终目标和为3
 
-输入：m = 2, n = 3
-输出：3
-解释： 从左上角开始，总共有 3 条路径可以到达右下角。
-
-向右 -&amp;gt; 向右 -&amp;gt; 向下
-向右 -&amp;gt; 向下 -&amp;gt; 向右
-向下 -&amp;gt; 向右 -&amp;gt; 向右
+-1+1+1+1+1 = 3
++1-1+1+1+1 = 3
++1+1-1+1+1 = 3
++1+1+1-1+1 = 3
++1+1+1+1-1 = 3
 
 
+《代码随想录》算法公开课
+力扣题目链接
 
-示例3
-
-输入：m = 7, n = 3
-输出：28
-
-示例4
-
-输入：m 
+ 思路
+本题要如何使表达式结
         
       </article>
     </div>
@@ -240,61 +233,36 @@
     <div class="post-wrapper">
   <div class="post-wrap-right" data-aos="fade-up">
     
-      <a class="post-link" href="/2024/11/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/LeetCode-%E7%88%AC%E6%A5%BC%E6%A2%AF/" aria-label="LeetCode-爬楼梯"></a>
+      <a class="post-link" href="/2024/12/09/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/LeetCode-%E6%9C%80%E5%90%8E%E4%B8%80%E5%9D%97%E7%9F%B3%E5%A4%B4%E7%9A%84%E9%87%8D%E9%87%8FII/" aria-label="LeetCode-最后一块石头的重量II"></a>
     
     
     <div class="post-cover-right">
       
-        <img data-src="/img/fengmian/b4.jpg" data-sizes="auto" alt="LeetCode-爬楼梯" class="lazyload">
+        <img data-src="/img/fengmian/b7.jpg" data-sizes="auto" alt="LeetCode-最后一块石头的重量II" class="lazyload">
       
     </div>
     <div class="post-info">
       <div class="post-meta">
-        <span><span class="icon-calendar"></span>2024-11-30</span>
+        <span><span class="icon-calendar"></span>2024-12-09</span>
         <span><span class="icon-pencil"></span>1.2k 字</span>
-        <span><span class="icon-clock"></span>4 分钟</span>
+        <span><span class="icon-clock"></span>5 分钟</span>
       </div>
-      <h2 class="post-title">LeetCode-爬楼梯</h2>
+      <h2 class="post-title">LeetCode-最后一块石头的重量II</h2>
       <article class="post-article">
         
            题目
-假设你正在爬楼梯。需要n阶你才能到达楼顶。每次你可以爬1或2个台阶。你有多少种不同的方法可以爬到楼顶呢？
-
-注意：给定n是一个正整数
-
+有一堆石头，每块石头的重量都是正整数。每一回合，从中选出任意两块石头，然后将它们一起粉碎。假设石头的重量分别为 x 和 y，且 x &amp;lt;= y。那么粉碎的可能结果如下：
+如果 x == y，那么两块石头都会被完全粉碎；
+如果 x != y，那么重量为 x 的石头将会完全粉碎，而重量为 y 的石头新重量为 y-x。
+最后，最多只会剩下一块石头。返回此石头最小的可能重量。如果没有石头剩下，就返回 0。
 示例1
 
-输入： 2
-输出： 2
-解释： 有两种方法可以爬到楼顶。
+输入：[2,7,4,1,8,1]
+输出：1
+解释：
 
-1 阶 + 1 阶
-2 阶
-
-
-
-示例2
-
-输入： 3
-输出： 3
-解释： 有三种方法可以爬到楼顶。
-
-1 阶 + 1 阶 + 1 阶
-1 阶 + 2 阶
-2 阶 + 1 阶
-
-
-
-
-《代码随想录》算法公开课
-力扣题目链接
-
- 思路
-首先，我们举几个栗子：
-爬到第一层阶梯只有 一种方法
-爬到第二层阶梯有两种方法
-爬到第三层阶梯可以由第一层阶梯跨两步，或者由第二层阶梯跨一步
-爬到第四层
+组合 2 和 4，得到 2，所以数组转化为 [2,7,1,8,1]，
+组合 7 和 8，得到 1，所以数组转化为 [2,1
         
       </article>
     </div>
@@ -304,40 +272,43 @@
     <div class="post-wrapper">
   <div class="post-wrap-left" data-aos="fade-up">
     
-      <a class="post-link" href="/2024/11/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%85%A5%E9%97%A8/" aria-label="动态规划入门"></a>
+      <a class="post-link" href="/2024/12/09/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/LeetCode-%E5%88%86%E5%89%B2%E7%AD%89%E5%92%8C%E5%AD%90%E9%9B%86/" aria-label="LeetCode-分割等和子集"></a>
     
     
     <div class="post-cover-left">
       
-        <img data-src="/img/fengmian/b3.webp" data-sizes="auto" alt="动态规划入门" class="lazyload">
+        <img data-src="/img/fengmian/b6.jpg" data-sizes="auto" alt="LeetCode-分割等和子集" class="lazyload">
       
     </div>
     <div class="post-info">
       <div class="post-meta">
-        <span><span class="icon-calendar"></span>2024-11-30</span>
-        <span><span class="icon-pencil"></span>1k 字</span>
-        <span><span class="icon-clock"></span>4 分钟</span>
+        <span><span class="icon-calendar"></span>2024-12-09</span>
+        <span><span class="icon-pencil"></span>1.3k 字</span>
+        <span><span class="icon-clock"></span>5 分钟</span>
       </div>
-      <h2 class="post-title">动态规划入门</h2>
+      <h2 class="post-title">LeetCode-分割等和子集</h2>
       <article class="post-article">
         
-           动态规划简介
-动态规划，英文：Dynamic Programming，简称DP，如果某一问题有很多重叠子问题，使用动态规划是最有效的。
-所以动态规划中每一个状态一定是由上一个状态推导出来的，这一点就区分于贪心，贪心没有状态推导，而是从局部直接选最优的。
- 动态规划五步曲
+           题目
+给定一个只包含正整数的非空数组。是否可以将这个数组分割成两个子集，使得两个子集的元素和相等。
 
+注：注意: 每个数组中的元素不会超过 100 数组的大小不会超过 200
 
-确定dp数组（dp table）以及下标的含义
-确定递推公式
-dp数组如何初始化
-确定遍历顺序
-举例推导dp数组
+示例1
 
+输入: [1, 5, 11, 5]
+输出: true
+解释: 数组可以分割成 [1, 5, 5] 和 [11].
 
-注：一些情况是递推公式决定了dp数组要如何初始化！
- 动态规划应该如何debug
-当我们去学动态规划的题很容易出现看完题解，自己上手写代码一直通过不了，首先我们要明白，写动态规划，代码出问题很正常！
-de
+示例2
+
+输入: [1, 2, 3, 5]
+输出: false
+解释: 数组不能分割成两个元素和相等的子集.
+
+ 思路
+初步看这个题是要把给定数组分成两个子集，使其总和相等，那么我们只需要在集合中找出sum/2的子集总和，就可以分割成相同元素和子集了。
+！那么这道题就很适合用01背包来做了，这
         
       </article>
     </div>
@@ -348,7 +319,7 @@ de
 
   <nav id="page-nav" data-aos="fade-up">
     
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">下一页 &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/">下一页 &raquo;</a>
   </nav>
 
 
@@ -366,15 +337,15 @@ de
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>文章</div>
-    <div class="sidebar-state-number">19</div>
+    <div class="sidebar-state-number">24</div>
   </div>
   <div class="sidebar-state-category">
     <div>分类</div>
-    <div class="sidebar-state-number">6</div>
+    <div class="sidebar-state-number">7</div>
   </div>
   <div class="sidebar-state-tag">
     <div>标签</div>
-    <div class="sidebar-state-number">13</div>
+    <div class="sidebar-state-number">14</div>
   </div>
 </div>
 <div class="sidebar-social">
@@ -426,7 +397,7 @@ de
     
     <div>
       <span class="icon-copyright"></span>
-      2024-2024
+      2024-2025
       <span class="footer-info-sep"></span>
       辞辞
     </div>
@@ -439,10 +410,10 @@ de
     
       <div>
         <span class="icon-brush"></span>
-        18.7k
+        26.8k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        01:08
+        01:45
       </div>
     
     
@@ -476,15 +447,15 @@ de
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>文章</div>
-    <div class="sidebar-state-number">19</div>
+    <div class="sidebar-state-number">24</div>
   </div>
   <div class="sidebar-state-category">
     <div>分类</div>
-    <div class="sidebar-state-number">6</div>
+    <div class="sidebar-state-number">7</div>
   </div>
   <div class="sidebar-state-tag">
     <div>标签</div>
-    <div class="sidebar-state-number">13</div>
+    <div class="sidebar-state-number">14</div>
   </div>
 </div>
 <div class="sidebar-social">

@@ -185,49 +185,61 @@
     <div class="post-wrapper">
   <div class="post-wrap-left" data-aos="fade-up">
     
-      <a class="post-link" href="/2024/11/29/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C/" aria-label="最大子序和"></a>
+      <a class="post-link" href="/2024/11/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/LeetCode-%E7%88%AC%E6%A5%BC%E6%A2%AF/" aria-label="LeetCode-爬楼梯"></a>
     
     
     <div class="post-cover-left">
       
-        <img data-src="/img/fengmian/a8.jpg" data-sizes="auto" alt="最大子序和" class="lazyload">
+        <img data-src="/img/fengmian/b4.jpg" data-sizes="auto" alt="LeetCode-爬楼梯" class="lazyload">
       
     </div>
     <div class="post-info">
       <div class="post-meta">
-        <span><span class="icon-calendar"></span>2024-11-29</span>
-        <span><span class="icon-pencil"></span>642 字</span>
-        <span><span class="icon-clock"></span>2 分钟</span>
+        <span><span class="icon-calendar"></span>2024-11-30</span>
+        <span><span class="icon-pencil"></span>1.2k 字</span>
+        <span><span class="icon-clock"></span>4 分钟</span>
       </div>
-      <h2 class="post-title">最大子序和</h2>
+      <h2 class="post-title">LeetCode-爬楼梯</h2>
       <article class="post-article">
         
            题目
-给定一个整数数组nums，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
+假设你正在爬楼梯。需要n阶你才能到达楼顶。每次你可以爬1或2个台阶。你有多少种不同的方法可以爬到楼顶呢？
+
+注意：给定n是一个正整数
+
 示例1
 
-输入：nums = [-2,1,-3,4,-1,2,1,-5,4]
-输出：6
-解释：连续子数组 [4,-1,2,1] 的和最大，为 6 。
+输入： 2
+输出： 2
+解释： 有两种方法可以爬到楼顶。
+
+1 阶 + 1 阶
+2 阶
+
+
 
 示例2
 
-输入：nums = [1]
-输出：1
+输入： 3
+输出： 3
+解释： 有三种方法可以爬到楼顶。
 
-示例3
-输入：nums = [5,4,-1,7,8]
-输出：23
+1 阶 + 1 阶 + 1 阶
+1 阶 + 2 阶
+2 阶 + 1 阶
+
+
+
 
 《代码随想录》算法公开课
 力扣题目链接
 
  思路
- 暴力解法
-
-暴力解法的思路，第一层for就是设置起始位置，第二层 for循环遍历数组寻找最大值
-
-1234567891011121314151617181920class
+首先，我们举几个栗子：
+爬到第一层阶梯只有 一种方法
+爬到第二层阶梯有两种方法
+爬到第三层阶梯可以由第一层阶梯跨两步，或者由第二层阶梯跨一步
+爬到第四层
         
       </article>
     </div>
@@ -237,31 +249,40 @@
     <div class="post-wrapper">
   <div class="post-wrap-right" data-aos="fade-up">
     
-      <a class="post-link" href="/2024/11/28/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/%E6%91%86%E5%8A%A8%E5%BA%8F%E5%88%97/" aria-label="摆动序列"></a>
+      <a class="post-link" href="/2024/11/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%85%A5%E9%97%A8/" aria-label="动态规划入门"></a>
     
     
     <div class="post-cover-right">
       
-        <img data-src="/img/fengmian/a7.jpg" data-sizes="auto" alt="摆动序列" class="lazyload">
+        <img data-src="/img/fengmian/b3.webp" data-sizes="auto" alt="动态规划入门" class="lazyload">
       
     </div>
     <div class="post-info">
       <div class="post-meta">
-        <span><span class="icon-calendar"></span>2024-11-28</span>
-        <span><span class="icon-pencil"></span>897 字</span>
-        <span><span class="icon-clock"></span>3 分钟</span>
+        <span><span class="icon-calendar"></span>2024-11-30</span>
+        <span><span class="icon-pencil"></span>1k 字</span>
+        <span><span class="icon-clock"></span>4 分钟</span>
       </div>
-      <h2 class="post-title">摆动序列</h2>
+      <h2 class="post-title">动态规划入门</h2>
       <article class="post-article">
         
-           题目
-如果连续数字之间的差严格地在正数和负数之间交替，则数字序列称为摆动序列。第一个差（如果存在的话）可能是正数或负数。少于两个元素的序列也是摆动序列。
-给定一个整数序列，返回作为摆动序列的最长子序列的长度。 通过从原始序列中删除一些（也可以不删除）元素来获得子序列，剩下的元素保持其原始顺序。
-例如，[1,7,4,9,2,5]是一个摆动序列，因为差值 (6,-3,5,-7,3) 是正负交替出现的。相反, [1,4,7,2,5] 和[1,7,4,5,5]不是摆动序列，第一个序列是因为它的前两个差值都是正数，第二个序列是因为它的最后一个差值为零。
-示例1
+           动态规划简介
+动态规划，英文：Dynamic Programming，简称DP，如果某一问题有很多重叠子问题，使用动态规划是最有效的。
+所以动态规划中每一个状态一定是由上一个状态推导出来的，这一点就区分于贪心，贪心没有状态推导，而是从局部直接选最优的。
+ 动态规划五步曲
 
-输入: [1,7,4,9,2,5]
-输
+
+确定dp数组（dp table）以及下标的含义
+确定递推公式
+dp数组如何初始化
+确定遍历顺序
+举例推导dp数组
+
+
+注：一些情况是递推公式决定了dp数组要如何初始化！
+ 动态规划应该如何debug
+当我们去学动态规划的题很容易出现看完题解，自己上手写代码一直通过不了，首先我们要明白，写动态规划，代码出问题很正常！
+de
         
       </article>
     </div>
@@ -271,42 +292,34 @@
     <div class="post-wrapper">
   <div class="post-wrap-left" data-aos="fade-up">
     
-      <a class="post-link" href="/2024/11/28/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95-%E5%88%86%E5%8F%91%E9%A5%BC%E5%B9%B2/" aria-label="贪心算法-分发饼干"></a>
+      <a class="post-link" href="/2024/11/29/%E5%85%B6%E4%BB%96/%E4%B8%80%E7%BB%B4%E4%B8%8E%E4%BA%8C%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/" aria-label="一维与二维前缀和与差分"></a>
     
     
     <div class="post-cover-left">
       
-        <img data-src="/img/fengmian/qqq.jpg" data-sizes="auto" alt="贪心算法-分发饼干" class="lazyload">
+        <img data-src="/img/fengmian/b2.png" data-sizes="auto" alt="一维与二维前缀和与差分" class="lazyload">
       
     </div>
     <div class="post-info">
       <div class="post-meta">
-        <span><span class="icon-calendar"></span>2024-11-28</span>
-        <span><span class="icon-pencil"></span>967 字</span>
-        <span><span class="icon-clock"></span>3 分钟</span>
+        <span><span class="icon-calendar"></span>2024-11-29</span>
+        <span><span class="icon-pencil"></span>1k 字</span>
+        <span><span class="icon-clock"></span>4 分钟</span>
       </div>
-      <h2 class="post-title">贪心算法-分发饼干</h2>
+      <h2 class="post-title">一维与二维前缀和与差分</h2>
       <article class="post-article">
         
-           什么是贪心算法
+           什么是前缀和？
+ 一维数组前缀和
+例如数组nums = [1,2,3,4,5]
+则其前缀和数组为qian = [1,3,6,10,15]，即qian数组的i索引位置处的值为nums数组索引0-i值的和
+则有如下关系：nums[i] = qian[i] - qian[i-1]
 
-贪心的本质是选择每一阶段的局部最优，从而达到全局最优。
-例如有一堆不同数额的钞票，每次只能拿一张，怎么拿能取得最大数额的钞票。
+注：使用该方法有一最大优势便是可以以(O1)的时间复杂度得到某块区间的总和，是典型的牺牲空间换取时间
 
-方法：将钞票从大到小进行排序，每次都拿走当前堆里最大面额的钞票，即可在指定拿取次数中获得最大数额的钞票。
-例如：[100, 100, 50, 20, 50, 1, 10]
-
-排序后为：[100, 100, 50, 50, 20, 10, 1]
-依次取数组中的最大值进行累加
-取完指定次数后，累加值即为最优解
-
-
-在这个过程中，每次取最大面额的钞票为局部最优，通过每次获得局部最优得到的结果即为全局最优。
-
-
-
-
-注意：贪心算法并没有固定套路，也没有固
+ 二维数组前缀和
+ 二维数组的应用和计算
+二维数组前缀和是一种在二维矩阵上进行快速区域求和的技术，它是一维前缀和概念的扩展。在二维数组中，前缀和可以帮助我们快速计算任意子矩阵的元素和，这在处理图像处理或者某些区域查询
         
       </article>
     </div>
@@ -317,7 +330,7 @@
 
   <nav id="page-nav" data-aos="fade-up">
     
-    <a class="extend prev" rel="prev" href="/page/4/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/">下一页 &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/4/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/6/">下一页 &raquo;</a>
   </nav>
 
 
@@ -335,15 +348,15 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>文章</div>
-    <div class="sidebar-state-number">19</div>
+    <div class="sidebar-state-number">24</div>
   </div>
   <div class="sidebar-state-category">
     <div>分类</div>
-    <div class="sidebar-state-number">6</div>
+    <div class="sidebar-state-number">7</div>
   </div>
   <div class="sidebar-state-tag">
     <div>标签</div>
-    <div class="sidebar-state-number">13</div>
+    <div class="sidebar-state-number">14</div>
   </div>
 </div>
 <div class="sidebar-social">
@@ -395,7 +408,7 @@
     
     <div>
       <span class="icon-copyright"></span>
-      2024-2024
+      2024-2025
       <span class="footer-info-sep"></span>
       辞辞
     </div>
@@ -408,10 +421,10 @@
     
       <div>
         <span class="icon-brush"></span>
-        18.7k
+        26.8k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        01:08
+        01:45
       </div>
     
     
@@ -445,15 +458,15 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>文章</div>
-    <div class="sidebar-state-number">19</div>
+    <div class="sidebar-state-number">24</div>
   </div>
   <div class="sidebar-state-category">
     <div>分类</div>
-    <div class="sidebar-state-number">6</div>
+    <div class="sidebar-state-number">7</div>
   </div>
   <div class="sidebar-state-tag">
     <div>标签</div>
-    <div class="sidebar-state-number">13</div>
+    <div class="sidebar-state-number">14</div>
   </div>
 </div>
 <div class="sidebar-social">
